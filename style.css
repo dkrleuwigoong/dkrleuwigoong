@@ -485,3 +485,16 @@ footer {
   background: #fff;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
+
+/* Styling untuk link di bagian kontak */
+.kontak a {
+  color: inherit; /* mengikuti warna teks normal */
+  text-decoration: none; /* hilangkan underline */
+  cursor: pointer; /* tetap terlihat clickable */
+  font-weight: normal; /* pastikan tidak bold */
+}
+
+/* Hover effect (opsional) */
+.kontak a:hover {
+  text-decoration: none; /* atau bisa diganti background highlight */
+}
