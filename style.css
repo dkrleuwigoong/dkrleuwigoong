@@ -521,6 +521,17 @@ footer {
   #menu {
     display: inline-block;
   }
+
+  .berkas-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .btn-download {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Animasi */
