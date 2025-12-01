@@ -74,3 +74,27 @@ window.addEventListener("click", function (e) {
     if (e.target === modal) modal.style.display = "none";
   });
 });
+
+(function () {
+  const modal = document.getElementById("modal4");
+  const closeBtn = modal.querySelector(".modal-close");
+  const overlay = modal.querySelector(".modal-overlay");
+
+  // close handlers
+  function close() {
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", close);
+
+  // ESC to close
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") close();
+  });
+
+  // contoh: jika kamu punya tombol pemicu dengan id "btnDownload", bisa buka modal:
+  // document.getElementById('btnDownload').addEventListener('click', () => {
+  //   modal.setAttribute('aria-hidden','false');
+  // });
+})();
