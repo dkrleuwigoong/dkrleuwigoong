@@ -488,13 +488,26 @@ footer {
 
 /* Styling untuk link di bagian kontak */
 .kontak a {
+<<<<<<< HEAD
   color: inherit; /* mengikuti warna teks normal */
   text-decoration: none; /* hilangkan underline */
   cursor: pointer; /* tetap terlihat clickable */
   font-weight: normal; /* pastikan tidak bold */
+=======
+  color: inherit;           /* mengikuti warna teks normal */
+  text-decoration: none;    /* hilangkan underline */
+  cursor: pointer;          /* tetap terlihat clickable */
+  font-weight: normal;      /* pastikan tidak bold */
+>>>>>>> d3186af399a446a8bdc8f38c29c7feada593ad29
 }
 
 /* Hover effect (opsional) */
 .kontak a:hover {
+<<<<<<< HEAD
   text-decoration: none; /* atau bisa diganti background highlight */
 }
+=======
+  text-decoration: none;   /* atau bisa diganti background highlight */
+}
+
+>>>>>>> d3186af399a446a8bdc8f38c29c7feada593ad29
