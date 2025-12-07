@@ -586,3 +586,36 @@ footer {
 .kontak a:hover {
   text-decoration: none; /* atau bisa diganti background highlight */
 }
+
+footer {
+  text-align: center;
+  padding: 25px 10px;
+  background: #222;
+  margin-top: 40px;
+}
+
+.footer-social {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* Feather icon (svg) jadi putih */
+.footer-social a svg {
+  stroke: #fff !important;
+  width: 24px;
+  height: 24px;
+  transition: 0.3s ease;
+}
+
+/* Hover membesar sedikit */
+.footer-social a:hover svg {
+  transform: scale(1);
+}
+
+@media (max-width: 480px) {
+  .footer-social {
+    gap: 14px;
+  }
+}
