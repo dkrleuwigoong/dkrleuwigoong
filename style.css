@@ -620,24 +620,74 @@ footer {
   }
 }
 
+/* Bagian Judul */
+.judul {
+  width: 100%;
+  text-align: center;
+  margin: 5px 0; /* lebih rapat dari sebelumnya */
+  padding: 0; /* pastikan tidak ada padding tambahan */
+}
+
+.judul-struktur {
+  margin: 0; /* hilangkan jarak bawaan h2 */
+  padding: 0;
+}
+
+/* Container Struktur */
 .struktur-container {
   width: 100%;
-  max-width: 900px; /* bisa disesuaikan */
-  margin: 0 auto;
-  padding: 20px;
+  overflow-x: auto;
+  margin-top: 10px; /* rapatkan jarak atas */
+  padding-top: 0; /* memastikan tidak ada padding tambahan */
 }
 
-.card {
+/* Deretan card horizontal */
+.struktur-row {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding: 5px;
+  overflow-x: auto; /* scroll horizontal */
+  scroll-behavior: smooth;
+}
+
+/* CARD */
+.card-anggota {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 0;
-  overflow: hidden; /* agar gambar ikut rounded */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  padding: 12px;
+  min-width: 160px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* lebih lembut */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid #e8e8e8; /* agar lebih clean */
 }
 
-.card img {
-  width: 100%;
+.card-anggota:hover {
+  transform: translateY(-4px); /* efek naik halus */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Foto mengikuti ukuran asli (tidak dipotong) */
+.card-anggota img {
+  display: block; /* memastikan img bisa diberi margin auto */
+  margin: 0 auto; /* pusatkan horizontal */
+  width: auto;
+  max-width: 150px;
   height: auto;
-  display: block;
-  object-fit: cover;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+/* Teks */
+.nama {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 8px 0 2px;
+}
+
+.jabatan {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
 }
