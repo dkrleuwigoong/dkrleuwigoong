@@ -618,6 +618,48 @@ footer {
   .footer-social {
     gap: 14px;
   }
+  /* Judul lebih kecil & rapat */
+  .judul {
+    margin: 3px 0;
+  }
+
+  .judul-struktur {
+    font-size: 20px;
+  }
+
+  /* Struktur container lebih rapat */
+  .struktur-container {
+    margin-top: 5px;
+  }
+
+  /* Deretan card lebih kecil */
+  .struktur-row {
+    gap: 10px;
+    padding: 5px;
+  }
+
+  /* Card ukuran lebih kecil & rapi */
+  .card-anggota {
+    min-width: 130px; /* dulu 160px */
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* Gambar mengecil otomatis */
+  .card-anggota img {
+    max-width: 110px; /* dulu 150px */
+    border-radius: 8px;
+  }
+
+  /* Teks nama dan jabatan */
+  .nama {
+    font-size: 15px;
+    margin: 6px 0 1px;
+  }
+
+  .jabatan {
+    font-size: 13px;
+  }
 }
 
 /* Bagian Judul */
