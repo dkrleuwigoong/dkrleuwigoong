@@ -618,60 +618,22 @@ footer {
   .footer-social {
     gap: 14px;
   }
-  /* Judul lebih kecil & rapat */
-  .judul {
-    margin: 3px 0;
-  }
-
-  .judul-struktur {
-    font-size: 20px;
-  }
-
-  /* Struktur container lebih rapat */
-  .struktur-container {
-    margin-top: 5px;
-  }
-
-  /* Deretan card lebih kecil */
-  .struktur-row {
-    gap: 10px;
-    padding: 5px;
-  }
-
-  /* Card ukuran lebih kecil & rapi */
-  .card-anggota {
-    min-width: 130px; /* dulu 160px */
-    padding: 10px;
-    border-radius: 8px;
-  }
-
-  /* Gambar mengecil otomatis */
-  .card-anggota img {
-    max-width: 110px; /* dulu 150px */
-    border-radius: 8px;
-  }
-
-  /* Teks nama dan jabatan */
-  .nama {
-    font-size: 15px;
-    margin: 6px 0 1px;
-  }
-
-  .jabatan {
-    font-size: 13px;
-  }
 }
 
-/* Bagian Judul */
+/* ===============================
+   STRUKTUR KEPENGURUSAN (FINAL)
+=============================== */
+
+/* Judul */
 .judul {
   width: 100%;
   text-align: center;
-  margin: 5px 0; /* lebih rapat dari sebelumnya */
-  padding: 0; /* pastikan tidak ada padding tambahan */
+  margin: 5px 0;
+  padding: 0;
 }
 
 .judul-struktur {
-  margin: 0; /* hilangkan jarak bawaan h2 */
+  margin: 0;
   padding: 0;
 }
 
@@ -679,41 +641,41 @@ footer {
 .struktur-container {
   width: 100%;
   overflow-x: auto;
-  margin-top: 10px; /* rapatkan jarak atas */
-  padding-top: 0; /* memastikan tidak ada padding tambahan */
+  margin-top: 10px;
+  padding-top: 0;
 }
 
-/* Deretan card horizontal */
+/* Deretan Card Horizontal */
 .struktur-row {
   display: flex;
   flex-direction: row;
   gap: 15px;
   padding: 5px;
-  overflow-x: auto; /* scroll horizontal */
+  overflow-x: auto;
   scroll-behavior: smooth;
 }
 
-/* CARD */
+/* Card Anggota */
 .card-anggota {
   background: #ffffff;
   border-radius: 10px;
   padding: 12px;
   min-width: 160px;
   text-align: center;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* lebih lembut */
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border: 1px solid #e8e8e8; /* agar lebih clean */
 }
 
 .card-anggota:hover {
-  transform: translateY(-4px); /* efek naik halus */
+  transform: translateY(-4px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Foto mengikuti ukuran asli (tidak dipotong) */
+/* Foto */
 .card-anggota img {
-  display: block; /* memastikan img bisa diberi margin auto */
-  margin: 0 auto; /* pusatkan horizontal */
+  display: block;
+  margin: 0 auto;
   width: auto;
   max-width: 150px;
   height: auto;
@@ -732,4 +694,46 @@ footer {
   font-size: 14px;
   color: #555;
   margin: 0;
+}
+
+/* ===============================
+   RESPONSIVE STRUCTURE
+=============================== */
+@media (max-width: 480px) {
+  .judul {
+    margin: 3px 0;
+  }
+
+  .judul-struktur {
+    font-size: 20px;
+  }
+
+  .struktur-container {
+    margin-top: 5px;
+  }
+
+  .struktur-row {
+    gap: 10px;
+    padding: 5px;
+  }
+
+  .card-anggota {
+    min-width: 130px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .card-anggota img {
+    max-width: 110px;
+    border-radius: 8px;
+  }
+
+  .nama {
+    font-size: 15px;
+    margin: 6px 0 1px;
+  }
+
+  .jabatan {
+    font-size: 13px;
+  }
 }
