@@ -737,6 +737,11 @@ footer {
   .jabatan {
     font-size: 13px;
   }
+
+  .btn-absen {
+    font-size: 17px;
+    padding: 13px;
+  }
 }
 
 .btn-absen {
