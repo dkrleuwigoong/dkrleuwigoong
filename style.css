@@ -719,13 +719,13 @@ footer {
   }
 
   .card-anggota {
-    min-width: 130px;
+    min-width: 160px;
     padding: 10px;
     border-radius: 8px;
   }
 
   .card-anggota img {
-    max-width: 110px;
+    max-width: 140px;
     border-radius: 8px;
   }
 
