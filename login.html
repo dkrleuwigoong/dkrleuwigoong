@@ -24,7 +24,7 @@
       }
 
       body {
-        background: #3f370e;
+        background: #ffffff;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -38,7 +38,7 @@
         background: #fff;
         padding: 30px 25px;
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         text-align: center;
       }
 
@@ -159,10 +159,35 @@
         </div>
       </div>
 
-      <button>Masuk</button>
+      <button onclick="login()">Masuk</button>
     </div>
 
     <script>
+      const akun = {
+        username: "090515001",
+        password: "090515leuwigoong",
+      };
+
+      function login() {
+        const userInput = document.getElementById("username").value.trim();
+        const passInput = document.getElementById("password").value.trim();
+
+        if (userInput === "" || passInput === "") {
+          alert("Username dan password tidak boleh kosong!");
+          return;
+        }
+
+        if (userInput === akun.username && passInput === akun.password) {
+          // Simpan status login agar halaman lain bisa membacanya
+          localStorage.setItem("isLoggedIn", "true");
+
+          // Arahkan ke dashboard
+          window.location.href = "dashboard.html";
+        } else {
+          alert("Username atau password salah!");
+        }
+      }
+
       function togglePassword() {
         const pwd = document.getElementById("password");
         const icon = document.querySelector(".toggle-password");
