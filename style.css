@@ -759,3 +759,28 @@ footer {
 .btn-absen:hover {
   background: #0056b3;
 }
+
+/* Kecilkan ukuran font khusus tabel */
+.table-responsive table {
+  font-size: 5px; /* kecil */
+}
+
+.table-responsive th,
+.table-responsive td {
+  padding: 6px 8px; /* sesuaikan kerapihan */
+  vertical-align: middle;
+}
+
+.table-responsive th {
+  font-weight: 600;
+}
+@media (max-width: 480px) {
+  .table-responsive table {
+    font-size: 10px;
+  }
+
+  .table-responsive th,
+  .table-responsive td {
+    padding: 4px 6px;
+  }
+}

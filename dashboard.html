@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard DKR</title>
+    <link rel="Icon" href="img/dkr-logo.png" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet" />
@@ -29,7 +30,7 @@
         </button>
 
         <div class="dropdown-content">
-          <a href="#"
+          <a href="data-negakdega.html"
             ><i class="bi bi-person-vcard me-2"></i> Data Penegak & Pandega</a
           >
           <a href="#"
@@ -110,37 +111,41 @@
       <div class="row g-3">
         <div class="col-md-4">
           <div class="card shadow-sm p-3">
-            Jumlah Penegak Putri: <strong>20</strong>
+            Jumlah Penegak Putri: <strong id="penegakPutri">0</strong>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card shadow-sm p-3">
-            Jumlah Penegak Putra: <strong>25</strong>
+            Jumlah Penegak Putra: <strong id="penegakPutra">0</strong>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card shadow-sm p-3">
-            Jumlah Pandega Putra: <strong>12</strong>
+            Jumlah Pandega Putra: <strong id="pandegaPutra">0</strong>
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="card shadow-sm p-3">
-            Jumlah Pandega Putri: <strong>15</strong>
+            Jumlah Pandega Putri: <strong id="pandegaPutri">0</strong>
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="card shadow-sm p-3">
-            Jumlah Penegak: <strong>45</strong>
+            Jumlah Penegak: <strong id="totalPenegak">0</strong>
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="card shadow-sm p-3">
-            Jumlah Pandega: <strong>27</strong>
+            Jumlah Pandega: <strong id="totalPandega">0</strong>
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="card shadow-sm p-3">
-            Jumlah Anggota Aktif: <strong>27</strong>
+            Jumlah Anggota Aktif: <strong id="anggotaAktif">0</strong>
           </div>
         </div>
       </div>
@@ -191,6 +196,45 @@
           btn.parentElement.classList.toggle("active");
         });
       });
+
+      function loadStatistik() {
+        let data = JSON.parse(localStorage.getItem("anggota")) || [];
+
+        // Hitung kategori
+        let penegakPutri = data.filter(
+          (a) => a.golongan === "Penegak" && a.jk === "Perempuan"
+        ).length;
+        let penegakPutra = data.filter(
+          (a) => a.golongan === "Penegak" && a.jk === "Laki-laki"
+        ).length;
+
+        let pandegaPutra = data.filter(
+          (a) => a.golongan === "Pandega" && a.jk === "Laki-laki"
+        ).length;
+        let pandegaPutri = data.filter(
+          (a) => a.golongan === "Pandega" && a.jk === "Perempuan"
+        ).length;
+
+        let totalPenegak = data.filter((a) => a.golongan === "Penegak").length;
+        let totalPandega = data.filter((a) => a.golongan === "Pandega").length;
+
+        let aktif = data.filter((a) => a.status === "aktif").length;
+
+        // Tampilkan ke HTML
+        document.getElementById("penegakPutri").textContent = penegakPutri;
+        document.getElementById("penegakPutra").textContent = penegakPutra;
+
+        document.getElementById("pandegaPutra").textContent = pandegaPutra;
+        document.getElementById("pandegaPutri").textContent = pandegaPutri;
+
+        document.getElementById("totalPenegak").textContent = totalPenegak;
+        document.getElementById("totalPandega").textContent = totalPandega;
+
+        document.getElementById("anggotaAktif").textContent = aktif;
+      }
+
+      // Jalankan otomatis saat halaman terbuka
+      loadStatistik();
     </script>
   </body>
 </html>
