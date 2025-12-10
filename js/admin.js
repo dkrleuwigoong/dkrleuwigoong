@@ -22,10 +22,7 @@ document.querySelectorAll(".dropdown-btn").forEach((btn) => {
 /* ------------------- DATABASE LOCALSTORAGE ------------------- */
 
 // Data default jika localStorage kosong
-let anggota = JSON.parse(localStorage.getItem("anggota")) || [
-  { },
-  { },
-];
+let anggota = JSON.parse(localStorage.getItem("anggota")) || [{}, {}];
 
 function saveToLocal() {
   localStorage.setItem("anggota", JSON.stringify(anggota));
@@ -36,7 +33,6 @@ function saveToLocal() {
 function renderTable() {
   const tbody = document.getElementById("tableBody");
   const search = document.getElementById("searchInput").value.toLowerCase();
-  const filter = document.getElementById("filterStatus").value;
 
   tbody.innerHTML = "";
 
