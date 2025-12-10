@@ -145,31 +145,81 @@ body {
 }
 
 /* === MODAL BOX === */
+/* Wrapper modal di HP */
 .modal-dialog {
   width: 100%;
-  max-width: 420px;
-  margin: 0 15px;
+  max-width: 380px; /* Modal lebih ramping, tidak melebar */
+  margin: 0 auto; /* Selalu center */
+  padding: 10px; /* Jarak dari pinggir layar */
 }
 
+/* Konten Modal */
 .modal-content {
   background: #ffffff;
   border-radius: 14px;
-  padding: 20px;
+  padding: 22px 20px;
   max-height: 85vh;
   overflow-y: auto;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   animation: fadeInUp 0.25s ease-out;
+  border: none; /* lebih bersih */
+}
+
+/* Judul Modal */
+#modalTitle {
+  font-weight: 700;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* Input dan Select lebih rapi */
+.modal-content label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+/* Tombol */
+.modal-content .btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 8px;
 }
 
 /* Animasi */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 480px) {
+  .modal-dialog {
+    max-width: 92%; /* Di HP tidak terlalu sempit atau terlalu lebar */
+  }
+
+  .modal-content {
+    padding: 18px 16px;
+  }
+
+  #modalTitle {
+    font-size: 17px;
   }
 }
 
@@ -357,23 +407,168 @@ textarea {
   border: none;
 }
 
-/* Mobile Optimization */
-@media (max-width: 480px) {
-  .modal-confirm-content {
-    max-width: 90%;
-    padding: 22px 18px;
+/* Tabel responsif di HP */
+table {
+  font-size: 12px; /* ukuran font kecil */
+}
+
+@media (max-width: 576px) {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
   }
 
-  .confirm-title {
-    font-size: 18px;
+  table thead {
+    display: table-header-group;
   }
 
-  .confirm-text {
+  table thead th {
+    background: #f1f1f1;
+    padding: 10px;
     font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px solid #ddd;
+    text-align: left;
   }
 
-  .confirm-buttons .btn {
-    font-size: 13px;
-    padding: 9px;
+  table tbody tr {
+    display: table-row;
+    border-bottom: 1px solid #eee;
+  }
+
+  table tbody td {
+    display: table-cell;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* Hilangkan label data pada tampilan mobile sebelumnya */
+  table tbody td::before {
+    content: none;
   }
 }
+
+/* Modal responsif */
+.modal-dialog {
+  max-width: 95%;
+}
+
+.modal-content {
+  border-radius: 12px;
+}
+
+/* =================================== Modal Hapus ============================================= */
+/* === BACKDROP === */
+/* === AREA MODAL === */
+.modal-hapus {
+  display: none; /* muncul lewat JS */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease;
+}
+
+/* === CARD MODAL === */
+.modal-hapus .modal-content {
+  background: #ffffff;
+  padding: 28px 25px;
+  width: 90%;
+  max-width: 360px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.2);
+  animation: scaleUp 0.28s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === ICON WARNING === */
+.modal-hapus .modal-content::before {
+  content: "⚠️";
+  font-size: 42px;
+  margin-bottom: 12px;
+  animation: pulse 1.2s infinite;
+}
+
+/* === TEKS === */
+.modal-hapus p {
+  font-size: 17px;
+  color: #333;
+  margin-bottom: 22px;
+  font-weight: 600;
+}
+
+/* === BUTTON WRAPPER (BIAR SIMETRIS) === */
+.modal-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* === BUTTON STYLE === */
+.btn-yes,
+.btn-no {
+  padding: 10px 0;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  flex: 1;
+  transition: 0.25s ease;
+  text-align: center;
+  width: 100%;
+}
+
+/* Tombol Ya */
+.btn-yes {
+  background: #e63946;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.btn-yes:hover {
+  background: #c5303c;
+  transform: translateY(-2px);
+}
+
+/* Tombol Batal */
+.btn-no {
+  background: #d6d6d6;
+  color: #333;
+}
+.btn-no:hover {
+  background: #c2c2c2;
+  transform: translateY(-2px);
+}
+
+/* === RESPONSIVE MOBILE === */
+@media (max-width: 480px) {
+  .modal-hapus .modal-content {
+    width: 92%;
+    padding: 25px 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-yes,
+  .btn-no {
+    width: 100%;
+  }
+}
+
+/* ================================ Modal Form Tambah/Edit ===================================== */

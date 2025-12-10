@@ -32,7 +32,7 @@
           <a href="data-negakdega.html"
             ><i class="bi bi-person-vcard me-2"></i> Data Penegak & Pandega</a
           >
-          <a href="data-anggota.html"
+          <a href="#"
             ><i class="bi bi-person-lines-fill me-2"></i> Data Anggota</a
           >
           <a href="#"><i class="bi bi-clipboard-check me-2"></i> Presensi</a>
@@ -98,13 +98,13 @@
     <div class="container mt-4">
       <!-- Header -->
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="fw-bold">Manajemen Anggota</h3>
+        <h3 class="fw-bold">Manajemen Anggota DKR</h3>
         <button class="btn btn-primary" onclick="openAddModal()">
           <i class="bi bi-plus-circle"></i> Tambah
         </button>
       </div>
 
-      <!-- Search & Filter -->
+      <!-- Search -->
       <div class="row mt-3">
         <div class="col-md-5 mb-2">
           <input
@@ -116,26 +116,27 @@
         </div>
       </div>
 
-      <!-- Tabel Data -->
+      <!-- Tabel Anggota -->
       <div class="table-responsive mt-3">
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">No</th>
-              <th scope="col">NTA</th>
-              <th scope="col">Nama Lengkap</th>
-              <th scope="col">Jenis Kelamin</th>
-              <th scope="col">Tempat Lahir</th>
-              <th scope="col">Tanggal Lahir</th>
-              <th scope="col">Pangkalan</th>
-              <th scope="col">Golongan</th>
-              <th scope="col">TKU</th>
-              <th scope="col">Alamat Lengkap</th>
-              <th scope="col">No HP</th>
-              <th scope="col">Aksi</th>
+              <th>No</th>
+              <th>NTA</th>
+              <th>Nama Lengkap</th>
+              <th>Jenis Kelamin</th>
+              <th>Tempat Lahir</th>
+              <th>Tanggal Lahir</th>
+              <th>Pangkalan</th>
+              <th>Gugus Depan</th>
+              <th>Golongan</th>
+              <th>TKU</th>
+              <th>Alamat Lengkap</th>
+              <th>No HP</th>
+              <th>Aksi</th>
             </tr>
           </thead>
-          <tbody class="table-group-divider" id="tableBody"></tbody>
+          <tbody id="tableBodyDkr" class="table-group-divider"></tbody>
         </table>
       </div>
     </div>
@@ -174,6 +175,9 @@
           <label class="mt-2">Pangkalan:</label>
           <input type="text" id="pangkalanInput" class="form-control" />
 
+          <label class="mt-2">Gugus Depan:</label>
+          <input type="text" id="gudepInput" class="form-control" />
+
           <label class="mt-2">Golongan:</label>
           <select id="golonganInput" class="form-select">
             <option value="Penegak">Penegak</option>
@@ -203,11 +207,15 @@
       </div>
     </div>
 
+    <!-- Modal Konfirmasi Hapus -->
     <div id="confirmModal" class="modal-hapus">
       <div class="modal-content">
         <p id="confirmMessage">Hapus data ini?</p>
-        <button id="confirmYes" class="btn-yes">Ya</button>
-        <button id="confirmNo" class="btn-no">Batal</button>
+
+        <div class="modal-actions">
+          <button id="confirmYes" class="btn-yes">Ya</button>
+          <button id="confirmNo" class="btn-no">Batal</button>
+        </div>
       </div>
     </div>
 

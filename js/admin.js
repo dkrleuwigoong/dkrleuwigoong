@@ -29,44 +29,40 @@ function saveToLocal() {
 }
 
 /* ------------------- RENDER TABEL ------------------- */
-
 function renderTable() {
   const tbody = document.getElementById("tableBody");
-  const search = document.getElementById("searchInput").value.toLowerCase();
-
   tbody.innerHTML = "";
 
-  anggota
-    .filter(
-      (item) =>
-        (filter === "all" || item.golongan === filter) &&
-        item.nama.toLowerCase().includes(search)
-    )
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const data = JSON.parse(localStorage.getItem("anggota")) || [];
+
+  data
+    .filter((a) => a.nama.toLowerCase().includes(search))
     .forEach((item, index) => {
-      const row = `
-          <tr>
-            <td>${index + 1}</td>
-            <td>${item.nta}</td>
-            <td>${item.nama}</td>
-            <td>${item.jk}</td>
-            <td>${item.tempat}</td>
-            <td>${item.tanggal}</td>
-            <td>${item.pangkalan}</td>
-            <td>${item.golongan}</td>
-            <td>${item.tku}</td>
-            <td>${item.alamat}</td>
-            <td>${item.hp}</td>
-            <td>
-              <button class="btn btn-warning btn-sm" onclick="editData(${index})">
-                <i class="bi bi-pencil"></i>
-              </button>
-              <button class="btn btn-danger btn-sm" onclick="deleteData(${index})">
-                <i class="bi bi-trash"></i>
-              </button>
-            </td>
-          </tr>
-        `;
-      tbody.innerHTML += row;
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td data-label="No">${index + 1}</td>
+        <td data-label="NTA">${item.nta}</td>
+        <td data-label="Nama Lengkap">${item.nama}</td>
+        <td data-label="Jenis Kelamin">${item.jk}</td>
+        <td data-label="Tempat Lahir">${item.tempat}</td>
+        <td data-label="Tanggal Lahir">${item.tanggal}</td>
+        <td data-label="Pangkalan">${item.pangkalan}</td>
+        <td data-label="Golongan">${item.golongan}</td>
+        <td data-label="TKU">${item.tku}</td>
+        <td data-label="Alamat">${item.alamat}</td>
+        <td data-label="No HP">${item.hp}</td>
+
+        <td data-label="Aksi">
+          <button class="btn btn-sm btn-warning" onclick="editData(${index})">
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button class="btn btn-sm btn-danger" onclick="deleteData(${index})">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      `;
+      tbody.appendChild(tr);
     });
 }
 
@@ -115,7 +111,7 @@ function editData(index) {
 /* ------------------- SIMPAN DATA ------------------- */
 
 function saveData() {
-  const index = document.getElementById("editIndex").value;
+  const data = JSON.parse(localStorage.getItem("anggota")) || [];
 
   const newData = {
     nta: document.getElementById("ntaInput").value,
@@ -130,26 +126,40 @@ function saveData() {
     hp: document.getElementById("hpInput").value,
   };
 
-  if (index === "") {
-    anggota.push(newData); // tambah baru
+  const editIndex = document.getElementById("editIndex").value;
+
+  if (editIndex === "") {
+    data.push(newData);
   } else {
-    anggota[index] = newData; // perbarui data
+    data[editIndex] = newData;
   }
 
-  saveToLocal();
+  localStorage.setItem("anggota", JSON.stringify(data));
   renderTable();
   closeModal();
 }
 
 /* ------------------- HAPUS DATA ------------------- */
 
+let deleteIndex = null;
+
 function deleteData(index) {
-  if (confirm("Hapus data ini?")) {
-    anggota.splice(index, 1);
+  deleteIndex = index;
+  document.getElementById("confirmModal").style.display = "flex";
+}
+
+document.getElementById("confirmYes").onclick = function () {
+  if (deleteIndex !== null) {
+    anggota.splice(deleteIndex, 1);
     saveToLocal();
     renderTable();
   }
-}
+  document.getElementById("confirmModal").style.display = "none";
+};
+
+document.getElementById("confirmNo").onclick = function () {
+  document.getElementById("confirmModal").style.display = "none";
+};
 
 /* ------------------- TUTUP MODAL ------------------- */
 
@@ -168,4 +178,50 @@ function validateNTA(input) {
   if (input.value.length > 15) {
     input.value = input.value.slice(0, 15);
   }
+}
+
+/* ============================================================================================ */
+
+/* ------------------- DATABASE LOCALSTORAGE ------------------- */
+let anggotadkr = JSON.parse(localStorage.getItem("anggotadkr")) || [{}, {}];
+
+function saveToLocal() {
+  localStorage.setItem("anggotadkr", JSON.stringify(anggota));
+}
+/* ------------------- RENDER TABEL ------------------- */
+function renderTable() {
+  const tbody = document.getElementById("tableBodyDkr");
+  tbody.innerHTML = "";
+
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const data = JSON.parse(localStorage.getItem("anggotadkr")) || [];
+
+  data
+    .filter((a) => a.nama.toLowerCase().includes(search))
+    .forEach((item, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td data-label="No">${index + 1}</td>
+        <td data-label="NTA">${item.nta2}</td>
+        <td data-label="Nama Lengkap">${item.nama2}</td>
+        <td data-label="Jenis Kelamin">${item.jk2}</td>
+        <td data-label="Tempat Lahir">${item.tempat2}</td>
+        <td data-label="Tanggal Lahir">${item.tanggal2}</td>
+        <td data-label="Pangkalan">${item.pangkalan2}</td>
+        <td data-label="Golongan">${item.golongan2}</td>
+        <td data-label="TKU">${item.tku2}</td>
+        <td data-label="Alamat">${item.alamat2}</td>
+        <td data-label="No HP">${item.hp2}</td>
+
+        <td data-label="Aksi">
+          <button class="btn btn-sm btn-warning" onclick="editData(${index})">
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button class="btn btn-sm btn-danger" onclick="deleteData(${index})">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
 }
