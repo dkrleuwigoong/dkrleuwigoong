@@ -3,231 +3,464 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard DKR</title>
+    <title>Data Anggota | SIMA DKR</title>
+    <link rel="Icon" href="img/dkr-logo.png" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet" />
-    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="admin.css" />
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="css/admin.css" />
   </head>
   <body>
-    <!-- SIDEBAR -->
-    <div id="sidebar">
-      <!-- DASHBOARD -->
-      <a href="dashboard.html">
-        <i class="bi bi-house-door me-2"></i>
-        Dashboard
-      </a>
-
-      <!-- MANAJEMEN ANGGOTA -->
-      <div class="dropdown-sidebar">
-        <button class="dropdown-btn">
-          <span><i class="bi bi-people-fill me-2"></i> Manajemen Anggota</span>
-          <i class="bi bi-caret-down-fill dropdown-icon"></i>
-        </button>
-
-        <div class="dropdown-content">
-          <a href="data-negakdega.html"
-            ><i class="bi bi-person-vcard me-2"></i> Data Penegak & Pandega</a
-          >
-          <a href="#"
-            ><i class="bi bi-person-lines-fill me-2"></i> Data Anggota</a
-          >
-          <a href="#"><i class="bi bi-clipboard-check me-2"></i> Presensi</a>
-        </div>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3>SIMPA</h3>
       </div>
 
-      <!-- MANAJEMEN KEGIATAN -->
-      <div class="dropdown-sidebar">
-        <button class="dropdown-btn">
-          <span
-            ><i class="bi bi-calendar-event me-2"></i> Manajemen Kegiatan</span
-          >
-          <i class="bi bi-caret-down-fill dropdown-icon"></i>
-        </button>
+      <ul class="sidebar-menu">
+        <li>
+          <a href="dashboard.html">
+            <span class="material-symbols-outlined">home</span>
+            <span>Beranda</span>
+          </a>
+        </li>
 
-        <div class="dropdown-content">
-          <a href="#"><i class="bi bi-list-task me-2"></i> Program Kerja</a>
-          <a href="#"
-            ><i class="bi bi-calendar2-week me-2"></i> Kalender Kegiatan /
-            Agenda</a
-          >
-          <a href="#"
-            ><i class="bi bi-file-earmark-plus me-2"></i> Pengajuan Proposal</a
-          >
-          <a href="#"
-            ><i class="bi bi-folder2-open me-2"></i> Laporan Kegiatan (LPJ)</a
-          >
-        </div>
+        <li class="active">
+          <a href="data-anggota.html">
+            <span class="material-symbols-outlined">groups</span>
+            <span>Data Anggota</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="jadwal.html">
+            <span class="material-symbols-outlined">event</span>
+            <span>Jadwal Kegiatan</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="presensi.html">
+            <span class="material-symbols-outlined">fact_check</span>
+            <span>Presensi</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <span class="material-symbols-outlined">description</span>
+            <span>Laporan</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <span class="material-symbols-outlined">settings</span>
+            <span>Pengaturan</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <nav class="navbar">
+      <!-- KIRI : TOGGLE -->
+      <div class="navbar-left">
+        <button class="btn-toggle" onclick="toggleSidebar()">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
       </div>
 
-      <!-- KEUANGAN -->
-      <div class="dropdown-sidebar">
-        <button class="dropdown-btn">
-          <span><i class="bi bi-cash-stack me-2"></i> Keuangan</span>
-          <i class="bi bi-caret-down-fill dropdown-icon"></i>
+      <!-- KANAN : USER -->
+      <div class="navbar-right">
+        <div class="navbar-user">
+          <span class="material-symbols-outlined">account_circle</span>
+          <span class="username">Admin SIMPA</span>
+        </div>
+
+        <button class="navbar-icon">
+          <span class="material-symbols-outlined">notifications</span>
+          <span class="notif-badge">3</span>
         </button>
 
-        <div class="dropdown-content">
-          <a href="#"><i class="bi bi-book me-2"></i> Buku Kas Umum</a>
-          <a href="#"><i class="bi bi-receipt me-2"></i> Laporan Keuangan</a>
-          <a href="#"><i class="bi bi-box-seam me-2"></i> Inventaris Barang</a>
-        </div>
+        <button class="navbar-icon logout">
+          <span class="material-symbols-outlined">logout</span>
+        </button>
       </div>
-
-      <!-- PENGATURAN -->
-      <a href="#">
-        <i class="bi bi-gear me-2"></i>
-        Pengaturan
-      </a>
-    </div>
-
-    <!-- OVERLAY -->
-    <div id="overlay"></div>
-
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-dark bg-dark px-3">
-      <button id="toggleBtn" class="btn btn-outline-light">☰</button>
-      <span class="navbar-text ms-auto text-white">Agum Riyadi</span>
-      <a href="login.html"><i class="bi bi-box-arrow-right"></i></a>
     </nav>
 
-    <!-- CONTENT -->
-    <div class="container mt-4">
-      <!-- Header -->
-      <div class="d-flex justify-content-between align-items-center">
-        <h3 class="fw-bold">Manajemen Anggota DKR</h3>
-        <button class="btn btn-primary" onclick="openAddModal()">
-          <i class="bi bi-plus-circle"></i> Tambah
-        </button>
-      </div>
+    <main class="main">
+      <div class="card-info-anggota">
+        <div class="card-info-anggota-content">
+          <div class="card-info-text">
+            <h4>Data Anggota</h4>
+            <p>
+              Halaman ini digunakan untuk mengelola data anggota Pramuka,
+              meliputi identitas, status keanggotaan, dan pangkalan secara
+              terpusat dan terstruktur.
+            </p>
+          </div>
 
-      <!-- Search -->
-      <div class="row mt-3">
-        <div class="col-md-5 mb-2">
-          <input
-            type="text"
-            id="searchInput"
-            class="form-control"
-            placeholder="Cari nama..."
-            onkeyup="renderTable()" />
-        </div>
-      </div>
-
-      <!-- Tabel Anggota -->
-      <div class="table-responsive mt-3">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>NTA</th>
-              <th>Nama Lengkap</th>
-              <th>Jenis Kelamin</th>
-              <th>Tempat Lahir</th>
-              <th>Tanggal Lahir</th>
-              <th>Pangkalan</th>
-              <th>Gugus Depan</th>
-              <th>Golongan</th>
-              <th>TKU</th>
-              <th>Alamat Lengkap</th>
-              <th>No HP</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody id="tableBodyDkr" class="table-group-divider"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Modal Tambah/Edit -->
-    <div class="modal" id="dataModal">
-      <div class="modal-dialog">
-        <div class="modal-content p-3">
-          <h5 id="modalTitle">Tambah Anggota</h5>
-
-          <input type="hidden" id="editIndex" />
-
-          <label class="mt-2">NTA:</label>
-          <input
-            type="text"
-            id="ntaInput"
-            class="form-control"
-            maxlength="15"
-            oninput="validateNTA(this)" />
-
-          <label class="mt-2">Nama Lengkap:</label>
-          <input type="text" id="namaInput" class="form-control" />
-
-          <label class="mt-2">Jenis Kelamin:</label>
-          <select id="jkInput" class="form-select">
-            <option value="Laki-laki">Laki-laki</option>
-            <option value="Perempuan">Perempuan</option>
-          </select>
-
-          <label class="mt-2">Tempat Lahir:</label>
-          <input type="text" id="tempatInput" class="form-control" />
-
-          <label class="mt-2">Tanggal Lahir:</label>
-          <input type="date" id="tanggalInput" class="form-control" />
-
-          <label class="mt-2">Pangkalan:</label>
-          <input type="text" id="pangkalanInput" class="form-control" />
-
-          <label class="mt-2">Gugus Depan:</label>
-          <input type="text" id="gudepInput" class="form-control" />
-
-          <label class="mt-2">Golongan:</label>
-          <select id="golonganInput" class="form-select">
-            <option value="Penegak">Penegak</option>
-            <option value="Pandega">Pandega</option>
-          </select>
-
-          <label class="mt-2">TKU:</label>
-          <select id="tkuInput" class="form-select">
-            <option value="Bantara">Bantara</option>
-            <option value="Laksana">Laksana</option>
-            <option value="Pandega">Pandega</option>
-          </select>
-
-          <label class="mt-2">Alamat Lengkap:</label>
-          <textarea id="alamatInput" class="form-control"></textarea>
-
-          <label class="mt-2">No HP:</label>
-          <input type="text" id="hpInput" class="form-control" />
-
-          <div class="d-flex justify-content-end mt-3">
-            <button class="btn btn-secondary me-2" onclick="closeModal()">
-              Batal
-            </button>
-            <button class="btn btn-primary" onclick="saveData()">Simpan</button>
+          <div class="card-info-icon">
+            <span class="material-symbols-outlined">group</span>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Modal Konfirmasi Hapus -->
-    <div id="confirmModal" class="modal-hapus">
-      <div class="modal-content">
-        <p id="confirmMessage">Hapus data ini?</p>
-
-        <div class="modal-actions">
-          <button id="confirmYes" class="btn-yes">Ya</button>
-          <button id="confirmNo" class="btn-no">Batal</button>
+      <div class="card-instruksi-anggota">
+        <div class="card-instruksi-header">
+          <span class="material-symbols-outlined">info</span>
+          <h4>Petunjuk Penggunaan</h4>
         </div>
+
+        <ul class="card-instruksi-list">
+          <li>
+            Gunakan tombol <strong>Tambah Anggota</strong> untuk menambahkan
+            data anggota baru.
+          </li>
+          <li>
+            Data anggota dapat <strong>diubah</strong> atau
+            <strong>dihapus</strong> melalui menu aksi.
+          </li>
+          <li>
+            Gunakan fitur <strong>pencarian</strong> untuk menemukan anggota
+            dengan cepat.
+          </li>
+          <li>
+            Pastikan <strong>status anggota</strong> diisi dengan benar agar
+            rekapan data akurat.
+          </li>
+        </ul>
+      </div>
+
+      <div class="card-table-anggota">
+        <!-- HEADER CARD -->
+        <div class="card-table-header">
+          <h4>Data Anggota</h4>
+          <button class="btn-primary" onclick="openModalAnggota()">
+            <span class="material-symbols-outlined">add</span>
+            Tambah Anggota
+          </button>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-wrapper">
+          <table class="table-anggota">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>NTA</th>
+                <th>Nama</th>
+                <th>Jenis Kelamin</th>
+                <th>Tempat Lahir</th>
+                <th>Tanggal Lahir</th>
+                <th>Gugus Depan</th>
+                <th>Sekolah</th>
+                <th>Kelas</th>
+                <th>Golongan</th>
+                <th>TKU</th>
+                <th>TKK</th>
+                <th>Foto</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyAnggota">
+              <!-- Data via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <!-- MODAL TAMBAH ANGGOTA -->
+    <div class="modal-anggota" id="modalAnggota">
+      <div class="modal-anggota-card">
+        <div class="modal-anggota-header">
+          <h3>Tambah Data Anggota</h3>
+          <button class="modal-anggota-close" onclick="closeModalAnggota()">
+            &times;
+          </button>
+        </div>
+
+        <form id="formAnggota">
+          <div class="modal-anggota-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>NTA</label>
+                <input
+                  type="text"
+                  id="nta"
+                  maxlength="15"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                  placeholder="Maksimal 15 digit"
+                  required />
+              </div>
+
+              <div class="form-group">
+                <label>Nama</label>
+                <input
+                  type="text"
+                  id="nama"
+                  required
+                  style="text-transform: uppercase"
+                  oninput="this.value = this.value.toUpperCase()"
+                  placeholder="Nama Anggota" />
+              </div>
+
+              <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <select id="jk" required>
+                  <option value="">-- Pilih --</option>
+                  <option value="L">Laki-laki</option>
+                  <option value="P">Perempuan</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Tempat Lahir</label>
+                <input type="text" id="tempatLahir" />
+              </div>
+
+              <div class="form-group">
+                <label>Tanggal Lahir</label>
+                <input type="date" id="tanggalLahir" />
+              </div>
+
+              <div class="form-group">
+                <label>Gugus Depan</label>
+                <input
+                  type="text"
+                  id="gudep"
+                  placeholder="Contoh: 11-071"
+                  maxlength="6"
+                  inputmode="numeric"
+                  pattern="\d{2}-\d{3}"
+                  oninput="formatGudep(this)" />
+              </div>
+
+              <div class="form-group">
+                <label>Sekolah/Perguruan Tinggi</label>
+                <input type="text" id="sekolah" />
+              </div>
+
+              <div class="form-group">
+                <label>Kelas</label>
+                <input type="text" id="kelas" />
+              </div>
+
+              <div class="form-group">
+                <label>Golongan</label>
+                <select name="golongan" id="golongan">
+                  <option value="">Pilih</option>
+                  <option value="Penegak">Penegak</option>
+                  <option value="Pandega">Pandega</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>TKU</label>
+                <select name="tku" id="tku">
+                  <option value="">Pilih</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>TKK</label>
+                <input type="text" id="tkk" />
+              </div>
+
+              <div class="form-group full">
+                <label>Foto</label>
+                <input type="file" id="foto" accept="image/*" />
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-anggota-footer">
+            <button
+              type="button"
+              class="btn-secondary"
+              onclick="closeModalAnggota()">
+              Batal
+            </button>
+            <button type="submit" class="btn-primary">Simpan</button>
+          </div>
+        </form>
       </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="text-center p-3 mt-4 text-muted">
-      © 2025 DKR Leuwigoong
-    </footer>
+    <script>
+      // Nama otomatis uppercase
+      document.getElementById("nama").addEventListener("input", function () {
+        this.value = this.value.toUpperCase();
+      });
 
+      // Toggle sidebar
+      function toggleSidebar() {
+        document.querySelector(".sidebar").classList.toggle("active");
+      }
+
+      const tbody = document.getElementById("tbodyAnggota");
+      const modalAnggota = document.getElementById("modalAnggota");
+      const formAnggota = document.getElementById("formAnggota");
+
+      // ================= RENDER DATA =================
+      function renderAnggota() {
+        const dataAnggota =
+          JSON.parse(localStorage.getItem("dataAnggota")) || [];
+        tbody.innerHTML = "";
+
+        dataAnggota.forEach((a, i) => {
+          tbody.innerHTML += `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${a.nta}</td>
+        <td>${a.nama}</td>
+        <td>${a.jk}</td>
+        <td>${a.tempatLahir}</td>
+        <td>${a.tanggalLahir}</td>
+        <td>${a.gudep}</td>
+        <td>${a.sekolah}</td>
+        <td>${a.kelas}</td>
+        <td>${a.golongan}</td>
+        <td>${a.tku}</td>
+        <td>${a.tkk}</td>
+        <td>
+          <img src="${a.foto || "img/default-user.png"}" width="40">
+        </td>
+        <td class="aksi">
+          <button class="btn-edit" onclick="editAnggota(${i})">
+            <span class="material-symbols-outlined">edit</span>
+          </button>
+          <button class="btn-hapus" onclick="hapusAnggota(${i})">
+            <span class="material-symbols-outlined">delete</span>
+          </button>
+        </td>
+      </tr>
+    `;
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", renderAnggota);
+
+      // ================= MODAL =================
+      function openModalAnggota() {
+        modalAnggota.style.display = "flex";
+      }
+
+      function closeModalAnggota() {
+        modalAnggota.style.display = "none";
+        formAnggota.reset();
+      }
+
+      // ================= TAMBAH DATA =================
+      formAnggota.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const dataAnggota =
+          JSON.parse(localStorage.getItem("dataAnggota")) || [];
+
+        const anggotaBaru = {
+          nta: nta.value,
+          nama: nama.value,
+          jk: jk.value,
+          tempatLahir: tempatLahir.value,
+          tanggalLahir: tanggalLahir.value,
+          gudep: gudep.value,
+          sekolah: sekolah.value,
+          kelas: kelas.value,
+          golongan: golongan.value,
+          tku: tku.value,
+          tkk: tkk.value,
+          foto: foto.files[0] ? URL.createObjectURL(foto.files[0]) : "",
+        };
+
+        dataAnggota.push(anggotaBaru);
+        localStorage.setItem("dataAnggota", JSON.stringify(dataAnggota));
+
+        closeModalAnggota();
+        renderAnggota();
+      });
+
+      // ================= HAPUS DATA =================
+      function hapusAnggota(index) {
+        if (!confirm("Yakin ingin menghapus data ini?")) return;
+
+        const dataAnggota =
+          JSON.parse(localStorage.getItem("dataAnggota")) || [];
+        dataAnggota.splice(index, 1);
+        localStorage.setItem("dataAnggota", JSON.stringify(dataAnggota));
+        renderAnggota();
+      }
+
+      // ================= EDIT (SIAP DIPAKAI) =================
+      function editAnggota(index) {
+        const dataAnggota =
+          JSON.parse(localStorage.getItem("dataAnggota")) || [];
+        const a = dataAnggota[index];
+
+        nta.value = a.nta;
+        nama.value = a.nama;
+        jk.value = a.jk;
+        tempatLahir.value = a.tempatLahir;
+        tanggalLahir.value = a.tanggalLahir;
+        gudep.value = a.gudep;
+        sekolah.value = a.sekolah;
+        kelas.value = a.kelas;
+        golongan.value = a.golongan;
+        tku.value = a.tku;
+        tkk.value = a.tkk;
+
+        dataAnggota.splice(index, 1);
+        localStorage.setItem("dataAnggota", JSON.stringify(dataAnggota));
+
+        openModalAnggota();
+      }
+
+      // ================= FORMAT GUDEP =================
+      function formatGudep(input) {
+        let value = input.value.replace(/\D/g, "");
+        value = value.substring(0, 5);
+
+        if (value.length > 2) {
+          input.value = value.slice(0, 2) + "-" + value.slice(2);
+        } else {
+          input.value = value;
+        }
+      }
+
+      const golongan = document.getElementById("golongan");
+      const tku = document.getElementById("tku");
+
+      golongan.addEventListener("change", function () {
+        tku.innerHTML = '<option value="">Pilih</option>';
+
+        if (this.value === "Penegak") {
+          tku.innerHTML += `
+      <option value="Bantara">Bantara</option>
+      <option value="Laksana">Laksana</option>
+    `;
+        }
+
+        if (this.value === "Pandega") {
+          tku.innerHTML += `
+      <option value="Pandega">Pandega</option>
+    `;
+        }
+      });
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"></script>
-    <script src="js/admin.js"></script>
   </body>
 </html>

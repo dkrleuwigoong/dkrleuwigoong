@@ -1,0 +1,1107 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #1b5e20;
+  color: #fff;
+  padding: 20px 16px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 8px;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  color: #e8f5e9;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background 0.25s ease;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu li.active a {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-menu span.material-symbols-outlined {
+  font-size: 22px;
+}
+
+/* RESPONSIVE (HP) */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+}
+
+.navbar {
+  height: 60px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  left: 250px; /* menyesuaikan sidebar */
+  right: 0;
+  z-index: 998;
+}
+
+.navbar-left .btn-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-left .material-symbols-outlined {
+  font-size: 28px;
+  color: #2e7d32;
+}
+
+/* RIGHT */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.navbar-user .material-symbols-outlined {
+  font-size: 28px;
+}
+
+/* ICON BUTTON */
+.navbar-icon {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+}
+
+.navbar-icon .material-symbols-outlined {
+  font-size: 24px;
+}
+
+/* BADGE */
+.notif-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: #d32f2f;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* LOGOUT */
+.navbar-icon.logout {
+  color: #d32f2f;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar {
+    left: 0;
+  }
+
+  .username {
+    display: none;
+  }
+}
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+.main {
+  margin-left: 250px; /* lebar sidebar */
+  margin-top: 60px; /* tinggi navbar */
+  padding: 24px;
+  min-height: calc(100vh - 60px);
+  background: #f4f6f8;
+}
+
+/* ==============================
+   CARD BERANDA
+============================== */
+.card-beranda {
+  background: linear-gradient(135deg, #1b5e20, #2e7d32);
+  border-radius: 18px;
+  padding: 24px 28px;
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+.card-beranda-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-beranda-text h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.card-beranda-text p {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+  color: #e8f5e9;
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+/* ==============================
+   ICON
+============================== */
+.card-beranda-icon {
+  width: 58px;
+  height: 58px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-beranda-icon span {
+  font-size: 32px;
+  color: #ffffff;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .card-beranda-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .card-beranda-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .card-beranda-icon {
+    align-self: flex-end;
+  }
+}
+
+/* ==============================
+   CARD INFO TERBARU
+============================== */
+.card-info {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 22px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+  margin-top: 24px;
+}
+
+/* HEADER */
+.card-info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.card-info-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.card-info-header span {
+  font-size: 26px;
+  color: #2e7d32;
+}
+
+/* LIST */
+.card-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ITEM */
+.info-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.info-dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 8px;
+  background: #2e7d32;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* CONTENT */
+.info-content h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.info-content p {
+  margin: 4px 0;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.info-content small {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card-info {
+    padding: 16px;
+  }
+
+  .card-info-header h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ==============================
+   CARD STAT TOTAL ANGGOTA
+============================== */
+.card-stat {
+  background: linear-gradient(135deg, #2e7d32, #43a047);
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(46, 125, 50, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
+}
+
+.card-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(46, 125, 50, 0.45);
+}
+
+/* ICON */
+.card-stat-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-stat-icon span {
+  font-size: 32px;
+}
+
+/* CONTENT */
+.card-stat-content h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.card-stat-content h2 {
+  margin: 4px 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.card-stat-content p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card-stat {
+    padding: 18px;
+  }
+
+  .card-stat-content h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ==============================
+   CARD JADWAL KEGIATAN
+============================== */
+.tabel-jadwal {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabel-jadwal thead {
+  background: #198754;
+  color: #fff;
+}
+
+.tabel-jadwal th,
+.tabel-jadwal td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tabel-jadwal tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* ==============================
+   CARD REKAPAN PRESENSI
+============================== */
+.card-presensi {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.card-presensi:hover {
+  transform: translateY(-3px);
+}
+
+/* HEADER */
+.card-presensi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-presensi-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.card-presensi-header span {
+  font-size: 26px;
+  color: #2e7d32;
+}
+
+/* CONTENT */
+.card-presensi-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+/* ITEM */
+.presensi-item {
+  text-align: center;
+  padding: 14px;
+  border-radius: 14px;
+  background: #e3e3e3;
+}
+
+.presensi-item h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.presensi-item p {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* WARNA STATUS */
+.presensi-item.hadir h3 {
+  color: #2e7d32;
+}
+
+.presensi-item.izin h3 {
+  color: #f9a825;
+}
+
+.presensi-item.alpha h3 {
+  color: #c62828;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card-presensi-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==============================
+   CARD INFO DATA ANGGOTA
+============================== */
+.card-info-anggota {
+  background: #fff;
+  border-radius: 20px;
+  padding: 22px 24px;
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.2);
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.card-info-anggota-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* TEXT */
+.card-info-text h4 {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.card-info-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  max-width: 520px;
+}
+
+/* ICON */
+.card-info-icon {
+  width: 56px;
+  height: 56px;
+  background: #2e7d32;
+  color: #fff;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-info-icon span {
+  font-size: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card-info-anggota-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-info-icon {
+    align-self: flex-end;
+  }
+}
+
+/* ==============================
+   CARD INSTRUKSI DATA ANGGOTA
+============================== */
+.card-instruksi-anggota {
+  background: #fffde7;
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 8px 24px rgba(249, 168, 37, 0.2);
+  margin-bottom: 20px;
+  border-left: 6px solid #f9a825;
+  margin-top: 20px;
+}
+
+/* HEADER */
+.card-instruksi-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.card-instruksi-header span {
+  font-size: 26px;
+  color: #f9a825;
+}
+
+.card-instruksi-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #795548;
+}
+
+/* LIST */
+.card-instruksi-list {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.card-instruksi-list li {
+  font-size: 0.88rem;
+  color: #555;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.card-instruksi-list li strong {
+  color: #333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card-instruksi-anggota {
+    padding: 18px;
+  }
+}
+
+/* ==============================
+   CARD TABLE DATA ANGGOTA
+============================== */
+.card-table-anggota {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* HEADER */
+.card-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-table-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+/* BUTTON */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #1b5e20;
+}
+
+.btn-primary span {
+  font-size: 20px;
+}
+
+/* TABLE */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.table-anggota {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1100px;
+}
+
+.table-anggota thead {
+  background: #e8f5e9;
+}
+
+.table-anggota th,
+.table-anggota td {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.table-anggota th {
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.table-anggota tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+.table-anggota tbody tr:hover {
+  background: #f9f9f9;
+}
+
+/* FOTO */
+.table-anggota img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card-table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* ==============================
+   MODAL TAMBAH ANGGOTA
+============================== */
+.modal-anggota {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 40px;
+}
+
+.modal-anggota-card {
+  background: #fff;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 22px;
+  overflow: hidden;
+  animation: modalFade 0.3s ease;
+}
+
+/* HEADER */
+.modal-anggota-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  background: #2e7d32;
+  color: #fff;
+}
+
+.modal-anggota-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.modal-anggota-close {
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* BODY */
+.modal-anggota-body {
+  padding: 22px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full {
+  grid-column: span 3;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.85rem;
+}
+
+/* FOOTER */
+.modal-anggota-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 22px;
+  background: #f5f5f5;
+}
+
+/* BUTTON */
+.btn-secondary {
+  background: #e0e0e0;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ANIMATION */
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full {
+    grid-column: span 1;
+  }
+
+  .modal-anggota {
+    padding: 16px;
+  }
+}
+
+.aksi {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-edit,
+.btn-hapus {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.btn-edit {
+  color: #1976d2;
+}
+
+.btn-hapus {
+  color: #d32f2f;
+}
+
+.btn-edit:hover {
+  background: rgba(25, 118, 210, 0.1);
+}
+
+.btn-hapus:hover {
+  background: rgba(211, 47, 47, 0.1);
+}
+
+.card-breadcrumb {
+  background: #ffffff; /* polos */
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.breadcrumb-left .material-symbols-outlined {
+  font-size: 20px;
+  color: #16a34a; /* hijau pramuka */
+}
+
+.breadcrumb-separator {
+  color: #9ca3af;
+}
+
+.card-jadwal {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.card-jadwal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.card-jadwal-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-jadwal-title h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.card-jadwal-title .material-symbols-outlined {
+  color: #16a34a;
+  font-size: 22px;
+}
+
+.badge-jadwal {
+  background: #dcfce7;
+  color: #166534;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.card-jadwal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.jadwal-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.jadwal-item:hover {
+  background: #f0fdf4;
+}
+
+.jadwal-tanggal {
+  background: #16a34a;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 8px 10px;
+  text-align: center;
+  min-width: 56px;
+}
+
+.jadwal-tanggal .tanggal {
+  font-size: 18px;
+  font-weight: 700;
+  display: block;
+}
+
+.jadwal-tanggal .bulan {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.jadwal-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.jadwal-info p {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.card-input-jadwal {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.card-input-jadwal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.card-input-jadwal-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.card-input-jadwal-header .material-symbols-outlined {
+  color: #16a34a;
+  font-size: 24px;
+}
+
+.card-input-jadwal-body {
+  display: grid;
+  gap: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #16a34a;
+}
+
+.card-input-jadwal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.card-input-jadwal-footer button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+#kalender {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+#kalender > div {
+  height: 70px;
+}
+
+#kalender button {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  font-weight: 600;
+}

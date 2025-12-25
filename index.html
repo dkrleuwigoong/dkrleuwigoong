@@ -273,7 +273,9 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h3>Pengumuman</h3>
-        <p>-</p>
+        <div id="isiPengumuman">
+          <p>-</p>
+        </div>
       </div>
     </div>
 
@@ -495,6 +497,59 @@
     <!-- SCRIPT -->
     <script>
       feather.replace();
+      function getJadwal() {
+        return JSON.parse(localStorage.getItem("jadwalKegiatan")) || [];
+      }
+
+      const modal = document.getElementById("modal1");
+      const closeBtn = modal.querySelector(".close");
+      const isiPengumuman = document.getElementById("isiPengumuman");
+
+      // buka modal (panggil dari button / card info)
+      function openModalPengumuman() {
+        renderPengumuman();
+        modal.style.display = "flex";
+      }
+
+      // tutup modal
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // klik luar modal
+      window.onclick = function (e) {
+        if (e.target === modal) modal.style.display = "none";
+      };
+
+      // render isi pengumuman
+      function renderPengumuman() {
+        const jadwalKegiatan =
+          JSON.parse(localStorage.getItem("jadwalKegiatan")) || [];
+
+        isiPengumuman.innerHTML = "";
+
+        if (jadwalKegiatan.length === 0) {
+          isiPengumuman.innerHTML = "<p>Belum ada pengumuman.</p>";
+          return;
+        }
+
+        // urutkan terbaru
+        jadwalKegiatan.sort(
+          (a, b) => new Date(b.tanggal) - new Date(a.tanggal)
+        );
+
+        jadwalKegiatan.forEach((item, index) => {
+          isiPengumuman.innerHTML += `
+      <div class="pengumuman-item">
+        <strong>${index + 1}. ${item.namaKegiatan}</strong>
+        <p>📅 ${item.tanggal} | ⏰ ${item.waktu}</p>
+        <p>📍 ${item.tempat}</p>
+        <p>${item.keterangan || "-"}</p>
+        <hr>
+      </div>
+    `;
+        });
+      }
     </script>
     <script src="js/script.js"></script>
   </body>

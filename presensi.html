@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presensi | SIMA DKR</title>
+    <link rel="Icon" href="img/dkr-logo.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3>SIMPA</h3>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a href="dashboard.html">
+            <span class="material-symbols-outlined">home</span>
+            <span>Beranda</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="data-anggota.html">
+            <span class="material-symbols-outlined">groups</span>
+            <span>Data Anggota</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="jadwal.html">
+            <span class="material-symbols-outlined">event</span>
+            <span>Jadwal Kegiatan</span>
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="presensi.html">
+            <span class="material-symbols-outlined">fact_check</span>
+            <span>Presensi</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <span class="material-symbols-outlined">description</span>
+            <span>Laporan</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <span class="material-symbols-outlined">settings</span>
+            <span>Pengaturan</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <nav class="navbar">
+      <!-- KIRI : TOGGLE -->
+      <div class="navbar-left">
+        <button class="btn btn-toggle-sidebar p-0 border-0 bg-transparent">
+          <span class="material-symbols-outlined fs-2 text-success">
+            menu
+          </span>
+        </button>
+      </div>
+
+      <!-- KANAN : USER -->
+      <div class="navbar-right">
+        <div class="navbar-user">
+          <span class="material-symbols-outlined">account_circle</span>
+          <span class="username">Admin SIMPA</span>
+        </div>
+
+        <button class="navbar-icon">
+          <span class="material-symbols-outlined">notifications</span>
+          <span class="notif-badge">3</span>
+        </button>
+
+        <button class="navbar-icon logout">
+          <span class="material-symbols-outlined">logout</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="main">
+      <div class="card-breadcrumb">
+        <div class="breadcrumb-left">
+          <span class="material-symbols-outlined">home</span>
+          <span class="breadcrumb-separator">/</span>
+          <span>Beranda</span>
+        </div>
+      </div>
+
+      <div class="card shadow-sm mb-4 position-relative">
+        <div class="card-body">
+          <div class="d-flex flex-column flex-md-row align-items-start">
+            <!-- Ikon -->
+            <div class="me-0 mb-3 mb-md-0">
+              <span class="material-symbols-outlined text-success fs-1">
+                how_to_reg
+              </span>
+            </div>
+
+            <!-- Konten -->
+            <div>
+              <h5 class="card-title mb-1">Informasi Presensi</h5>
+              <p class="card-text small text-muted mb-2">
+                Halaman ini digunakan untuk mencatat kehadiran anggota pada
+                setiap kegiatan yang dilaksanakan.
+              </p>
+
+              <ul class="small mb-0 ps-3">
+                <li>
+                  Presensi dilakukan oleh admin atau petugas yang berwenang
+                </li>
+                <li>Status kehadiran: Hadir, Izin, Sakit, atau Alpha</li>
+                <li>Data presensi tersimpan otomatis dan dapat direkap</li>
+                <li>Pastikan memilih tanggal dan kegiatan yang sesuai</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pilih Bulan & Tahun -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <div class="row g-3 align-items-end">
+            <div class="col-md-5">
+              <label class="form-label small">Bulan</label>
+              <select class="form-select" id="bulan">
+                <option value="">Pilih Bulan</option>
+                <option value="0">Januari</option>
+                <option value="1">Februari</option>
+                <option value="2">Maret</option>
+                <option value="3">April</option>
+                <option value="4">Mei</option>
+                <option value="5">Juni</option>
+                <option value="6">Juli</option>
+                <option value="7">Agustus</option>
+                <option value="8">September</option>
+                <option value="9">Oktober</option>
+                <option value="10">November</option>
+                <option value="11">Desember</option>
+              </select>
+            </div>
+
+            <div class="col-md-5">
+              <label class="form-label small">Tahun</label>
+              <select class="form-select" id="tahun"></select>
+            </div>
+
+            <div class="col-md-2 d-grid">
+              <button class="btn btn-success" id="btnTampilkan">
+                Selanjutnya
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kalender -->
+      <div class="card shadow-sm mb-4 d-none" id="cardTanggal">
+        <div class="card-body">
+          <h6 class="mb-3">Pilih Tanggal Presensi</h6>
+          <div class="row text-center fw-semibold small mb-2">
+            <div class="col">Minggu</div>
+            <div class="col">Senin</div>
+            <div class="col">Selasa</div>
+            <div class="col">Rabu</div>
+            <div class="col">Kamis</div>
+            <div class="col">Jumat</div>
+            <div class="col">Sabtu</div>
+          </div>
+          <div class="row g-1 text-center" id="kalender"></div>
+        </div>
+      </div>
+
+      <!-- Tabel Presensi -->
+      <div class="card shadow-sm d-none" id="cardPresensi">
+        <div class="card-body">
+          <h6 class="mb-3" id="judulTanggal">Daftar Presensi Anggota</h6>
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered align-middle">
+              <thead class="table-success">
+                <tr>
+                  <th>No</th>
+                  <th>Nama Anggota</th>
+                  <th class="text-center">Hadir</th>
+                  <th class="text-center">Izin</th>
+                  <th class="text-center">Sakit</th>
+                  <th class="text-center">Alpha</th>
+                </tr>
+              </thead>
+              <tbody id="tabelPresensi"></tbody>
+            </table>
+            <button class="btn btn-primary mt-2" id="simpanPresensi">
+              Simpan Presensi
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h6 class="mb-3">Rekap Presensi</h6>
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered align-middle">
+              <thead class="table-success">
+                <tr>
+                  <th>No</th>
+                  <th>Tanggal</th>
+                  <th class="text-center">Hadir</th>
+                  <th class="text-center">Alpha</th>
+                  <th class="text-center">Sakit</th>
+                  <th class="text-center">Izin</th>
+                  <th class="text-center">Detail</th>
+                </tr>
+              </thead>
+              <tbody id="tabelRekap"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal Detail -->
+    <div class="modal fade" id="modalDetail" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Detail Presensi</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="table-responsive">
+              <table
+                class="table table-bordered table-sm align-middle"
+                id="tabelDetail">
+                <thead class="table-success">
+                  <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Nama</th>
+                    <th>Status Kehadiran</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              Tutup
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const sidebar = document.querySelector(".sidebar");
+
+      // Tutup sidebar saat klik menu
+      document.querySelectorAll(".sidebar a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 768) {
+            sidebar.classList.remove("active");
+          }
+        });
+      });
+
+      // Tutup sidebar saat klik di luar sidebar
+      document.addEventListener("click", (e) => {
+        if (
+          window.innerWidth <= 768 &&
+          sidebar.classList.contains("active") &&
+          !sidebar.contains(e.target) &&
+          !e.target.classList.contains("btn-toggle-sidebar")
+        ) {
+          sidebar.classList.remove("active");
+        }
+      });
+
+      // Tombol toggle sidebar (hamburger)
+      const btnToggle = document.querySelector(".btn-toggle-sidebar");
+      if (btnToggle) {
+        btnToggle.addEventListener("click", (e) => {
+          e.stopPropagation(); // supaya tidak langsung tertutup
+          sidebar.classList.toggle("active");
+        });
+      }
+      // --- Variabel DOM ---
+      // Toggle sidebar
+      function toggleSidebar() {
+        document.querySelector(".sidebar").classList.toggle("active");
+      }
+      const tahunSelect = document.getElementById("tahun");
+      const kalender = document.getElementById("kalender");
+      const cardTanggal = document.getElementById("cardTanggal");
+      const cardPresensi = document.getElementById("cardPresensi");
+      const tabelPresensi = document.getElementById("tabelPresensi");
+      const judulTanggal = document.getElementById("judulTanggal");
+      const btnTampilkan = document.getElementById("btnTampilkan");
+      const btnSimpan = document.getElementById("simpanPresensi");
+      const tabelRekap = document.getElementById("tabelRekap");
+      const tbodyDetail = document.querySelector("#tabelDetail tbody");
+
+      const STORAGE_KEY = "presensiData";
+
+      // --- Isi tahun ---
+      const tahunSekarang = new Date().getFullYear();
+      for (let i = tahunSekarang - 5; i <= tahunSekarang + 1; i++) {
+        tahunSelect.innerHTML += `<option value="${i}">${i}</option>`;
+      }
+
+      let tanggalTerpilih = null;
+      let bulanTerpilih = null;
+      let tahunTerpilih = null;
+
+      // --- Tombol Selanjutnya → tampilkan kalender ---
+      btnTampilkan.addEventListener("click", () => {
+        const bulan = document.getElementById("bulan").value;
+        const tahun = tahunSelect.value;
+
+        if (bulan === "" || tahun === "") {
+          alert("Pilih bulan dan tahun terlebih dahulu");
+          return;
+        }
+
+        bulanTerpilih = bulan;
+        tahunTerpilih = tahun;
+
+        tampilkanKalender(bulan, tahun);
+        cardTanggal.classList.remove("d-none");
+        cardPresensi.classList.add("d-none");
+      });
+
+      // --- Fungsi generate kalender ---
+      function tampilkanKalender(bulan, tahun) {
+        kalender.innerHTML = "";
+        const hariPertama = new Date(tahun, bulan, 1).getDay();
+        const jumlahHari = new Date(tahun, parseInt(bulan) + 1, 0).getDate();
+        const totalSel = Math.ceil((hariPertama + jumlahHari) / 7) * 7;
+
+        for (let i = 0; i < totalSel; i++) {
+          const col = document.createElement("div");
+          col.className = "col-12 col-sm text-center p-1";
+
+          if (i < hariPertama || i >= hariPertama + jumlahHari) {
+            col.innerHTML = `<div class="border rounded bg-light h-100"></div>`;
+          } else {
+            const tgl = i - hariPertama + 1;
+            col.innerHTML = `<button class="btn btn-outline-success w-100 h-100 fw-semibold">${tgl}</button>`;
+            col.querySelector("button").addEventListener("click", () => {
+              // Highlight tanggal
+              document
+                .querySelectorAll("#kalender button")
+                .forEach((btn) => btn.classList.remove("btn-success"));
+              col.querySelector("button").classList.add("btn-success");
+
+              tanggalTerpilih = tgl;
+              tampilkanTabelPresensi(tgl);
+            });
+          }
+
+          kalender.appendChild(col);
+        }
+      }
+
+      // --- Tampilkan tabel presensi ---
+      function tampilkanTabelPresensi(tanggal) {
+        tabelPresensi.innerHTML = "";
+        judulTanggal.textContent = `Presensi Anggota - ${tanggal} ${bulanTerpilihAsString(
+          bulanTerpilih
+        )} ${tahunTerpilih}`;
+
+        const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+        const key = `${tahunTerpilih}-${bulanTerpilih}-${tanggal}`;
+
+        dataAnggota.forEach((anggota, index) => {
+          const status = (data[key] && data[key][anggota.id]) || "Hadir";
+
+          tabelPresensi.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${anggota.nama}</td>
+        <td class="text-center"><input type="radio" name="p${
+          anggota.id
+        }" value="Hadir" ${status === "Hadir" ? "checked" : ""}></td>
+        <td class="text-center"><input type="radio" name="p${
+          anggota.id
+        }" value="Izin" ${status === "Izin" ? "checked" : ""}></td>
+        <td class="text-center"><input type="radio" name="p${
+          anggota.id
+        }" value="Sakit" ${status === "Sakit" ? "checked" : ""}></td>
+        <td class="text-center"><input type="radio" name="p${
+          anggota.id
+        }" value="Alpha" ${status === "Alpha" ? "checked" : ""}></td>
+      </tr>
+    `;
+        });
+
+        cardPresensi.classList.remove("d-none");
+      }
+
+      // --- Simpan presensi ke localStorage ---
+      btnSimpan.addEventListener("click", () => {
+        if (!tanggalTerpilih) return alert("Pilih tanggal terlebih dahulu");
+
+        const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+        const key = `${tahunTerpilih}-${bulanTerpilih}-${tanggalTerpilih}`;
+        data[key] = {};
+
+        dataAnggota.forEach((anggota) => {
+          const radios = document.getElementsByName("p" + anggota.id);
+          for (const r of radios) {
+            if (r.checked) {
+              data[key][anggota.id] = r.value;
+              break;
+            }
+          }
+        });
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        alert("Presensi berhasil disimpan!");
+        tampilkanRekap(); // update rekap otomatis
+      });
+
+      // --- Helper: ubah angka bulan ke nama ---
+      function bulanTerpilihAsString(bulan) {
+        const namaBulan = [
+          "Januari",
+          "Februari",
+          "Maret",
+          "April",
+          "Mei",
+          "Juni",
+          "Juli",
+          "Agustus",
+          "September",
+          "Oktober",
+          "November",
+          "Desember",
+        ];
+        return namaBulan[bulan];
+      }
+
+      // --- Tampilkan rekap presensi ---
+      function tampilkanRekap() {
+        tabelRekap.innerHTML = "";
+        const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+        const tanggalKeys = Object.keys(data).sort();
+
+        tanggalKeys.forEach((tanggal, index) => {
+          const presensi = data[tanggal];
+          let hadir = 0,
+            alpha = 0,
+            sakit = 0,
+            izin = 0;
+
+          for (const id in presensi) {
+            switch (presensi[id]) {
+              case "Hadir":
+                hadir++;
+                break;
+              case "Alpha":
+                alpha++;
+                break;
+              case "Sakit":
+                sakit++;
+                break;
+              case "Izin":
+                izin++;
+                break;
+            }
+          }
+
+          tabelRekap.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${tanggal}</td>
+        <td class="text-center">${hadir}</td>
+        <td class="text-center">${alpha}</td>
+        <td class="text-center">${sakit}</td>
+        <td class="text-center">${izin}</td>
+        <td class="text-center">
+          <button class="btn btn-sm btn-primary btn-detail" data-tanggal="${tanggal}">
+            Detail
+          </button>
+        </td>
+      </tr>
+    `;
+        });
+
+        if (tanggalKeys.length === 0) {
+          tabelRekap.innerHTML = `<tr><td colspan="7" class="text-center">Belum ada data presensi</td></tr>`;
+        }
+
+        document.querySelectorAll(".btn-detail").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            tampilkanDetail(btn.dataset.tanggal);
+            const modal = new bootstrap.Modal(
+              document.getElementById("modalDetail")
+            );
+            modal.show();
+          });
+        });
+      }
+
+      // --- Tampilkan detail presensi dalam tabel ---
+      function tampilkanDetail(tanggal) {
+        const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+        const presensi = data[tanggal] || {};
+        tbodyDetail.innerHTML = "";
+
+        let no = 1;
+        for (const id in presensi) {
+          const anggota = dataAnggota.find((a) => a.id == id);
+          const nama = anggota ? anggota.nama : `Anggota ${id}`;
+          const status = presensi[id];
+
+          tbodyDetail.innerHTML += `
+      <tr>
+        <td>${no}</td>
+        <td>${tanggal}</td>
+        <td>${nama}</td>
+        <td>${status}</td>
+      </tr>
+    `;
+          no++;
+        }
+
+        if (Object.keys(presensi).length === 0) {
+          tbodyDetail.innerHTML = `<tr><td colspan="4" class="text-center">Belum ada presensi pada tanggal ini</td></tr>`;
+        }
+      }
+
+      // --- Panggil rekap saat load ---
+      tampilkanRekap();
+    </script>
+    <!-- Data anggota -->
+    <script src="js/dataAnggota.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
