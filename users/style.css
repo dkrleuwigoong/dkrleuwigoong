@@ -1,0 +1,124 @@
+/* =====================
+   RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #f1f5f9;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+  height: 60px;
+  background: #1e293b;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+
+  position: fixed; /* 🔥 WAJIB */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* 🔥 PALING ATAS */
+}
+
+.navbar button {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+/* =====================
+   SIDEBAR
+===================== */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #0f172a;
+  color: white;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  padding: 80px 20px 20px; /* ruang navbar */
+  transition: 0.3s;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.sidebar ul li a:hover {
+  background: #2563eb;
+}
+
+/* SIDEBAR HIDE */
+.sidebar.hide {
+  width: 0;
+  padding: 80px 0 0;
+  overflow: hidden;
+}
+
+/* =====================
+   CONTENT
+===================== */
+.content {
+  margin-top: 60px; /* 🔥 DORONG KE BAWAH NAVBAR */
+  margin-left: 250px; /* 🔥 DORONG DARI SIDEBAR */
+  padding: 25px;
+  transition: 0.3s;
+}
+
+.content.full {
+  margin-left: 0;
+}
+
+/* =====================
+   MOBILE
+===================== */
+@media (max-width: 768px) {
+  .sidebar {
+    left: -250px;
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}

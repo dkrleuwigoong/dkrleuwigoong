@@ -1,100 +1,74 @@
-// Toggle menu
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".navbar-nav a[href^='#']");
+
+  window.addEventListener("scroll", () => {
+    let currentSection = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.offsetHeight;
+
+      if (
+        window.pageYOffset >= sectionTop &&
+        window.pageYOffset < sectionTop + sectionHeight
+      ) {
+        currentSection = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+});
+
 const navbarNav = document.querySelector(".navbar-nav");
+
 document.querySelector("#menu").onclick = () => {
   navbarNav.classList.toggle("active");
 };
 
-// Klik di luar navbar untuk close
-document.addEventListener("click", function (e) {
-  if (
-    !navbarNav.contains(e.target) &&
-    !document.querySelector("#menu").contains(e.target)
-  ) {
-    navbarNav.classList.remove("active");
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".selengkapnya");
+  const modals = document.querySelectorAll(".modal");
+  const closeBtns = document.querySelectorAll(".close");
+
+  // Klik "Baca Selengkapnya"
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      const modalId = this.getAttribute("data-modal");
+      const modal = document.getElementById(modalId);
+      modal.style.display = "flex";
+    });
+  });
+
+  // Klik tombol X
+  closeBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      this.closest(".modal").style.display = "none";
+    });
+  });
+
+  // Klik area luar modal
+  window.addEventListener("click", function (e) {
+    modals.forEach(function (modal) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+});
+
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  if (this.window.scrollY > 0) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
   }
 });
-
-// Scroll section active link
-let sections = document.querySelectorAll("section");
-let navLinks = document.querySelectorAll(".navbar-nav a");
-
-window.onscroll = () => {
-  sections.forEach((sec) => {
-    let top = window.scrollY;
-    let offset = sec.offsetTop - 150;
-    let height = sec.offsetHeight;
-    let id = sec.getAttribute("id");
-
-    if (top >= offset && top < offset + height) {
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-        document
-          .querySelector('.navbar-nav a[href="#' + id + '"]')
-          .classList.add("active");
-      });
-    }
-  });
-};
-
-const searchBtn = document.getElementById("search-btn");
-const searchBox = document.getElementById("search-box");
-
-searchBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  searchBox.style.display =
-    searchBox.style.display === "block" ? "none" : "block";
-});
-
-// Klik di luar search box untuk menutup
-document.addEventListener("click", function (e) {
-  if (!searchBox.contains(e.target) && !searchBtn.contains(e.target)) {
-    searchBox.style.display = "none";
-  }
-});
-
-// Buka modal
-document.querySelectorAll(".selengkapnya").forEach((link) => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
-    const modalId = this.getAttribute("data-modal");
-    document.getElementById(modalId).style.display = "block";
-  });
-});
-
-// Tutup modal dengan tombol close
-document.querySelectorAll(".close").forEach((btn) => {
-  btn.addEventListener("click", function () {
-    this.parentElement.parentElement.style.display = "none";
-  });
-});
-
-// Tutup modal jika klik area luar
-window.addEventListener("click", function (e) {
-  document.querySelectorAll(".modal").forEach((modal) => {
-    if (e.target === modal) modal.style.display = "none";
-  });
-});
-
-(function () {
-  const modal = document.getElementById("modal4");
-  const closeBtn = modal.querySelector(".modal-close");
-  const overlay = modal.querySelector(".modal-overlay");
-
-  // close handlers
-  function close() {
-    modal.setAttribute("aria-hidden", "true");
-  }
-
-  closeBtn.addEventListener("click", close);
-  overlay.addEventListener("click", close);
-
-  // ESC to close
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") close();
-  });
-
-  // contoh: jika kamu punya tombol pemicu dengan id "btnDownload", bisa buka modal:
-  // document.getElementById('btnDownload').addEventListener('click', () => {
-  //   modal.setAttribute('aria-hidden','false');
-  // });
-})();

@@ -30,7 +30,7 @@
         background: #fff;
         padding: 30px;
         border-radius: 12px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
       }
 
       .register-container h2 {
@@ -74,28 +74,64 @@
     </a>
 
     <div class="register-container">
-      <h2>Daftar Akun Scout Center</h2>
+      <h2>Pendaftaran Akun</h2>
 
-      <form onsubmit="register(event)">
+      <form id="formRegister">
         <!-- Nama Lengkap -->
         <div class="mb-3">
           <label class="form-label">Nama Lengkap</label>
           <input type="text" id="nama" class="form-control" required />
         </div>
 
-        <!-- NTA -->
         <div class="mb-3">
           <label class="form-label">NTA</label>
-          <input type="text" id="nta" class="form-control" required />
+          <input type="number" id="nta" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Gugus Depan/Pangkalan</label>
+          <input type="text" id="gudep" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Jabatan</label>
+          <select
+            name="jabatan"
+            id="jabatan"
+            class="form-select"
+            aria-label="Default select example">
+            <option selected>Pilih Jabatan</option>
+            <option value="Pradana Putra">Pradana Putra</option>
+            <option value="Pradana Putri">Pradana Putri</option>
+            <option value="Sekretaris">Sekretaris</option>
+            <option value="Bendahara">Bendahara</option>
+            <option value="Anggota">Anggota</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Username</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            placeholder="Masukkan username anda"
+            pattern="[a-z0-9_]+"
+            title="Username hanya huruf kecil, angka, dan underscore. Tidak boleh spasi."
+            required />
         </div>
 
         <!-- No HP -->
         <div class="mb-3">
           <label class="form-label">No HP</label>
-          <input type="tel" id="nohp" class="form-control" required />
+          <input
+            type="tel"
+            id="nohp"
+            class="form-control"
+            placeholder="Masukan nomor telepon"
+            required />
         </div>
 
-        <!-- Password -->
         <!-- Password -->
         <div class="mb-3">
           <label class="form-label">Password</label>
@@ -104,6 +140,7 @@
               type="password"
               id="password"
               class="form-control"
+              placeholder="Masukan password"
               required />
             <span
               class="input-group-text"
@@ -119,12 +156,13 @@
           <div class="input-group">
             <input
               type="password"
-              id="confirmPassword"
+              id="konfirmasi"
               class="form-control"
+              placeholder="Konfirmasi Password"
               required />
             <span
               class="input-group-text"
-              onclick="togglePassword('confirmPassword', this)">
+              onclick="togglePassword('konfirmasi', this)">
               <i class="bi bi-eye"></i>
             </span>
           </div>
@@ -157,50 +195,61 @@
         }
       }
 
-      async function register(e) {
-        e.preventDefault();
+      document
+        .getElementById("formRegister")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-        const nama = document.getElementById("nama").value.trim();
-        const nta = document.getElementById("nta").value.trim();
-        const nohp = document.getElementById("nohp").value.trim();
-        const password = document.getElementById("password").value;
-        const confirmPassword =
-          document.getElementById("confirmPassword").value;
+          const nama = document.getElementById("nama").value.trim();
+          const nta = document.getElementById("nta").value.trim();
+          const gudep = document.getElementById("gudep").value.trim();
+          const jabatan = document.getElementById("jabatan").value.trim();
+          const username = document.getElementById("username").value.trim();
+          const nohp = document.getElementById("nohp").value.trim();
+          const password = document.getElementById("password").value;
+          const konfirmasi = document.getElementById("konfirmasi").value;
 
-        if (password !== confirmPassword) {
-          alert("Password dan konfirmasi password tidak sama!");
-          return;
-        }
+          // Validasi password
+          if (password !== konfirmasi) {
+            alert("Password dan Konfirmasi tidak sama!");
+            return;
+          }
 
-        // ambil akun.json
-        const res = await fetch("data/akun.json");
-        const data = await res.json();
+          // Ambil data user Lama
+          let users = JSON.parse(localStorage.getItem("users")) || [];
 
-        // cek NTA sudah terdaftar
-        const exists = data.akun.find((a) => a.username === nta);
-        if (exists) {
-          alert("NTA sudah terdaftar!");
-          return;
-        }
+          // Cek username sudah ada
+          const cekUser = users.find((u) => u.username === username);
+          if (cekUser) {
+            alert("Username sudah digunakan!");
+            return;
+          }
 
-        // akun baru
-        const akunBaru = {
-          id: Date.now(),
-          nama,
-          username: nta,
-          nohp,
-          password,
-          role: "user",
-        };
+          users.push({
+            nama,
+            nta,
+            gudep,
+            jabatan,
+            username,
+            nohp,
+            password,
+          });
 
-        // SIMULASI simpan (localStorage)
-        const akunLS = JSON.parse(localStorage.getItem("akunBaru")) || [];
-        akunLS.push(akunBaru);
-        localStorage.setItem("akunBaru", JSON.stringify(akunLS));
+          localStorage.setItem("users", JSON.stringify(users));
 
-        alert("Registrasi berhasil! Silakan login.");
-        window.location.href = "login.html";
-      }
+          alert("Pendaftaran berhasil!");
+          this.reset();
+        });
+
+      const usernameInput = document.getElementById("username");
+
+      usernameInput.addEventListener("input", function () {
+        // Hilangkan spasi
+        this.value = this.value.replace(/\s/g, "");
+
+        // Ubah semua huruf menjadi huruf kecil
+        this.value = this.value.toLowerCase();
+      });
     </script>
   </body>
 </html>

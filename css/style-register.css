@@ -1,0 +1,125 @@
+body {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #333;
+}
+
+.navbar-brand img {
+  object-fit: contain;
+}
+
+.nav-link {
+  font-weight: 500;
+}
+
+.nav-link.active {
+  color: #0d6efd !important;
+}
+
+/* =========================
+   CARD FORM PENDAFTARAN
+========================= */
+.card {
+  border: none;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   CARD HEADER
+========================= */
+.card-header {
+  background: linear-gradient(135deg, #0d6efd, #198754);
+  color: #fff;
+  padding: 16px 20px;
+  border-bottom: none;
+}
+
+.card-header h3 {
+  margin-bottom: 2px;
+  color: #fff;
+}
+
+.card-header span {
+  color: #fff;
+}
+
+.card-header small {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* =========================
+   CARD BODY
+========================= */
+.card-body {
+  padding: 24px;
+  background: #ffffff;
+}
+
+/* =========================
+   FORM DI DALAM CARD
+========================= */
+.card-body .form-control,
+.card-body .form-select {
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  transition: all 0.2s ease;
+}
+
+.card-body .form-control:focus,
+.card-body .form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.15);
+}
+
+/* =========================
+   LABEL FORM
+========================= */
+.card-body label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* =========================
+   BUTTON FORM
+========================= */
+.card-body .btn {
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 500;
+  transition: 0.25s ease;
+}
+
+.card-body .btn-primary {
+  background: #0d6efd;
+  border: none;
+}
+
+.card-body .btn-primary:hover {
+  background: #0b5ed7;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 576px) {
+  .card-header h6 {
+    font-size: 15px;
+  }
+
+  .card-body {
+    padding: 18px;
+  }
+}

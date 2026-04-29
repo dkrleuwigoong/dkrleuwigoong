@@ -1,545 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DKR Leuwigoong</title>
 
-    <!-- Feather Icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DKR Leuwigoong</title>
 
-    <!-- Google Font: Poppins -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet" />
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
 
-    <link rel="stylesheet" href="style.css" />
-  </head>
+  <!-- Google Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
 
-  <body>
-    <!-- NAVBAR -->
-    <nav class="navbar">
-      <a href="#" class="navbar-logo">DKR LEUWIGOONG</a>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-      <div class="navbar-nav">
-        <a href="#beranda">Beranda</a>
-        <a href="#profil">Profil</a>
-        <a href="#kegiatan">Kegiatan</a>
-        <a href="#informasi">Informasi</a>
-        <a href="#galeri">Galeri</a>
-        <a href="#kontak">Kontak</a>
-        <a href="login.html">Login</a>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="navbar-logo">DKR LEUWIGOONG</a>
+
+    <div class="navbar-nav">
+      <a href="#beranda">Beranda</a>
+      <a href="#profil">Profil</a>
+      <a href="#kegiatan">Kegiatan</a>
+      <a href="#informasi">Informasi</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#kontak">Kontak</a>
+      <a href="login.html">Login</a>
+    </div>
+
+    <div class="navbar-extra">
+      <a href="#" id="search-btn"><i data-feather="search"></i></a>
+      <a href="#" id="menu"><i data-feather="menu"></i></a>
+    </div>
+
+    <!-- Kotak Pencarian -->
+    <div class="search-box" id="search-box">
+      <input type="text" placeholder="Cari sesuatu..." />
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="beranda" style="background-image: url('img/banner1.jpeg')">
+    <main class="content">
+      <h1>Selamat datang di <span>DKR Leuwigoong</span></h1>
+      <p>
+        Ngabdi kalayan Kahormatan, Ngawula Kalayan Kasatiaan.
+      </p>
+      <a href="#profil" class="cta-btn">Lihat Profil</a>
+    </main>
+  </section>
+
+  <!-- SECTION PROFIL -->
+  <section id="profil" class="profil">
+    <h2>Profil</h2>
+    <p class="deskripsi">
+      Dewan Kerja Pramuka Penegak dan Pramuka Pandega yang selanjutnya
+      disingkat Dewan Kerja adalah wadah pembinaan dan pengembangan kaderisasi
+      kepemimpinan di tingkat Kwartir yang beranggotakan Pramuka Penegak dan
+      Pramuka Pandega Putri Putra, sebagai bagian integral dari Kwartir dan
+      berkedudukan sebagai badan kelengkapan Kwartir yang diberi wewenang dan
+      kepercayaan untuk mengelola pembinaan dan kegiatan Pramuka Penegak dan
+      Pramuka Pandega sesuai prinsip "dari, oleh dan untuk Pramuka Penegak dan
+      Pramuka Pandega dengan bimbingan orang dewasa", yang pengelolaannya
+      bersifat kolektif dan kolegial.
+    </p>
+
+    <div class="profil-container">
+      <!-- Visi -->
+      <div class="card">
+        <h3>Visi</h3>
+        <p>Satyaku kudharmakan, Dharmaku kubaktikan.</p>
       </div>
 
-      <div class="navbar-extra">
-        <a href="#" id="search-btn"><i data-feather="search"></i></a>
-        <a href="#" id="menu"><i data-feather="menu"></i></a>
+      <!-- Misi -->
+      <div class="card">
+        <h3>Misi</h3>
+        <ul>
+          <li>Mengembangkan kegiatan edukatif dan kreatif.</li>
+          <li>Meningkatkan kemampuan leadership.</li>
+          <li>Membangun kerja sama antar gugus depan.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="judul">
+    <h2 class="judul-struktur">Struktur Kepengurusan</h2>
+  </section>
+
+  <section class="struktur-container">
+    <div class="struktur-row">
+      <div class="card-anggota">
+        <img src="img/agum-foto.jpg" alt="Foto Anggota 1" />
       </div>
 
-      <!-- Kotak Pencarian -->
-      <div class="search-box" id="search-box">
-        <input type="text" placeholder="Cari sesuatu..." />
+      <div class="card-anggota">
+        <img src="img/anggota2.jpg" alt="Foto Anggota 2" />
+        <h3 class="nama">Merlin Tiara Lestari</h3>
+        <p class="jabatan">Wakil Ketua</p>
       </div>
-    </nav>
 
-    <!-- HERO SECTION -->
-    <section
-      class="hero"
-      id="beranda"
-      style="background-image: url('img/dkrbanner.jpg')">
-      <main class="content">
-        <h1>Selamat datang di <span>DKR Leuwigoong</span></h1>
+      <div class="card-anggota">
+        <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
+        <h3 class="nama">Neng Rismayanti</h3>
+        <p class="jabatan">Sekretaris</p>
+      </div>
+      <div class="card-anggota">
+        <img src="img/nita-foto.jpg" alt="Foto Anggota 3" />
+      </div>
+
+      <div class="card-anggota">
+        <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
+        <h3 class="nama">Nafa Nur Liana</h3>
+        <p class="jabatan">Bendahara</p>
+      </div>
+      <div class="card-anggota">
+        <img src="img/greashy-foto.jpg" alt="Foto Anggota 3" />
+      </div>
+      <div class="card-anggota">
+        <img src="img/wilden-foto.jpg" alt="Foto Anggota 3" />
+      </div>
+      <div class="card-anggota">
+        <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
+        <h3 class="nama">Salsabila Rizkia Kurniawati</h3>
+        <p class="jabatan">Anggota Bidang Kajian</p>
+      </div>
+      <div class="card-anggota">
+        <img src="img/rista-foto.jpg" alt="Foto Anggota 3" />
+      </div>
+      <div class="card-anggota">
+        <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
+        <h3 class="nama">Septa Maulana</h3>
+        <p class="jabatan">Anggota Bidang Kajian</p>
+      </div>
+      <div class="card-anggota">
+        <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
+        <h3 class="nama">Muhammad Dzulqornaen</h3>
+        <p class="jabatan">Ketua Bidang Pembinaan & Pengembangan</p>
+      </div>
+      <div class="card-anggota">
+        <img src="img/nugraha-foto.jpg" alt="Foto Anggota 3" />
+      </div>
+      <div class="card-anggota">
+        <img src="img/kais-foto.jpg" alt="Foto Anggota 3" />
+      </div>
+      <div class="card-anggota">
+        <img src="img/foto.jpg" alt="Foto Anggota 3" />
+        <h3 class="nama">Carli Gumilar</h3>
+        <p class="jabatan">Anggota Bidang Pembinaan & Pengembangan</p>
+      </div>
+      <div class="card-anggota">
+        <img src="img/anwar-foto.jpg" alt="Foto Anggota 3" />
+      </div>
+      <div class="card-anggota">
+        <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
+        <h3 class="nama">Anisa Sapitri</h3>
+        <p class="jabatan">Anggota Bidang Giat</p>
+      </div>
+      <div class="card-anggota">
+        <img src="img/tarisa-foto.jpg" alt="Foto Anggota 3" />
+      </div>
+      <div class="card-anggota">
+        <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
+        <h3 class="nama">Neisya Alsha Elmaretha</h3>
+        <p class="jabatan">Anggota Bidang Giat</p>
+      </div>
+      <div class="card-anggota">
+        <img src="img/andri-foto.jpg" alt="Foto Anggota 3" />
+      </div>
+      <div class="card-anggota">
+        <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
+        <h3 class="nama">Zahra Makkayla</h3>
+        <p class="jabatan">Anggota Bidang Penelitian & Evaluasi</p>
+      </div>
+      <div class="card-anggota">
+        <img src="img/nizam-foto.jpg" alt="Foto Anggota 3" />
+      </div>
+      <div class="card-anggota">
+        <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
+        <h3 class="nama">Muhammad Rafa Ramdhan</h3>
+        <p class="jabatan">Anggota Bidang Penelitian & Evaluasi</p>
+      </div>
+      <!-- lanjutkan sampai 21 card -->
+    </div>
+  </section>
+
+  <!-- SECTION KEGIATAN -->
+  <section id="kegiatan" class="kegiatan">
+    <h2>Kegiatan</h2>
+    <p class="deskripsi">Berikut beberapa kegiatan resmi DKR Leuwigoong.</p>
+
+    <div class="kegiatan-container">
+      <div class="kegiatan-card">
+        <img src="img/jota-joti.jpg" alt="Kegiatan 1" />
+        <h3>Perkemahan Jota-Joti Cabang Garut 2025</h3>
         <p>
-          Situs resmi Dewan Kerja Ranting Leuwigoong—wadah kreatif, inspiratif,
-          dan penuh semangat bagi generasi muda pramuka.
+          Kegiatan untuk meningkatkan hubungan antar pramuka di seluruh dunia.
         </p>
-        <a href="#profil" class="cta-btn">Lihat Profil</a>
-      </main>
-    </section>
-
-    <!-- SECTION PROFIL -->
-    <section id="profil" class="profil">
-      <h2>Profil</h2>
-      <p class="deskripsi">
-        Dewan Kerja Pramuka Penegak dan Pramuka Pandega yang selanjutnya
-        disingkat Dewan Kerja adalah wadah pembinaan dan pengembangan kaderisasi
-        kepemimpinan di tingkat Kwartir yang beranggotakan Pramuka Penegak dan
-        Pramuka Pandega Putri Putra, sebagai bagian integral dari Kwartir dan
-        berkedudukan sebagai badan kelengkapan Kwartir yang diberi wewenang dan
-        kepercayaan untuk mengelola pembinaan dan kegiatan Pramuka Penegak dan
-        Pramuka Pandega sesuai prinsip "dari, oleh dan untuk Pramuka Penegak dan
-        Pramuka Pandega dengan bimbingan orang dewasa", yang pengelolaannya
-        bersifat kolektif dan kolegial.
-      </p>
-
-      <div class="profil-container">
-        <!-- Visi -->
-        <div class="card">
-          <h3>Visi</h3>
-          <p>Satyaku kudharmakan, Dharmaku kubaktikan.</p>
-        </div>
-
-        <!-- Misi -->
-        <div class="card">
-          <h3>Misi</h3>
-          <ul>
-            <li>Mengembangkan kegiatan edukatif dan kreatif.</li>
-            <li>Meningkatkan kemampuan leadership.</li>
-            <li>Membangun kerja sama antar gugus depan.</li>
-          </ul>
-        </div>
       </div>
-    </section>
 
-    <section class="judul">
-      <h2 class="judul-struktur">Struktur Kepengurusan</h2>
-    </section>
-
-    <section class="struktur-container">
-      <div class="struktur-row">
-        <div class="card-anggota">
-          <img src="img/agum-foto.jpg" alt="Foto Anggota 1" />
-        </div>
-
-        <div class="card-anggota">
-          <img src="img/anggota2.jpg" alt="Foto Anggota 2" />
-          <h3 class="nama">Merlin Tiara Lestari</h3>
-          <p class="jabatan">Wakil Ketua</p>
-        </div>
-
-        <div class="card-anggota">
-          <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
-          <h3 class="nama">Neng Rismayanti</h3>
-          <p class="jabatan">Sekretaris</p>
-        </div>
-        <div class="card-anggota">
-          <img src="img/nita-foto.jpg" alt="Foto Anggota 3" />
-        </div>
-
-        <div class="card-anggota">
-          <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
-          <h3 class="nama">Nafa Nur Liana</h3>
-          <p class="jabatan">Bendahara</p>
-        </div>
-        <div class="card-anggota">
-          <img src="img/greashy-foto.jpg" alt="Foto Anggota 3" />
-        </div>
-        <div class="card-anggota">
-          <img src="img/wilden-foto.jpg" alt="Foto Anggota 3" />
-        </div>
-        <div class="card-anggota">
-          <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
-          <h3 class="nama">Salsabila Rizkia Kurniawati</h3>
-          <p class="jabatan">Anggota Bidang Kajian</p>
-        </div>
-        <div class="card-anggota">
-          <img src="img/rista-foto.jpg" alt="Foto Anggota 3" />
-        </div>
-        <div class="card-anggota">
-          <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
-          <h3 class="nama">Septa Maulana</h3>
-          <p class="jabatan">Anggota Bidang Kajian</p>
-        </div>
-        <div class="card-anggota">
-          <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
-          <h3 class="nama">Muhammad Dzulqornaen</h3>
-          <p class="jabatan">Ketua Bidang Pembinaan & Pengembangan</p>
-        </div>
-        <div class="card-anggota">
-          <img src="img/nugraha-foto.jpg" alt="Foto Anggota 3" />
-        </div>
-        <div class="card-anggota">
-          <img src="img/kais-foto.jpg" alt="Foto Anggota 3" />
-        </div>
-        <div class="card-anggota">
-          <img src="img/foto.jpg" alt="Foto Anggota 3" />
-          <h3 class="nama">Carli Gumilar</h3>
-          <p class="jabatan">Anggota Bidang Pembinaan & Pengembangan</p>
-        </div>
-        <div class="card-anggota">
-          <img src="img/anwar-foto.jpg" alt="Foto Anggota 3" />
-        </div>
-        <div class="card-anggota">
-          <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
-          <h3 class="nama">Anisa Sapitri</h3>
-          <p class="jabatan">Anggota Bidang Giat</p>
-        </div>
-        <div class="card-anggota">
-          <img src="img/tarisa-foto.jpg" alt="Foto Anggota 3" />
-        </div>
-        <div class="card-anggota">
-          <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
-          <h3 class="nama">Neisya Alsha Elmaretha</h3>
-          <p class="jabatan">Anggota Bidang Giat</p>
-        </div>
-        <div class="card-anggota">
-          <img src="img/andri-foto.jpg" alt="Foto Anggota 3" />
-        </div>
-        <div class="card-anggota">
-          <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
-          <h3 class="nama">Zahra Makkayla</h3>
-          <p class="jabatan">Anggota Bidang Penelitian & Evaluasi</p>
-        </div>
-        <div class="card-anggota">
-          <img src="img/nizam-foto.jpg" alt="Foto Anggota 3" />
-        </div>
-        <div class="card-anggota">
-          <img src="img/anggota3.jpg" alt="Foto Anggota 3" />
-          <h3 class="nama">Muhammad Rafa Ramdhan</h3>
-          <p class="jabatan">Anggota Bidang Penelitian & Evaluasi</p>
-        </div>
-        <!-- lanjutkan sampai 21 card -->
+      <div class="kegiatan-card">
+        <img src="img/musppanitera.jpg" alt="Kegiatan 2" />
+        <h3>MUSPPANITERA DKC GARUT 2025</h3>
+        <p>
+          Partisipasi dalam kegiatan Musyawarah Pramuka Penegak Pandega Putri
+          Putra yang diselenggarakan DKC Garut Tahun 2025.
+        </p>
       </div>
-    </section>
 
-    <!-- SECTION KEGIATAN -->
-    <section id="kegiatan" class="kegiatan">
-      <h2>Kegiatan</h2>
-      <p class="deskripsi">Berikut beberapa kegiatan resmi DKR Leuwigoong.</p>
-
-      <div class="kegiatan-container">
-        <div class="kegiatan-card">
-          <img src="img/jota-joti.jpg" alt="Kegiatan 1" />
-          <h3>Perkemahan Jota-Joti Cabang Garut 2025</h3>
-          <p>
-            Kegiatan untuk meningkatkan hubungan antar pramuka di seluruh dunia.
-          </p>
-        </div>
-
-        <div class="kegiatan-card">
-          <img src="img/musppanitera.jpg" alt="Kegiatan 2" />
-          <h3>MUSPPANITERA DKC GARUT 2025</h3>
-          <p>
-            Partisipasi dalam kegiatan Musyawarah Pramuka Penegak Pandega Putri
-            Putra yang diselenggarakan DKC Garut Tahun 2025.
-          </p>
-        </div>
-
-        <div class="kegiatan-card">
-          <img src="img/upacara-pramuka-digarut.jpeg" alt="Kegiatan 3" />
-          <h3>Upacara HUT Pramuka ke-64 Tahun di Alun-alun Garut</h3>
-          <p>
-            Mengikuti kegiatan upacara Hut Pramuka ke 64 tahun sekaligus
-            memeriahkan Festival hari pramuka.
-          </p>
-        </div>
+      <div class="kegiatan-card">
+        <img src="img/upacara-pramuka-digarut.jpeg" alt="Kegiatan 3" />
+        <h3>Upacara HUT Pramuka ke-64 Tahun di Alun-alun Garut</h3>
+        <p>
+          Mengikuti kegiatan upacara Hut Pramuka ke 64 tahun sekaligus
+          memeriahkan Festival hari pramuka.
+        </p>
       </div>
-    </section>
-
-    <!-- Section Informasi -->
-    <section id="informasi" class="informasi">
-      <h2>Informasi</h2>
-      <p class="deskripsi">
-        Informasi terbaru seputar kegiatan, pengumuman, dan agenda resmi Dewan
-        Kerja Ranting Leuwigoong.
-      </p>
-
-      <div class="informasi-container">
-        <div class="info-card">
-          <h3>Pengumuman</h3>
-          <p>-</p>
-          <a href="#" class="selengkapnya" data-modal="modal1"
-            >Baca Selengkapnya</a
-          >
-        </div>
-
-        <div class="info-card">
-          <h3>Surat Edaran</h3>
-          <p>Edaran Sosialisasi Saka Wanabakti Cabang Garut.</p>
-          <a href="#" class="selengkapnya" data-modal="modal2"
-            >Baca Selengkapnya</a
-          >
-        </div>
-
-        <div class="info-card">
-          <h3>Jadwal Kegiatan</h3>
-          <p>Kumpulan Rutin</p>
-          <a href="#" class="selengkapnya" data-modal="modal3"
-            >Baca Selengkapnya</a
-          >
-        </div>
-        <div class="info-card">
-          <h3>Download Berkas</h3>
-          <p>Peraturn, Jukran, Juknis.</p>
-          <a href="#" class="selengkapnya" data-modal="modal4"
-            >Baca Selengkapnya</a
-          >
-        </div>
+      <div class="kegiatan-card">
+        <img src="img/seleksi1.jpeg" alt="Kegiatan 3" />
+        <h3>Seleksi Pasbara 14 Ranting Leuwigoong tahun 2026</h3>
+        <p>
+          Peseleksian Pasukan Pengibar Bendera Pusaka (Pasbara) untuk tingkat Kecamatan Leuwigoong dalam rangka
+          memperingati HUT Pramuka ke-65 tahun 2026.
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================= MODAL 1 ================= -->
-    <div class="modal" id="modal1">
-      <div class="modal-content">
-        <span class="close">&times;</span>
+  <!-- Section Informasi -->
+  <section id="informasi" class="informasi">
+    <h2>Informasi</h2>
+    <p class="deskripsi">
+      Informasi terbaru seputar kegiatan, pengumuman, dan agenda resmi Dewan
+      Kerja Ranting Leuwigoong.
+    </p>
+
+    <div class="informasi-container">
+      <div class="info-card">
         <h3>Pengumuman</h3>
-        <div id="isiPengumuman">
-          <p>-</p>
-        </div>
+        <p>-</p>
+        <a href="#" class="selengkapnya" data-modal="modal1">Baca Selengkapnya</a>
       </div>
-    </div>
 
-    <!-- ================= MODAL 2 ================= -->
-    <div class="modal" id="modal2">
-      <div class="modal-content">
-        <span class="close">&times;</span>
+      <div class="info-card">
         <h3>Surat Edaran</h3>
-        <div class="download-item">
-          <span
-            >Edaran Sosialisasi Saka Wanabakti Cabang Garut Tahun 2025.</span
-          >
-          <a
-            href="doc/2025.12.39. Surat Edaran Sosialisasi SWB Garut Tahun 2025.pdf"
-            download
-            class="btn-download"
-            >Unduh</a
-          >
-        </div>
+        <p>-</p>
+        <a href="#" class="selengkapnya" data-modal="modal2">Baca Selengkapnya</a>
       </div>
-    </div>
 
-    <!-- ================= MODAL 3 ================= -->
-    <div class="modal" id="modal3">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-
+      <div class="info-card">
         <h3>Jadwal Kegiatan</h3>
-        <p>
-          Kami informasikan untuk kegiatan kumpul rutinan pada hari Sabtu
-          tanggal 13 Desember 2025, lokasi di Sekretariat Kwarran Leuwigoong.
-        </p>
-
-        <!-- TOMBOL ABSEN -->
-        <a
-          href="https://forms.gle/tywzbcmTxRbzUJmW9"
-          target="_blank"
-          class="btn-absen"
-          >Presensi</a
-        >
+        <p>Kumpulan Rutin</p>
+        <a href="#" class="selengkapnya" data-modal="modal3">Baca Selengkapnya</a>
       </div>
-    </div>
-
-    <!-- ================= MODAL 4 ================= -->
-    <div class="modal" id="modal4">
-      <div class="modal-content">
-        <span class="close">&times;</span>
+      <div class="info-card">
         <h3>Download Berkas</h3>
-
-        <div class="download-item">
-          <span>AD/ART Gerakan Pramuka Hasil Munas 2018</span>
-          <a href="doc/AD-ART-GP-2019.pdf" download class="btn-download"
-            >Unduh</a
-          >
-        </div>
-
-        <div class="download-item">
-          <span>Panduan Penyelesaian SKU Penegak</span>
-          <a
-            href="doc/SK-119-2011-Panduan Penyelesaian-SKU-Penegak.pdf"
-            download
-            class="btn-download"
-            >Unduh</a
-          >
-        </div>
-
-        <div class="download-item">
-          <span>Petunjuk Penyelenggaraan Raimuna</span>
-          <a
-            href="dokumen/juknis-penegak-pandega.pdf"
-            download
-            class="btn-download"
-            >Unduh</a
-          >
-        </div>
-        <div class="download-item">
-          <span>Petunjuk Penyelenggaraan Perkemahan Wirakarya </span>
-          <a
-            href="doc/Jukran-Perkemahan-Wirakarya.pdf"
-            download
-            class="btn-download"
-            >Unduh</a
-          >
-        </div>
-        <div class="download-item">
-          <span>Petunjuk Pelaksanaan Gladian Pimpinan Satuan Penegak</span>
-          <a
-            href="doc/Salinan-SK-31-KN-1978-Juklak-Dianpinsat.pdf"
-            download
-            class="btn-download"
-            >Unduh</a
-          >
-        </div>
-        <div class="download-item">
-          <span
-            >Petunjuk Penyelenggaraan Dewan Kerja Pramuka Penegak dan Pramuka
-            Pandega</span
-          >
-          <a href="doc/SK-005-2017-Jukran-DKD.pdf" download class="btn-download"
-            >Unduh</a
-          >
-        </div>
-        <div class="download-item">
-          <span>Panduan Tanda Nama Diri</span>
-          <a
-            href="doc/Panduan Tanda Nama Diri.pdf"
-            download
-            class="btn-download"
-            >Unduh</a
-          >
-        </div>
-        <div class="download-item">
-          <span>Petunjuk Penyelenggaraan Saka Bhayangkara</span>
-          <a
-            href="doc/Jukran-Saka-Bhayangkara.pdf"
-            download
-            class="btn-download"
-            >Unduh</a
-          >
-        </div>
-        <div class="download-item">
-          <span>Petunjuk Penyelenggaraan Saka Bakti Husada</span>
-          <a
-            href="doc/Jukran-Saka-Bakti-Husada.pdf"
-            download
-            class="btn-download"
-            >Unduh</a
-          >
-        </div>
+        <p>Peraturn, Jukran, Juknis.</p>
+        <a href="#" class="selengkapnya" data-modal="modal4">Baca Selengkapnya</a>
       </div>
     </div>
+  </section>
 
-    <!-- SECTION GALERI -->
-    <section id="galeri" class="galeri">
-      <h2>Galeri</h2>
-      <p class="deskripsi">Dokumentasi kegiatan DKR Leuwigoong.</p>
-
-      <div class="galeri-container">
-        <img src="img/festival-jamcab.jpeg" alt="Galeri 1" />
-        <img src="img/foto-pengukuhan-pasbara.jpeg" alt="Galeri 2" />
-        <img src="img/partisipasi-jamcab.jpeg" alt="Galeri 3" />
-        <img src="img/upacara-pramuka-digarut.jpeg" alt="Galeri 4" />
-        <img src="img/sdn2margahayu.jpg" alt="Galeri 5" />
-        <img src="img/sdn7leuwigoong.jpg" alt="Galeri 6" />
+  <!-- ================= MODAL 1 ================= -->
+  <div class="modal" id="modal1">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Pengumuman</h3>
+      <div id="isiPengumuman">
+        <p>-</p>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- SECTION KONTAK -->
-    <section id="kontak" class="kontak">
-      <h2>Kontak</h2>
-      <p class="deskripsi">
-        Hubungi kami untuk informasi lebih lanjut atau kerja sama kegiatan.
-      </p>
-
-      <div class="kontak-container">
-        <!-- Alamat -->
-        <div class="kontak-card">
-          <i data-feather="map-pin"></i>
-          <h3>Alamat</h3>
-          <p>
-            <a
-              href="https://www.google.com/maps?q=SDN+Leuwigoong+2,+Jl.+K.H.+Hasan+Arief,+Leuwigoong,+Garut"
-              target="_blank">
-              SDN Leuwigoong 2, Jl. K.H. Hasan Arief, Leuwigoong, Kec.
-              Leuwigoong, Kab. Garut, Jawa Barat 44192
-            </a>
-          </p>
-        </div>
-        <!-- Telepon / WhatsApp -->
-        <div class="kontak-card">
-          <i data-feather="phone"></i>
-          <h3>Telepon</h3>
-          <p>
-            <a href="https://wa.me/6282129202724" target="_blank">
-              +62 821-2920-2724
-            </a>
-          </p>
-        </div>
-
-        <!-- Email -->
-        <div class="kontak-card">
-          <i data-feather="mail"></i>
-          <h3>Email</h3>
-          <p>
-            <a href="mailto:dkr.leuwigoong15@gmail.com">
-              dkr.leuwigoong15@gmail.com
-            </a>
-          </p>
-        </div>
+  <!-- ================= MODAL 2 ================= -->
+  <div class="modal" id="modal2">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Surat Edaran</h3>
+      <div class="download-item">
+        <span>-</span>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- FOOTER -->
-    <footer>
-      <p>&copy; 2025 Unit Media 090515 Leuwigoong. All rights reserved.</p>
+  <!-- ================= MODAL 3 ================= -->
+  <div class="modal" id="modal3">
+    <div class="modal-content">
+      <span class="close">&times;</span>
 
-      <div class="footer-social">
-        <a
-          href="https://facebook.com"
-          target="https://www.facebook.com/profile.php?id=61575939392113"
-          ><i data-feather="facebook"></i
-        ></a>
-        <a
-          href="https://instagram.com"
-          target="https://www.instagram.com/dkr_leuwigoong?igsh=eWkzZjRlNHVrZmlv"
-          ><i data-feather="instagram"></i
-        ></a>
-        <a href="https://youtube.com" target="_blank"
-          ><i data-feather="youtube"></i
-        ></a>
-        <a
-          href="https://tiktok.com"
-          target="https://www.tiktok.com/@dkr_leuwigoong?_r=1&_t=ZS-926mIZZqICo"
-          ><i data-feather="music"></i
-        ></a>
+      <h3>Jadwal Kegiatan</h3>
+      <p>-</p>
+
+      <!-- TOMBOL ABSEN -->
+      <a href="https://forms.gle/tywzbcmTxRbzUJmW9" target="_blank" class="btn-absen">Presensi</a>
+    </div>
+  </div>
+
+  <!-- ================= MODAL 4 ================= -->
+  <div class="modal" id="modal4">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Download Berkas</h3>
+
+      <div class="download-item">
+        <span>AD/ART Gerakan Pramuka Hasil Munas 2018</span>
+        <a href="doc/AD-ART-GP-2019.pdf" download class="btn-download">Unduh</a>
       </div>
-    </footer>
 
-    <!-- SCRIPT -->
-    <script>
-      feather.replace();
-      function getJadwal() {
-        return JSON.parse(localStorage.getItem("jadwalKegiatan")) || [];
+      <div class="download-item">
+        <span>Panduan Penyelesaian SKU Penegak</span>
+        <a href="doc/SK-119-2011-Panduan Penyelesaian-SKU-Penegak.pdf" download class="btn-download">Unduh</a>
+      </div>
+
+      <div class="download-item">
+        <span>Petunjuk Penyelenggaraan Raimuna</span>
+        <a href="dokumen/juknis-penegak-pandega.pdf" download class="btn-download">Unduh</a>
+      </div>
+      <div class="download-item">
+        <span>Petunjuk Penyelenggaraan Perkemahan Wirakarya </span>
+        <a href="doc/Jukran-Perkemahan-Wirakarya.pdf" download class="btn-download">Unduh</a>
+      </div>
+      <div class="download-item">
+        <span>Petunjuk Pelaksanaan Gladian Pimpinan Satuan Penegak</span>
+        <a href="doc/Salinan-SK-31-KN-1978-Juklak-Dianpinsat.pdf" download class="btn-download">Unduh</a>
+      </div>
+      <div class="download-item">
+        <span>Petunjuk Penyelenggaraan Dewan Kerja Pramuka Penegak dan Pramuka
+          Pandega</span>
+        <a href="doc/SK-005-2017-Jukran-DKD.pdf" download class="btn-download">Unduh</a>
+      </div>
+      <div class="download-item">
+        <span>Panduan Tanda Nama Diri</span>
+        <a href="doc/Panduan Tanda Nama Diri.pdf" download class="btn-download">Unduh</a>
+      </div>
+      <div class="download-item">
+        <span>Petunjuk Penyelenggaraan Saka Bhayangkara</span>
+        <a href="doc/Jukran-Saka-Bhayangkara.pdf" download class="btn-download">Unduh</a>
+      </div>
+      <div class="download-item">
+        <span>Petunjuk Penyelenggaraan Saka Bakti Husada</span>
+        <a href="doc/Jukran-Saka-Bakti-Husada.pdf" download class="btn-download">Unduh</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION GALERI -->
+  <section id="galeri" class="galeri">
+    <h2>Galeri</h2>
+    <p class="deskripsi">Dokumentasi kegiatan DKR Leuwigoong.</p>
+
+    <div class="galeri-container">
+      <img src="img/festival-jamcab.jpeg" alt="Galeri 1" />
+      <img src="img/foto-pengukuhan-pasbara.jpeg" alt="Galeri 2" />
+      <img src="img/partisipasi-jamcab.jpeg" alt="Galeri 3" />
+      <img src="img/upacara-pramuka-digarut.jpeg" alt="Galeri 4" />
+      <img src="img/sdn2margahayu.jpg" alt="Galeri 5" />
+      <img src="img/sdn7leuwigoong.jpg" alt="Galeri 6" />
+    </div>
+  </section>
+
+  <!-- SECTION KONTAK -->
+  <section id="kontak" class="kontak">
+    <h2>Kontak</h2>
+    <p class="deskripsi">
+      Hubungi kami untuk informasi lebih lanjut atau kerja sama kegiatan.
+    </p>
+
+    <div class="kontak-container">
+      <!-- Alamat -->
+      <div class="kontak-card">
+        <i data-feather="map-pin"></i>
+        <h3>Alamat</h3>
+        <p>
+          <a href="https://www.google.com/maps?q=SDN+Leuwigoong+2,+Jl.+K.H.+Hasan+Arief,+Leuwigoong,+Garut"
+            target="_blank">
+            SDN Leuwigoong 2, Jl. Syekh Ja'far Sidiq, Leuwigoong, Kec.
+            Leuwigoong, Kab. Garut, Jawa Barat 44192
+          </a>
+        </p>
+      </div>
+      <!-- Telepon / WhatsApp -->
+      <div class="kontak-card">
+        <i data-feather="phone"></i>
+        <h3>Telepon</h3>
+        <p>
+          <a href="https://wa.me/6282129202724" target="_blank">
+            +62 821-2920-2724
+          </a>
+        </p>
+      </div>
+
+      <!-- Email -->
+      <div class="kontak-card">
+        <i data-feather="mail"></i>
+        <h3>Email</h3>
+        <p>
+          <a href="mailto:dkr.leuwigoong15@gmail.com">
+            dkr.leuwigoong15@gmail.com
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Unit Media 090515 Leuwigoong. All rights reserved.</p>
+
+    <div class="footer-social">
+      <a href="https://facebook.com" target="https://www.facebook.com/profile.php?id=61575939392113"><i
+          data-feather="facebook"></i></a>
+      <a href="https://instagram.com" target="https://www.instagram.com/dkr_leuwigoong?igsh=eWkzZjRlNHVrZmlv"><i
+          data-feather="instagram"></i></a>
+      <a href="https://youtube.com" target="_blank"><i data-feather="youtube"></i></a>
+      <a href="https://tiktok.com" target="https://www.tiktok.com/@dkr_leuwigoong?_r=1&_t=ZS-926mIZZqICo"><i
+          data-feather="music"></i></a>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    feather.replace();
+    function getJadwal() {
+      return JSON.parse(localStorage.getItem("jadwalKegiatan")) || [];
+    }
+
+    const modal = document.getElementById("modal1");
+    const closeBtn = modal.querySelector(".close");
+    const isiPengumuman = document.getElementById("isiPengumuman");
+
+    // buka modal (panggil dari button / card info)
+    function openModalPengumuman() {
+      renderPengumuman();
+      modal.style.display = "flex";
+    }
+
+    // tutup modal
+    closeBtn.onclick = function () {
+      modal.style.display = "none";
+    };
+
+    // klik luar modal
+    window.onclick = function (e) {
+      if (e.target === modal) modal.style.display = "none";
+    };
+
+    // render isi pengumuman
+    function renderPengumuman() {
+      const jadwalKegiatan =
+        JSON.parse(localStorage.getItem("jadwalKegiatan")) || [];
+
+      isiPengumuman.innerHTML = "";
+
+      if (jadwalKegiatan.length === 0) {
+        isiPengumuman.innerHTML = "<p>Belum ada pengumuman.</p>";
+        return;
       }
 
-      const modal = document.getElementById("modal1");
-      const closeBtn = modal.querySelector(".close");
-      const isiPengumuman = document.getElementById("isiPengumuman");
+      // urutkan terbaru
+      jadwalKegiatan.sort(
+        (a, b) => new Date(b.tanggal) - new Date(a.tanggal)
+      );
 
-      // buka modal (panggil dari button / card info)
-      function openModalPengumuman() {
-        renderPengumuman();
-        modal.style.display = "flex";
-      }
-
-      // tutup modal
-      closeBtn.onclick = function () {
-        modal.style.display = "none";
-      };
-
-      // klik luar modal
-      window.onclick = function (e) {
-        if (e.target === modal) modal.style.display = "none";
-      };
-
-      // render isi pengumuman
-      function renderPengumuman() {
-        const jadwalKegiatan =
-          JSON.parse(localStorage.getItem("jadwalKegiatan")) || [];
-
-        isiPengumuman.innerHTML = "";
-
-        if (jadwalKegiatan.length === 0) {
-          isiPengumuman.innerHTML = "<p>Belum ada pengumuman.</p>";
-          return;
-        }
-
-        // urutkan terbaru
-        jadwalKegiatan.sort(
-          (a, b) => new Date(b.tanggal) - new Date(a.tanggal)
-        );
-
-        jadwalKegiatan.forEach((item, index) => {
-          isiPengumuman.innerHTML += `
+      jadwalKegiatan.forEach((item, index) => {
+        isiPengumuman.innerHTML += `
       <div class="pengumuman-item">
         <strong>${index + 1}. ${item.namaKegiatan}</strong>
         <p>📅 ${item.tanggal} | ⏰ ${item.waktu}</p>
@@ -548,9 +475,10 @@
         <hr>
       </div>
     `;
-        });
-      }
-    </script>
-    <script src="js/script.js"></script>
-  </body>
+      });
+    }
+  </script>
+  <script src="js/script.js"></script>
+</body>
+
 </html>

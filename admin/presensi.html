@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Presensi | SIMA DKR</title>
+    <title>SIMDEKA</title>
     <link rel="Icon" href="img/dkr-logo.png" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -17,267 +17,137 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="admin.css" />
   </head>
   <body>
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <h3>SIMPA</h3>
+    <!-- Sidebar Offcanvas -->
+    <div
+      class="offcanvas offcanvas-start"
+      style="width: 300px"
+      tabindex="-1"
+      id="sidebar"
+      aria-labelledby="sidebarLabel">
+      <div class="offcanvas-header align-items-center">
+        <img src="icon/simdeka_official.png" alt="" />
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"></button>
       </div>
+      <div class="offcanvas-body p-0">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a
+              href="dashboard.html"
+              class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">home</span> Dashboard
+            </a>
+          </li>
 
-      <ul class="sidebar-menu">
-        <li>
-          <a href="dashboard.html">
-            <span class="material-symbols-outlined">home</span>
-            <span>Beranda</span>
-          </a>
-        </li>
+          <li class="list-group-item">
+            <a
+              href="data-anggota.html"
+              class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">groups</span>
+              Manajemen Anggota
+            </a>
+          </li>
 
-        <li>
-          <a href="data-anggota.html">
-            <span class="material-symbols-outlined">groups</span>
-            <span>Data Anggota</span>
-          </a>
-        </li>
+          <li class="list-group-item">
+            <a
+              href="kegiatan.html"
+              class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">calendar_month</span>
+              Kegiatan
+            </a>
+          </li>
 
-        <li>
-          <a href="jadwal.html">
-            <span class="material-symbols-outlined">event</span>
-            <span>Jadwal Kegiatan</span>
-          </a>
-        </li>
+          <li class="list-group-item active">
+            <a
+              href="presensi.html"
+              class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">leaderboard</span>
+              Presensi
+            </a>
+          </li>
 
-        <li class="active">
-          <a href="presensi.html">
-            <span class="material-symbols-outlined">fact_check</span>
-            <span>Presensi</span>
-          </a>
-        </li>
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">work_history</span>
+              Penugasan
+            </a>
+          </li>
 
-        <li>
-          <a href="#">
-            <span class="material-symbols-outlined">description</span>
-            <span>Laporan</span>
-          </a>
-        </li>
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">attach_money</span>
+              Keuangan
+            </a>
+          </li>
 
-        <li>
-          <a href="#">
-            <span class="material-symbols-outlined">settings</span>
-            <span>Pengaturan</span>
-          </a>
-        </li>
-      </ul>
-    </aside>
-    <nav class="navbar">
-      <!-- KIRI : TOGGLE -->
-      <div class="navbar-left">
-        <button class="btn btn-toggle-sidebar p-0 border-0 bg-transparent">
-          <span class="material-symbols-outlined fs-2 text-success">
-            menu
-          </span>
-        </button>
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">chat</span> Informasi
+              & Komunikasi
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">folder</span>
+              Dokumentasi
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">article</span>
+              Laporan
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">settings</span> Akun
+              & Pengaturan
+            </a>
+          </li>
+        </ul>
       </div>
+    </div>
 
-      <!-- KANAN : USER -->
-      <div class="navbar-right">
-        <div class="navbar-user">
-          <span class="material-symbols-outlined">account_circle</span>
-          <span class="username">Admin SIMPA</span>
+    <div class="main-wrapper">
+      <nav class="navbar">
+        <!-- KIRI : TOGGLE -->
+        <div class="navbar-left">
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebar"
+            aria-controls="sidebar">
+            <span class="material-symbols-outlined"> menu </span>
+          </button>
         </div>
 
-        <button class="navbar-icon">
-          <span class="material-symbols-outlined">notifications</span>
-          <span class="notif-badge">3</span>
-        </button>
+        <!-- KANAN : USER -->
+        <div class="navbar-right">
+          <div class="navbar-user">
+            <span class="material-symbols-outlined">account_circle</span>
+            <span class="username">-</span>
+          </div>
 
-        <button class="navbar-icon logout">
-          <span class="material-symbols-outlined">logout</span>
-        </button>
-      </div>
-    </nav>
+          <button class="navbar-icon">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="notif-badge">3</span>
+          </button>
 
-    <main class="main">
-      <div class="card-breadcrumb">
-        <div class="breadcrumb-left">
-          <span class="material-symbols-outlined">home</span>
-          <span class="breadcrumb-separator">/</span>
-          <span>Beranda</span>
+          <button class="navbar-icon logout">
+            <span class="material-symbols-outlined">logout</span>
+          </button>
         </div>
-      </div>
-
-      <div class="card shadow-sm mb-4 position-relative">
-        <div class="card-body">
-          <div class="d-flex flex-column flex-md-row align-items-start">
-            <!-- Ikon -->
-            <div class="me-0 mb-3 mb-md-0">
-              <span class="material-symbols-outlined text-success fs-1">
-                how_to_reg
-              </span>
-            </div>
-
-            <!-- Konten -->
-            <div>
-              <h5 class="card-title mb-1">Informasi Presensi</h5>
-              <p class="card-text small text-muted mb-2">
-                Halaman ini digunakan untuk mencatat kehadiran anggota pada
-                setiap kegiatan yang dilaksanakan.
-              </p>
-
-              <ul class="small mb-0 ps-3">
-                <li>
-                  Presensi dilakukan oleh admin atau petugas yang berwenang
-                </li>
-                <li>Status kehadiran: Hadir, Izin, Sakit, atau Alpha</li>
-                <li>Data presensi tersimpan otomatis dan dapat direkap</li>
-                <li>Pastikan memilih tanggal dan kegiatan yang sesuai</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Pilih Bulan & Tahun -->
-      <div class="card shadow-sm mb-4">
-        <div class="card-body">
-          <div class="row g-3 align-items-end">
-            <div class="col-md-5">
-              <label class="form-label small">Bulan</label>
-              <select class="form-select" id="bulan">
-                <option value="">Pilih Bulan</option>
-                <option value="0">Januari</option>
-                <option value="1">Februari</option>
-                <option value="2">Maret</option>
-                <option value="3">April</option>
-                <option value="4">Mei</option>
-                <option value="5">Juni</option>
-                <option value="6">Juli</option>
-                <option value="7">Agustus</option>
-                <option value="8">September</option>
-                <option value="9">Oktober</option>
-                <option value="10">November</option>
-                <option value="11">Desember</option>
-              </select>
-            </div>
-
-            <div class="col-md-5">
-              <label class="form-label small">Tahun</label>
-              <select class="form-select" id="tahun"></select>
-            </div>
-
-            <div class="col-md-2 d-grid">
-              <button class="btn btn-success" id="btnTampilkan">
-                Selanjutnya
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Kalender -->
-      <div class="card shadow-sm mb-4 d-none" id="cardTanggal">
-        <div class="card-body">
-          <h6 class="mb-3">Pilih Tanggal Presensi</h6>
-          <div class="row text-center fw-semibold small mb-2">
-            <div class="col">Minggu</div>
-            <div class="col">Senin</div>
-            <div class="col">Selasa</div>
-            <div class="col">Rabu</div>
-            <div class="col">Kamis</div>
-            <div class="col">Jumat</div>
-            <div class="col">Sabtu</div>
-          </div>
-          <div class="row g-1 text-center" id="kalender"></div>
-        </div>
-      </div>
-
-      <!-- Tabel Presensi -->
-      <div class="card shadow-sm d-none" id="cardPresensi">
-        <div class="card-body">
-          <h6 class="mb-3" id="judulTanggal">Daftar Presensi Anggota</h6>
-          <div class="table-responsive">
-            <table class="table table-sm table-bordered align-middle">
-              <thead class="table-success">
-                <tr>
-                  <th>No</th>
-                  <th>Nama Anggota</th>
-                  <th class="text-center">Hadir</th>
-                  <th class="text-center">Izin</th>
-                  <th class="text-center">Sakit</th>
-                  <th class="text-center">Alpha</th>
-                </tr>
-              </thead>
-              <tbody id="tabelPresensi"></tbody>
-            </table>
-            <button class="btn btn-primary mt-2" id="simpanPresensi">
-              Simpan Presensi
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card shadow-sm mb-4">
-        <div class="card-body">
-          <h6 class="mb-3">Rekap Presensi</h6>
-          <div class="table-responsive">
-            <table class="table table-sm table-bordered align-middle">
-              <thead class="table-success">
-                <tr>
-                  <th>No</th>
-                  <th>Tanggal</th>
-                  <th class="text-center">Hadir</th>
-                  <th class="text-center">Alpha</th>
-                  <th class="text-center">Sakit</th>
-                  <th class="text-center">Izin</th>
-                  <th class="text-center">Detail</th>
-                </tr>
-              </thead>
-              <tbody id="tabelRekap"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <!-- Modal Detail -->
-    <div class="modal fade" id="modalDetail" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Detail Presensi</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table
-                class="table table-bordered table-sm align-middle"
-                id="tabelDetail">
-                <thead class="table-success">
-                  <tr>
-                    <th>No</th>
-                    <th>Tanggal</th>
-                    <th>Nama</th>
-                    <th>Status Kehadiran</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-              </table>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal">
-              Tutup
-            </button>
-          </div>
-        </div>
-      </div>
+      </nav>
     </div>
 
     <script>
@@ -394,7 +264,7 @@
       function tampilkanTabelPresensi(tanggal) {
         tabelPresensi.innerHTML = "";
         judulTanggal.textContent = `Presensi Anggota - ${tanggal} ${bulanTerpilihAsString(
-          bulanTerpilih
+          bulanTerpilih,
         )} ${tahunTerpilih}`;
 
         const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
@@ -523,7 +393,7 @@
           btn.addEventListener("click", () => {
             tampilkanDetail(btn.dataset.tanggal);
             const modal = new bootstrap.Modal(
-              document.getElementById("modalDetail")
+              document.getElementById("modalDetail"),
             );
             modal.show();
           });
@@ -560,6 +430,20 @@
 
       // --- Panggil rekap saat load ---
       tampilkanRekap();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Ambil data user yang sedang login
+        const userLogin = JSON.parse(localStorage.getItem("userLogin"));
+
+        if (userLogin) {
+          // Tampilkan nama atau username
+          document.querySelector(".username").textContent =
+            userLogin.nama || userLogin.username;
+        } else {
+          // Jika belum login
+          document.querySelector(".username").textContent = "Guest";
+        }
+      });
     </script>
     <!-- Data anggota -->
     <script src="js/dataAnggota.js"></script>

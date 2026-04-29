@@ -1,0 +1,367 @@
+/* =====================
+   RESET & GLOBAL
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f1f1f1;
+  color: #333;
+}
+
+/* =====================
+   SIDEBAR
+===================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: #fff;
+  color: #fff;
+  transition: transform 0.3s ease;
+  transform: translateX(0);
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+.sidebar.active {
+  transform: translateX(-260px);
+}
+
+/* =====================
+   SIDEBAR HEADER
+===================== */
+.sidebar-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ff7f00;
+  letter-spacing: 1px;
+}
+
+/* =====================
+   SIDEBAR MENU
+===================== */
+.sidebar-menu {
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin: 4px 0;
+}
+
+.sidebar-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #000000; /* FONT HITAM */
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* ICON */
+.sidebar-menu li a .material-symbols-outlined {
+  font-size: 22px;
+  color: #000000; /* ICON HITAM */
+}
+
+.sidebar-menu li.active a .material-symbols-outlined {
+  font-size: 22px;
+  color: #ff7f00; /* ORANGE */
+}
+
+.sidebar-menu li a:hover .material-symbols-outlined {
+  font-size: 22px;
+  color: #ff7f00; /* ORANGE */
+}
+
+/* =====================
+   HOVER & ACTIVE
+===================== */
+.sidebar-menu li a:hover {
+  border-left: 4px solid #000000;
+  padding-left: 16px;
+  color: #ff7f00;
+}
+
+.sidebar-menu li.active a {
+  font-weight: 600;
+  color: #ff7f00;
+}
+
+/* =====================
+   RESPONSIVE (OPSIONAL)
+===================== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 240px;
+  }
+}
+
+/* =====================
+   MAIN WRAPPER
+===================== */
+.main-wrapper {
+  max-width: 100%;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.main-wrapper.shift {
+  margin-left: 0;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+  height: 60px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center; /* center vertikal */
+}
+
+.navbar-left .btn-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-left .btn {
+  background-color: transparent;
+  border-color: var(--bs-primary);
+}
+
+.navbar-left .btn:hover,
+.navbar-left .btn:focus,
+.navbar-left .btn:active,
+.navbar-left .btn.show {
+  background-color: transparent !important;
+  color: var(--bs-primary);
+  box-shadow: none !important;
+}
+
+.navbar-left .material-symbols-outlined {
+  font-size: 24px;
+  vertical-align: middle;
+  color: #ff7f00;
+}
+
+/* =====================
+   NAVBAR RIGHT
+===================== */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.navbar-user .material-symbols-outlined {
+  font-size: 26px;
+  color: #2e7d32;
+}
+
+.navbar-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.navbar-icon .material-symbols-outlined {
+  font-size: 24px;
+  color: #555;
+}
+
+.notif-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 50%;
+}
+
+.logout .material-symbols-outlined {
+  color: #d32f2f;
+}
+
+/* =====================
+   MAIN CONTENT
+===================== */
+.main {
+  padding: 20px;
+  display: block;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 10px 20px;
+  width: auto;
+}
+
+th {
+  font-size: medium;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ff7f00;
+}
+
+.navbar-left button {
+  background-color: transparent;
+  border: none;
+}
+
+.navbar-left button:hover {
+  background-color: transparent;
+}
+
+.navbar-left button:active {
+  background-color: transparent;
+}
+
+.navbar-left .btn-click {
+  background-color: transparent;
+}
+
+/* Style dasar list-group dalam offcanvas */
+.offcanvas .list-group {
+  padding: 0;
+  margin: 0;
+}
+
+/* Style item */
+.offcanvas .list-group-item {
+  border: none; /* hilangkan border default */
+  background-color: transparent;
+  color: #333;
+  transition: all 0.3s ease; /* transisi smooth */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+/* Hover effect */
+.offcanvas .list-group-item:hover {
+  color: #ffc400;
+  border-radius: 8px;
+  transform: translateX(5px); /* efek geser sedikit */
+}
+
+/* Icon di kiri */
+.offcanvas .list-group-item .material-symbols-outlined {
+  margin-right: 12px;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Icon animasi saat hover */
+.offcanvas .list-group-item:hover .material-symbols-outlined {
+  transform: scale(1.2); /* icon sedikit membesar */
+}
+
+/* Active menu */
+.offcanvas .list-group-item.active {
+  color: #ffc400;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* Text decoration none untuk link */
+.offcanvas .list-group-item a {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.offcanvas-header h5 {
+  color: #ff7f00;
+}
+
+table {
+  font-size: 0.8rem;
+}
+
+th {
+  font-size: 0.8rem;
+}
+
+ul li {
+  margin-left: 20px;
+}
+
+.navbar-user img {
+  height: 30px;
+}
+
+a img {
+  height: 30px;
+}
+
+.card-judul {
+  margin: 10px;
+  background: #7c6464;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.offcanvas-header img {
+  height: 40px;
+  align-items: center;
+  margin-left: 50px;
+}
+
+li img {
+  height: auto;
+}

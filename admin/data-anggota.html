@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIMDEKA</title>
+    <link rel="Icon" href="img/dkr-logo.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <!-- Sidebar Offcanvas -->
+    <div
+      class="offcanvas offcanvas-start"
+      style="width: 300px"
+      tabindex="-1"
+      id="sidebar"
+      aria-labelledby="sidebarLabel">
+      <div class="offcanvas-header" style="padding: 20px">
+        <h5 class="offcanvas-title" id="sidebarLabel">SIMDEKA</h5>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-0">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a
+              href="dashboard.html"
+              class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">home</span> Dashboard
+            </a>
+          </li>
+
+          <li class="list-group-item active">
+            <a
+              href="data-anggota.html"
+              class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">groups</span>
+              Manajemen Anggota
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a
+              href="kegiatan.html"
+              class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">calendar_month</span>
+              Kegiatan
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a
+              href="presensi.html"
+              class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">leaderboard</span>
+              Presensi
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">work_history</span>
+              Penugasan
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">attach_money</span>
+              Keuangan
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">chat</span> Informasi
+              & Komunikasi
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">folder</span>
+              Dokumentasi
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">article</span>
+              Laporan
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+              <span class="material-symbols-outlined me-2">settings</span> Akun
+              & Pengaturan
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-wrapper">
+      <nav class="navbar">
+        <!-- KIRI : TOGGLE -->
+        <div class="navbar-left">
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebar"
+            aria-controls="sidebar">
+            <span class="material-symbols-outlined"> menu </span>
+          </button>
+        </div>
+
+        <!-- KANAN : USER -->
+        <div class="navbar-right">
+          <div class="navbar-user">
+            <span class="material-symbols-outlined">account_circle</span>
+            <span class="username">-</span>
+          </div>
+
+          <button class="navbar-icon">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="notif-badge">3</span>
+          </button>
+
+          <button class="navbar-icon logout">
+            <span class="material-symbols-outlined">logout</span>
+          </button>
+        </div>
+      </nav>
+
+      <main class="main">
+        <div class="card">
+          <div class="card-body d-flex">
+            <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item active" aria-current="page">
+                  Beranda
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+
+        <div class="card my-3 shadow">
+          <div
+            class="card-header text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0" style="color: black">Data Anggota</h5>
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#formAnggotaModal">
+              Tambah Anggota
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table
+                class="table align-middle mb-0"
+                style="width: auto; table-layout: auto">
+                <thead class="table-light text-center">
+                  <tr>
+                    <th>No</th>
+                    <th>NTA</th>
+                    <th>Nama</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Tempat Lahir</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Pangkalan</th>
+                    <th>Golongan</th>
+                    <th>TKU</th>
+                    <th>Jabatan</th>
+                    <th>Status</th>
+                    <th>No HP</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody class="text-center" id="tableAnggota"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Scrollable Modal Form -->
+    <div
+      class="modal fade"
+      id="formAnggotaModal"
+      tabindex="-1"
+      aria-labelledby="formAnggotaLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <!-- modal-lg agar lebih tinggi -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="formAnggotaLabel">Form Data Anggota</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <form id="anggotaForm">
+            <div class="modal-body" style="max-height: 70vh; overflow-y: auto">
+              <!-- tinggi max 70% viewport, scroll jika overflow -->
+
+              <div class="mb-3">
+                <label for="nta" class="form-label">NTA</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nta"
+                  name="nta"
+                  placeholder="Masukkan NTA"
+                  required />
+              </div>
+
+              <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nama"
+                  name="nama"
+                  placeholder="Masukkan nama"
+                  required />
+              </div>
+
+              <div class="mb-3">
+                <label for="jk" class="form-label">Jenis Kelamin</label>
+                <select class="form-select" id="jk" name="jk" required>
+                  <option value="">Pilih jenis kelamin</option>
+                  <option value="Laki-laki">Laki-laki</option>
+                  <option value="Perempuan">Perempuan</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="tempatLahir" class="form-label">Tempat Lahir</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tempatLahir"
+                  name="tempatLahir"
+                  placeholder="Masukkan tempat lahir"
+                  required />
+              </div>
+
+              <div class="mb-3">
+                <label for="tanggalLahir" class="form-label"
+                  >Tanggal Lahir</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="tanggalLahir"
+                  name="tanggalLahir"
+                  required />
+              </div>
+
+              <div class="mb-3">
+                <label for="pangkalan" class="form-label">Pangkalan</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pangkalan"
+                  name="pangkalan"
+                  required />
+              </div>
+
+              <div class="mb-3">
+                <label for="golongan" class="form-label">Golongan</label>
+                <select
+                  class="form-select"
+                  id="golongan"
+                  name="golongan"
+                  required>
+                  <option value="">Pilih</option>
+                  <option value="Penegak">Penegak</option>
+                  <option value="Pandega">Pandega</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="tku" class="form-label">TKU</label>
+                <select class="form-select" id="tku" name="tku" required>
+                  <option value="">Pilih</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="jabatan" class="form-label">Jabatan</label>
+                <select
+                  class="form-select"
+                  id="jabatan"
+                  name="jabatan"
+                  required>
+                  <option value="">Pilih</option>
+                  <option value="Ketua">Ketua</option>
+                  <option value="Wakil Ketua">Wakil Ketua</option>
+                  <option value="Sekretaris 1">Sekretaris 1</option>
+                  <option value="Sekretaris 2">Sekretaris 2</option>
+                  <option value="Bendahara">Bendahara</option>
+                  <option value="Anggota">Anggota</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select class="form-select" id="status" name="status" required>
+                  <option value="">Pilih status</option>
+                  <option value="Aktif">Aktif</option>
+                  <option value="Tidak Aktif">Tidak Aktif</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="noHp" class="form-label">No HP</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="noHp"
+                  name="noHp"
+                  placeholder="Masukkan nomor HP"
+                  required />
+              </div>
+            </div>
+            <div class="modal-footer" style="padding: 5px">
+              <button type="submit" class="btn btn-primary">Simpan</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal">
+                Tutup
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const STORAGE_KEY = "dataAnggota";
+      const tableAnggota = document.getElementById("tableAnggota");
+      const anggotaForm = document.getElementById("anggotaForm");
+      const golonganSelect = document.getElementById("golongan");
+      const tkuSelect = document.getElementById("tku");
+
+      let editIndex = null;
+
+      // =====================
+      // UTIL
+      // =====================
+      function getAnggota() {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      }
+
+      function saveAnggota(data) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      }
+
+      function getValue(id) {
+        return document.getElementById(id).value;
+      }
+
+      function setValue(id, value) {
+        document.getElementById(id).value = value;
+      }
+
+      // =====================
+      // RENDER TABLE
+      // =====================
+      function renderTable() {
+        const data = getAnggota();
+        tableAnggota.innerHTML = "";
+
+        if (data.length === 0) {
+          tableAnggota.innerHTML = `
+        <tr>
+          <td colspan="10" class="text-center">Data anggota kosong</td>
+        </tr>
+      `;
+          return;
+        }
+
+        data.forEach((item, index) => {
+          tableAnggota.innerHTML += `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${item.nta}</td>
+          <td>${item.nama}</td>
+          <td>${item.jk}</td>
+          <td>${item.tempatLahir}</td>
+          <td>${item.tanggalLahir}</td>
+          <td>${item.pangkalan}</td>
+          <td>${item.golongan}</td>
+          <td>${item.tku}</td>
+          <td>${item.jabatan}</td>
+          <td>${item.status}</td>
+          <td>${item.noHp}</td>
+          <td>
+            <button class="btn btn-sm btn-warning mb-2" onclick="editAnggota(${index})">Edit</button>
+            <button class="btn btn-sm btn-danger" onclick="hapusAnggota(${index})">Hapus</button>
+          </td>
+        </tr>
+      `;
+        });
+      }
+
+      // =====================
+      // EDIT
+      // =====================
+      function editAnggota(index) {
+        const data = getAnggota();
+        const item = data[index];
+        editIndex = index;
+
+        setValue("nta", item.nta);
+        setValue("nama", item.nama);
+        setValue("jk", item.jk);
+        setValue("tempatLahir", item.tempatLahir);
+        setValue("tanggalLahir", item.tanggalLahir);
+        setValue("pangkalan", item.pangkalan);
+        setValue("golongan", item.golongan);
+        setValue("tku", item.tku);
+        setValue("jabatan", item.jabatan);
+        setValue("status", item.status);
+        setValue("noHp", item.noHp);
+
+        document.getElementById("formAnggotaLabel").innerText =
+          "Edit Data Anggota";
+
+        new bootstrap.Modal(document.getElementById("formAnggotaModal")).show();
+      }
+
+      function hapusAnggota(index) {
+        Swal.fire({
+          title: "Yakin ingin menghapus?",
+          text: "Data anggota yang dihapus tidak dapat dikembalikan!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#6c757d",
+          confirmButtonText: "Ya, hapus!",
+          cancelButtonText: "Batal",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            const data = getAnggota();
+            data.splice(index, 1);
+            saveAnggota(data);
+            renderTable();
+
+            Swal.fire({
+              icon: "success",
+              title: "Berhasil!",
+              text: "Data anggota telah dihapus.",
+              timer: 1500,
+              showConfirmButton: false,
+            });
+          }
+        });
+      }
+
+      // =====================
+      // SUBMIT + VALIDASI NTA
+      // =====================
+      anggotaForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const data = getAnggota();
+        const ntaInput = getValue("nta").trim();
+
+        const isDuplicate = data.some((item, index) => {
+          if (editIndex !== null && index === editIndex) return false;
+          return item.nta === ntaInput;
+        });
+
+        if (isDuplicate) {
+          alert("❌ NTA sudah terdaftar!");
+          return;
+        }
+
+        const anggota = {
+          nta: ntaInput,
+          nama: getValue("nama"),
+          jk: getValue("jk"),
+          tempatLahir: getValue("tempatLahir"),
+          tanggalLahir: getValue("tanggalLahir"),
+          pangkalan: getValue("pangkalan"),
+          golongan: getValue("golongan"),
+          tku: getValue("tku"),
+          jabatan: getValue("jabatan"),
+          status: getValue("status"),
+          noHp: getValue("noHp"),
+        };
+
+        if (editIndex === null) {
+          data.push(anggota);
+        } else {
+          data[editIndex] = anggota;
+          editIndex = null;
+        }
+
+        saveAnggota(data);
+        anggotaForm.reset();
+        renderTable();
+
+        document.getElementById("formAnggotaLabel").innerText =
+          "Form Data Anggota";
+
+        const modal = bootstrap.Modal.getInstance(
+          document.getElementById("formAnggotaModal")
+        );
+        if (modal) modal.hide();
+      });
+
+      document.addEventListener("DOMContentLoaded", renderTable);
+
+      golonganSelect.addEventListener("change", function () {
+        const golongan = this.value;
+
+        // Reset pilihan TKU
+        tkuSelect.innerHTML = `<option value="">Pilih</option>`;
+
+        if (golongan === "Penegak") {
+          tkuSelect.innerHTML += `
+        <option value="Bantara">Bantara</option>
+        <option value="Laksana">Laksana</option>
+      `;
+        } else if (golongan === "Pandega") {
+          tkuSelect.innerHTML += `
+        <option value="Pandega">Pandega</option>
+      `;
+        }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"></script>
+  </body>
+</html>

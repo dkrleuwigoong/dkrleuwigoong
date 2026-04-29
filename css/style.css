@@ -21,11 +21,16 @@ body {
   justify-content: space-between; /* Logo kiri, menu tengah, icon kanan */
   align-items: center;
   padding: 15px 5%;
-  background: #0a0a0a;
+  background: transparent;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
+  transition: background-color 0.3s;
+}
+
+.navbar.scrolled {
+  background-color: #0056b3;
 }
 
 .navbar-logo {
@@ -135,7 +140,7 @@ section h2 {
 .profil .card {
   background: #fff;
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 5px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -153,6 +158,10 @@ section h2 {
   margin-bottom: 6px;
 }
 
+.profil p {
+  text-align: justify;
+}
+
 /* --- KEGIATAN --- */
 .kegiatan-container {
   display: grid;
@@ -162,7 +171,7 @@ section h2 {
 
 .kegiatan-card {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
@@ -233,7 +242,7 @@ section h2 {
 /* --- FOOTER --- */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   background: #0a0a0a;
   color: #fff;
 }
@@ -585,13 +594,6 @@ footer {
 /* Hover effect (opsional) */
 .kontak a:hover {
   text-decoration: none; /* atau bisa diganti background highlight */
-}
-
-footer {
-  text-align: center;
-  padding: 25px 10px;
-  background: #222;
-  margin-top: 40px;
 }
 
 .footer-social {
