@@ -74,7 +74,8 @@ body {
   display: flex;
   align-items: center;
   padding: 0 10%;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("img/hero.jpg") center/cover no-repeat;
   color: #fff;
 }
@@ -616,12 +617,6 @@ footer {
   transform: scale(1);
 }
 
-@media (max-width: 480px) {
-  .footer-social {
-    gap: 14px;
-  }
-}
-
 /* ===============================
    STRUKTUR KEPENGURUSAN (FINAL)
 =============================== */
@@ -666,7 +661,9 @@ footer {
   text-align: center;
   border: 1px solid #e8e8e8;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
   margin-bottom: 0;
 }
 
@@ -744,6 +741,51 @@ footer {
     font-size: 17px;
     padding: 13px;
   }
+
+  .table-responsive table {
+    font-size: 10px;
+  }
+
+  .table-responsive th,
+  .table-responsive td {
+    padding: 4px 6px;
+  }
+
+  .footer-social {
+    gap: 14px;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .modal-content h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .modal-content .close {
+    font-size: 24px;
+    top: 10px;
+    right: 12px;
+  }
+
+  /* Tambahan biar enak dibaca */
+  .modal-content p,
+  .modal-content label {
+    font-size: 14px;
+  }
+
+  /* Input dan tombol */
+  .modal-content input,
+  .modal-content select,
+  .modal-content textarea,
+  .modal-content button {
+    width: 100%;
+    font-size: 14px;
+  }
 }
 
 .btn-absen {
@@ -775,16 +817,6 @@ footer {
 
 .table-responsive th {
   font-weight: 600;
-}
-@media (max-width: 480px) {
-  .table-responsive table {
-    font-size: 10px;
-  }
-
-  .table-responsive th,
-  .table-responsive td {
-    padding: 4px 6px;
-  }
 }
 
 .pengumuman-item {
