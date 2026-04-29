@@ -99,10 +99,10 @@ body {
 
 .cta-btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 12px 25px;
   background: #f4b400;
   color: #000;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s;
@@ -429,23 +429,35 @@ footer {
   font-size: 22px;
 }
 
-/* Wrapper item download */
-.download-item {
+.informasi-list {
+  margin-top: 15px;
+}
+
+.informasi-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f5f5f5;
-  padding: 12px 15px;
-  border-radius: 8px;
-  margin: 10px 0;
-  border-left: 4px solid #007bff;
+  padding: 10px 0;
+  border-bottom: 1px solid #8b8a8a;
 }
 
-/* Teks nama dokumen */
-.download-item span {
-  font-size: 16px;
-  color: #111;
-  font-weight: 500;
+/* teks kiri */
+.informasi-item span {
+  font-size: 14px;
+  color: #333;
+}
+
+/* link kanan (bukan tombol) */
+.informasi-item a {
+  font-size: 14px;
+  color: #2c7be5;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.informasi-item a:hover {
+  text-decoration: underline;
+  color: #1a5edb;
 }
 
 /* Tombol unduh */
@@ -785,6 +797,28 @@ footer {
   .modal-content button {
     width: 100%;
     font-size: 14px;
+  }
+
+  .content {
+    padding: 50px 15px;
+  }
+
+  .content h1 {
+    font-size: 22px;
+  }
+
+  .content p {
+    font-size: 14px;
+    margin: 10px 0 20px;
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    margin-bottom: 20px; /* space bawah */
   }
 }
 
