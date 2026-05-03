@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 html {
@@ -238,6 +238,12 @@ section h2 {
 
 .kontak-card h3 {
   margin: 10px 0;
+}
+
+.kontak-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
 }
 
 /* --- FOOTER --- */

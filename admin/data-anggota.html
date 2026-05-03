@@ -1,566 +1,417 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SIMDEKA</title>
-    <link rel="Icon" href="img/dkr-logo.png" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
-      rel="stylesheet" />
-    <link rel="stylesheet" href="admin.css" />
-  </head>
-  <body>
-    <!-- Sidebar Offcanvas -->
-    <div
-      class="offcanvas offcanvas-start"
-      style="width: 300px"
-      tabindex="-1"
-      id="sidebar"
-      aria-labelledby="sidebarLabel">
-      <div class="offcanvas-header" style="padding: 20px">
-        <h5 class="offcanvas-title" id="sidebarLabel">SIMDEKA</h5>
-        <button
-          type="button"
-          class="btn-close text-reset"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body p-0">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <a
-              href="dashboard.html"
-              class="d-flex align-items-center text-decoration-none">
-              <span class="material-symbols-outlined me-2">home</span> Dashboard
-            </a>
-          </li>
 
-          <li class="list-group-item active">
-            <a
-              href="data-anggota.html"
-              class="d-flex align-items-center text-decoration-none">
-              <span class="material-symbols-outlined me-2">groups</span>
-              Manajemen Anggota
-            </a>
-          </li>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aviasi-v1-dkr-leuwigoong</title>
+  <link rel="Icon" href="img/dkr-logo.png" />
 
-          <li class="list-group-item">
-            <a
-              href="kegiatan.html"
-              class="d-flex align-items-center text-decoration-none">
-              <span class="material-symbols-outlined me-2">calendar_month</span>
-              Kegiatan
-            </a>
-          </li>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
-          <li class="list-group-item">
-            <a
-              href="presensi.html"
-              class="d-flex align-items-center text-decoration-none">
-              <span class="material-symbols-outlined me-2">leaderboard</span>
-              Presensi
-            </a>
-          </li>
+  <!-- Google Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-          <li class="list-group-item">
-            <a href="#" class="d-flex align-items-center text-decoration-none">
-              <span class="material-symbols-outlined me-2">work_history</span>
-              Penugasan
-            </a>
-          </li>
+  <!-- CSS -->
+  <link rel="stylesheet" href="asset/css/admin.css" />
+</head>
 
-          <li class="list-group-item">
-            <a href="#" class="d-flex align-items-center text-decoration-none">
-              <span class="material-symbols-outlined me-2">attach_money</span>
-              Keuangan
-            </a>
-          </li>
-
-          <li class="list-group-item">
-            <a href="#" class="d-flex align-items-center text-decoration-none">
-              <span class="material-symbols-outlined me-2">chat</span> Informasi
-              & Komunikasi
-            </a>
-          </li>
-
-          <li class="list-group-item">
-            <a href="#" class="d-flex align-items-center text-decoration-none">
-              <span class="material-symbols-outlined me-2">folder</span>
-              Dokumentasi
-            </a>
-          </li>
-
-          <li class="list-group-item">
-            <a href="#" class="d-flex align-items-center text-decoration-none">
-              <span class="material-symbols-outlined me-2">article</span>
-              Laporan
-            </a>
-          </li>
-
-          <li class="list-group-item">
-            <a href="#" class="d-flex align-items-center text-decoration-none">
-              <span class="material-symbols-outlined me-2">settings</span> Akun
-              & Pengaturan
-            </a>
-          </li>
-        </ul>
-      </div>
+<body>
+  <!-- Sidebar Offcanvas -->
+  <div class="offcanvas offcanvas-start" style="width: 250px" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+    <div class="offcanvas-header align-items-center">
+      <img src="asset/icon/simdeka_official.png" alt="" />
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+    <div class="offcanvas-body p-0">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <a href="dashboard.html" class="d-flex align-items-center text-decoration-none">
+            <span class="material-symbols-outlined me-2">home</span> Dashboard
+          </a>
+        </li>
 
-    <div class="main-wrapper">
-      <nav class="navbar">
-        <!-- KIRI : TOGGLE -->
-        <div class="navbar-left">
-          <button
-            class="btn btn-outline-primary"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#sidebar"
-            aria-controls="sidebar">
-            <span class="material-symbols-outlined"> menu </span>
-          </button>
+        <li class="list-group-item active">
+          <a href="data-anggota.html" class="d-flex align-items-center text-decoration-none">
+            <span class="material-symbols-outlined me-2">groups</span>
+            Data Anggota
+          </a>
+        </li>
+
+        <li class="list-group-item">
+          <a href="kegiatan.html" class="d-flex align-items-center text-decoration-none">
+            <span class="material-symbols-outlined me-2">calendar_month</span>
+            Kegiatan
+          </a>
+        </li>
+
+        <li class="list-group-item">
+          <a href="#" class="d-flex align-items-center text-decoration-none">
+            <span class="material-symbols-outlined me-2">attach_money</span>
+            Keuangan
+          </a>
+        </li>
+
+        <li class="list-group-item">
+          <a href="#" class="d-flex align-items-center text-decoration-none">
+            <span class="material-symbols-outlined me-2">article</span>
+            Laporan
+          </a>
+        </li>
+
+        <li class="list-group-item">
+          <a href="#" class="d-flex align-items-center text-decoration-none">
+            <span class="material-symbols-outlined me-2">settings</span> Pengaturan
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-wrapper">
+    <nav class="navbar">
+      <!-- KIRI : TOGGLE -->
+      <div class="navbar-left d-flex align-items-center gap-2">
+        <!-- tombol menu -->
+        <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+          aria-controls="sidebar">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+
+        <!-- search bar -->
+        <div class="search-box position-relative">
+          <span class="material-symbols-outlined search-icon">search</span>
+          <input type="text" class="form-control ps-5" placeholder="Cari...">
         </div>
+      </div>
 
-        <!-- KANAN : USER -->
-        <div class="navbar-right">
-          <div class="navbar-user">
-            <span class="material-symbols-outlined">account_circle</span>
-            <span class="username">-</span>
+      <!-- KANAN : USER -->
+      <div class="navbar-right">
+        <button class="navbar-icon">
+          <span class="material-symbols-outlined">account_circle</span>
+        </button>
+
+        <button class="navbar-icon">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+
+        <button class="navbar-icon logout">
+          <span class="material-symbols-outlined">logout</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="main">
+
+      <div class="dashboard-cards">
+        <!-- Card 1 -->
+        <div class="card-box">
+          <div class="card-header">
+            <span class="material-symbols-outlined icon blue">group</span>
+            <span class="title">TOTAL ANGGOTA</span>
           </div>
-
-          <button class="navbar-icon">
-            <span class="material-symbols-outlined">notifications</span>
-            <span class="notif-badge">3</span>
-          </button>
-
-          <button class="navbar-icon logout">
-            <span class="material-symbols-outlined">logout</span>
-          </button>
+          <h3>1,450</h3>
+          <p>820 Putra, 630 Putri</p>
         </div>
-      </nav>
 
-      <main class="main">
-        <div class="card">
-          <div class="card-body d-flex">
-            <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-              <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item active" aria-current="page">
-                  Beranda
-                </li>
-              </ol>
-            </nav>
+        <!-- Card 2 -->
+        <div class="card-box">
+          <div class="card-header">
+            <span class="material-symbols-outlined icon green">for_you</span>
+            <span class="title">KEAKTIFAN ANGGOTA</span>
           </div>
+          <h3>12</h3>
+          <p>4 Aktif, 8 Purna</p>
         </div>
 
-        <div class="card my-3 shadow">
-          <div
-            class="card-header text-white d-flex justify-content-between align-items-center">
-            <h5 class="mb-0" style="color: black">Data Anggota</h5>
-            <button
-              class="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#formAnggotaModal">
-              Tambah Anggota
+        <!-- Card 3 -->
+        <div class="card-box">
+          <div class="card-header">
+            <span class="material-symbols-outlined icon teal">diversity_3</span>
+            <span class="title">BIDANG TERSEDIA</span>
+          </div>
+          <h3>4 Bidang</h3>
+        </div>
+      </div>
+
+      <!-- Tabel data anggota -->
+      <div class="card-table">
+
+        <!-- HEADER -->
+        <div class="card-header-table">
+          <h5>Data Anggota</h5>
+          <div class="table-actions">
+            <input type="text" id="searchInput" placeholder="Cari nama / NTA..." class="form-control">
+
+            <select id="filterTku" class="form-control">
+              <option value="">Semua TKU</option>
+              <option>Penggalang</option>
+              <option>Bantara</option>
+              <option>Laksana</option>
+              <option>Pandega</option>
+            </select>
+
+            <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalAnggota">
+              + Tambah
             </button>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table
-                class="table align-middle mb-0"
-                style="width: auto; table-layout: auto">
-                <thead class="table-light text-center">
-                  <tr>
-                    <th>No</th>
-                    <th>NTA</th>
-                    <th>Nama</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Tempat Lahir</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Pangkalan</th>
-                    <th>Golongan</th>
-                    <th>TKU</th>
-                    <th>Jabatan</th>
-                    <th>Status</th>
-                    <th>No HP</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody class="text-center" id="tableAnggota"></tbody>
-              </table>
-            </div>
+            <button class="btn btn-success mb-2" onclick="importExcel()">Import Excel</button>
           </div>
         </div>
-      </main>
-    </div>
 
-    <!-- Scrollable Modal Form -->
-    <div
-      class="modal fade"
-      id="formAnggotaModal"
-      tabindex="-1"
-      aria-labelledby="formAnggotaLabel"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-lg">
-        <!-- modal-lg agar lebih tinggi -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="formAnggotaLabel">Form Data Anggota</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"></button>
-          </div>
-          <form id="anggotaForm">
-            <div class="modal-body" style="max-height: 70vh; overflow-y: auto">
-              <!-- tinggi max 70% viewport, scroll jika overflow -->
+        <!-- TABLE -->
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Foto</th>
+                <th>Nama</th>
+                <th>NTA</th>
+                <th>JK</th>
+                <th>TKU</th>
+                <th>Pangkalan</th>
+                <th>Jabatan</th>
+                <th>Bidang</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="anggotaTable"></tbody>
+          </table>
+        </div>
 
-              <div class="mb-3">
-                <label for="nta" class="form-label">NTA</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nta"
-                  name="nta"
-                  placeholder="Masukkan NTA"
-                  required />
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal fade" id="modalAnggota" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Tambah Anggota</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <form id="formAnggota">
+
+            <div class="row g-3">
+
+              <div class="col-md-6">
+                <label>Nama</label>
+                <input type="text" id="nama" class="form-control" required>
               </div>
 
-              <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nama"
-                  name="nama"
-                  placeholder="Masukkan nama"
-                  required />
+              <div class="col-md-6">
+                <label>NTA</label>
+                <input type="text" id="nta" class="form-control" required>
               </div>
 
-              <div class="mb-3">
-                <label for="jk" class="form-label">Jenis Kelamin</label>
-                <select class="form-select" id="jk" name="jk" required>
-                  <option value="">Pilih jenis kelamin</option>
-                  <option value="Laki-laki">Laki-laki</option>
-                  <option value="Perempuan">Perempuan</option>
+              <div class="col-md-6">
+                <label>Jenis Kelamin</label>
+                <select id="jk" class="form-control">
+                  <option>Putra</option>
+                  <option>Putri</option>
                 </select>
               </div>
 
-              <div class="mb-3">
-                <label for="tempatLahir" class="form-label">Tempat Lahir</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="tempatLahir"
-                  name="tempatLahir"
-                  placeholder="Masukkan tempat lahir"
-                  required />
-              </div>
-
-              <div class="mb-3">
-                <label for="tanggalLahir" class="form-label"
-                  >Tanggal Lahir</label
-                >
-                <input
-                  type="date"
-                  class="form-control"
-                  id="tanggalLahir"
-                  name="tanggalLahir"
-                  required />
-              </div>
-
-              <div class="mb-3">
-                <label for="pangkalan" class="form-label">Pangkalan</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="pangkalan"
-                  name="pangkalan"
-                  required />
-              </div>
-
-              <div class="mb-3">
-                <label for="golongan" class="form-label">Golongan</label>
-                <select
-                  class="form-select"
-                  id="golongan"
-                  name="golongan"
-                  required>
-                  <option value="">Pilih</option>
-                  <option value="Penegak">Penegak</option>
-                  <option value="Pandega">Pandega</option>
+              <div class="col-md-6">
+                <label>TKU</label>
+                <select id="tku" class="form-control">
+                  <option>Pilih TKU</option>
+                  <option>Penggalang</option>
+                  <option>Bantara</option>
+                  <option>Laksana</option>
+                  <option>Pandega</option>
                 </select>
               </div>
 
-              <div class="mb-3">
-                <label for="tku" class="form-label">TKU</label>
-                <select class="form-select" id="tku" name="tku" required>
-                  <option value="">Pilih</option>
+              <div class="col-md-6">
+                <label>Pangkalan</label>
+                <input type="text" id="pangkalan" class="form-control">
+              </div>
+
+              <div class="col-md-6">
+                <label>Jabatan</label>
+                <select id="jabatan" class="form-control">
+                  <option>Pilih Jabatan</option>
+                  <option>Pradana Putra</option>
+                  <option>Pradana Putri</option>
+                  <option>Pemangku Adat</option>
+                  <option>Kerani</option>
+                  <option>Hartaka</option>
+                  <option>Juru Ruang</option>
+                  <option>Ketua DKR</option>
+                  <option>Wakil Ketua DKR</option>
+                  <option>Sekretaris 1</option>
+                  <option>Sekretaris 2</option>
+                  <option>Bendahara</option>
+                  <option>Ketua Bidang</option>
+                  <option>Anggota</option>
                 </select>
               </div>
 
-              <div class="mb-3">
-                <label for="jabatan" class="form-label">Jabatan</label>
-                <select
-                  class="form-select"
-                  id="jabatan"
-                  name="jabatan"
-                  required>
-                  <option value="">Pilih</option>
-                  <option value="Ketua">Ketua</option>
-                  <option value="Wakil Ketua">Wakil Ketua</option>
-                  <option value="Sekretaris 1">Sekretaris 1</option>
-                  <option value="Sekretaris 2">Sekretaris 2</option>
-                  <option value="Bendahara">Bendahara</option>
-                  <option value="Anggota">Anggota</option>
+              <div class="col-md-6">
+                <label for="bidang" class="form-label">Bidang</label>
+                <select id="bidang" class="form-select">
+                  <option value="">-- Pilih Bidang --</option>
+                  <option value="Giat Op">Giat Op</option>
+                  <option value="Litbang">Litbang</option>
+                  <option value="Litev">Litev</option>
+                  <option value="Tekspram">Tekspram</option>
+                  <option value="Giat">Giat</option>
+                  <option value="Kajian">Kajian</option>
+                  <option value="Binbang">Binbang</option>
+                  <option value="BPH">BPH</option>
                 </select>
               </div>
 
-              <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <select class="form-select" id="status" name="status" required>
-                  <option value="">Pilih status</option>
-                  <option value="Aktif">Aktif</option>
-                  <option value="Tidak Aktif">Tidak Aktif</option>
-                </select>
+              <div class="col-md-6">
+                <label>Foto</label>
+                <input type="file" id="foto" class="form-control">
               </div>
 
-              <div class="mb-3">
-                <label for="noHp" class="form-label">No HP</label>
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="noHp"
-                  name="noHp"
-                  placeholder="Masukkan nomor HP"
-                  required />
+              <div class="col-md-12 text-center">
+                <img id="previewFoto" src="https://via.placeholder.com/100" style="width:100px; border-radius:10px;">
               </div>
+
             </div>
-            <div class="modal-footer" style="padding: 5px">
-              <button type="submit" class="btn btn-primary">Simpan</button>
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal">
-                Tutup
-              </button>
-            </div>
+
           </form>
         </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button class="btn btn-primary" onclick="simpanAnggota()">Simpan</button>
+        </div>
+
       </div>
     </div>
+  </div>
+  <script>
+    let dataAnggota = JSON.parse(localStorage.getItem("anggota")) || [];
 
-    <script>
-      const STORAGE_KEY = "dataAnggota";
-      const tableAnggota = document.getElementById("tableAnggota");
-      const anggotaForm = document.getElementById("anggotaForm");
-      const golonganSelect = document.getElementById("golongan");
-      const tkuSelect = document.getElementById("tku");
+    function renderTable() {
+      const tbody = document.getElementById("anggotaTable");
+      tbody.innerHTML = "";
 
-      let editIndex = null;
+      const search = document.getElementById("searchInput").value.toLowerCase();
+      const tkuFilter = document.getElementById("filterTku").value;
+      const statusFilter = document.getElementById("filterStatus").value;
 
-      // =====================
-      // UTIL
-      // =====================
-      function getAnggota() {
-        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-      }
-
-      function saveAnggota(data) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      }
-
-      function getValue(id) {
-        return document.getElementById(id).value;
-      }
-
-      function setValue(id, value) {
-        document.getElementById(id).value = value;
-      }
-
-      // =====================
-      // RENDER TABLE
-      // =====================
-      function renderTable() {
-        const data = getAnggota();
-        tableAnggota.innerHTML = "";
-
-        if (data.length === 0) {
-          tableAnggota.innerHTML = `
-        <tr>
-          <td colspan="10" class="text-center">Data anggota kosong</td>
-        </tr>
-      `;
-          return;
-        }
-
-        data.forEach((item, index) => {
-          tableAnggota.innerHTML += `
-        <tr>
-          <td>${index + 1}</td>
-          <td>${item.nta}</td>
-          <td>${item.nama}</td>
-          <td>${item.jk}</td>
-          <td>${item.tempatLahir}</td>
-          <td>${item.tanggalLahir}</td>
-          <td>${item.pangkalan}</td>
-          <td>${item.golongan}</td>
-          <td>${item.tku}</td>
-          <td>${item.jabatan}</td>
-          <td>${item.status}</td>
-          <td>${item.noHp}</td>
-          <td>
-            <button class="btn btn-sm btn-warning mb-2" onclick="editAnggota(${index})">Edit</button>
-            <button class="btn btn-sm btn-danger" onclick="hapusAnggota(${index})">Hapus</button>
-          </td>
-        </tr>
-      `;
-        });
-      }
-
-      // =====================
-      // EDIT
-      // =====================
-      function editAnggota(index) {
-        const data = getAnggota();
-        const item = data[index];
-        editIndex = index;
-
-        setValue("nta", item.nta);
-        setValue("nama", item.nama);
-        setValue("jk", item.jk);
-        setValue("tempatLahir", item.tempatLahir);
-        setValue("tanggalLahir", item.tanggalLahir);
-        setValue("pangkalan", item.pangkalan);
-        setValue("golongan", item.golongan);
-        setValue("tku", item.tku);
-        setValue("jabatan", item.jabatan);
-        setValue("status", item.status);
-        setValue("noHp", item.noHp);
-
-        document.getElementById("formAnggotaLabel").innerText =
-          "Edit Data Anggota";
-
-        new bootstrap.Modal(document.getElementById("formAnggotaModal")).show();
-      }
-
-      function hapusAnggota(index) {
-        Swal.fire({
-          title: "Yakin ingin menghapus?",
-          text: "Data anggota yang dihapus tidak dapat dikembalikan!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#d33",
-          cancelButtonColor: "#6c757d",
-          confirmButtonText: "Ya, hapus!",
-          cancelButtonText: "Batal",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            const data = getAnggota();
-            data.splice(index, 1);
-            saveAnggota(data);
-            renderTable();
-
-            Swal.fire({
-              icon: "success",
-              title: "Berhasil!",
-              text: "Data anggota telah dihapus.",
-              timer: 1500,
-              showConfirmButton: false,
-            });
-          }
-        });
-      }
-
-      // =====================
-      // SUBMIT + VALIDASI NTA
-      // =====================
-      anggotaForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const data = getAnggota();
-        const ntaInput = getValue("nta").trim();
-
-        const isDuplicate = data.some((item, index) => {
-          if (editIndex !== null && index === editIndex) return false;
-          return item.nta === ntaInput;
-        });
-
-        if (isDuplicate) {
-          alert("❌ NTA sudah terdaftar!");
-          return;
-        }
-
-        const anggota = {
-          nta: ntaInput,
-          nama: getValue("nama"),
-          jk: getValue("jk"),
-          tempatLahir: getValue("tempatLahir"),
-          tanggalLahir: getValue("tanggalLahir"),
-          pangkalan: getValue("pangkalan"),
-          golongan: getValue("golongan"),
-          tku: getValue("tku"),
-          jabatan: getValue("jabatan"),
-          status: getValue("status"),
-          noHp: getValue("noHp"),
-        };
-
-        if (editIndex === null) {
-          data.push(anggota);
-        } else {
-          data[editIndex] = anggota;
-          editIndex = null;
-        }
-
-        saveAnggota(data);
-        anggotaForm.reset();
-        renderTable();
-
-        document.getElementById("formAnggotaLabel").innerText =
-          "Form Data Anggota";
-
-        const modal = bootstrap.Modal.getInstance(
-          document.getElementById("formAnggotaModal")
+      let filtered = dataAnggota.filter(item => {
+        return (
+          (item.nama.toLowerCase().includes(search) || item.nta.includes(search)) &&
+          (tkuFilter === "" || item.tku === tkuFilter)
         );
-        if (modal) modal.hide();
       });
 
-      document.addEventListener("DOMContentLoaded", renderTable);
-
-      golonganSelect.addEventListener("change", function () {
-        const golongan = this.value;
-
-        // Reset pilihan TKU
-        tkuSelect.innerHTML = `<option value="">Pilih</option>`;
-
-        if (golongan === "Penegak") {
-          tkuSelect.innerHTML += `
-        <option value="Bantara">Bantara</option>
-        <option value="Laksana">Laksana</option>
-      `;
-        } else if (golongan === "Pandega") {
-          tkuSelect.innerHTML += `
-        <option value="Pandega">Pandega</option>
-      `;
-        }
+      filtered.forEach((item, index) => {
+        tbody.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td><img src="${item.foto}" /></td>
+        <td>${item.nama}</td>
+        <td>${item.nta}</td>
+        <td>${item.jk}</td>
+        <td>${item.tku}</td>
+        <td>${item.pangkalan}</td>
+        <td>${item.jabatan}</td>
+        <td>${item.bidang}</td>
+        <td>
+          <button class="btn btn-info btn-sm mb-1" onclick="detail(${index})">Detail</button>
+          <button class="btn btn-warning btn-sm mb-1" onclick="edit(${index})">Edit</button>
+          <button class="btn btn-danger btn-sm mb-1" onclick="hapus(${index})">Hapus</button>
+        </td>
+      </tr>
+    `;
       });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"></script>
-  </body>
+    }
+
+    function simpanData() {
+      localStorage.setItem("anggota", JSON.stringify(dataAnggota));
+    }
+
+    function hapus(index) {
+      if (confirm("Hapus data?")) {
+        dataAnggota.splice(index, 1);
+        simpanData();
+        renderTable();
+      }
+    }
+
+    function detail(index) {
+      alert("Detail: " + dataAnggota[index].nama);
+    }
+
+    function edit(index) {
+      let namaBaru = prompt("Edit nama:", dataAnggota[index].nama);
+      if (namaBaru) {
+        dataAnggota[index].nama = namaBaru;
+        simpanData();
+        renderTable();
+      }
+    }
+
+    function importExcel() {
+      alert("Fitur import Excel bisa pakai SheetJS (next step)");
+    }
+
+    /* event */
+    document.getElementById("searchInput").addEventListener("input", renderTable);
+    document.getElementById("filterTku").addEventListener("change", renderTable);
+    document.getElementById("filterStatus").addEventListener("change", renderTable);
+
+    /* init */
+    renderTable();
+
+    // preview foto
+    document.getElementById("foto").addEventListener("change", function (e) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function () {
+        document.getElementById("previewFoto").src = reader.result;
+      }
+
+      if (file) reader.readAsDataURL(file);
+    });
+
+    // simpan data
+    function simpanAnggota() {
+      const anggota = {
+        nama: document.getElementById("nama").value,
+        nta: document.getElementById("nta").value,
+        jk: document.getElementById("jk").value,
+        tku: document.getElementById("tku").value,
+        pangkalan: document.getElementById("pangkalan").value,
+        jabatan: document.getElementById("jabatan").value,
+        bidang: document.getElementById("bidang").value,
+        foto: document.getElementById("previewFoto").src
+      };
+
+      dataAnggota.push(anggota);
+      simpanData();
+      renderTable();
+
+      // reset form
+      document.getElementById("formAnggota").reset();
+      document.getElementById("previewFoto").src = "https://via.placeholder.com/100";
+
+      // tutup modal
+      const modal = bootstrap.Modal.getInstance(document.getElementById('modalAnggota'));
+      modal.hide();
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
