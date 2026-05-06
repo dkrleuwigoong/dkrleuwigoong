@@ -4,414 +4,692 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>aviasi-v1-dkr-leuwigoong</title>
+  <title>simpro-v1-leuwigoong</title>
   <link rel="Icon" href="img/dkr-logo.png" />
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
-  <!-- Google Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts Ubuntu -->
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="asset/css/admin.css" />
 </head>
 
 <body>
-  <!-- Sidebar Offcanvas -->
-  <div class="offcanvas offcanvas-start" style="width: 250px" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
-    <div class="offcanvas-header align-items-center">
-      <img src="asset/icon/simdeka_official.png" alt="" />
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body p-0">
-      <ul class="list-group list-group-flush">
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <img src="asset/icon/simpro.png" alt="Logo" height="40">
+      </div>
+
+      <ul class="sidebar-menu list-group list-group-flush">
+
         <li class="list-group-item">
-          <a href="dashboard.html" class="d-flex align-items-center text-decoration-none">
-            <span class="material-symbols-outlined me-2">home</span> Dashboard
+          <a href="dashboard.html">
+            <i class="bi bi-house"></i>
+            <span>Dashboard</span>
           </a>
         </li>
 
         <li class="list-group-item active">
-          <a href="data-anggota.html" class="d-flex align-items-center text-decoration-none">
-            <span class="material-symbols-outlined me-2">groups</span>
-            Data Anggota
+          <a href="data-anggota.html">
+            <i class="bi bi-people"></i>
+            <span>Data Anggota</span>
           </a>
         </li>
 
         <li class="list-group-item">
-          <a href="kegiatan.html" class="d-flex align-items-center text-decoration-none">
-            <span class="material-symbols-outlined me-2">calendar_month</span>
-            Kegiatan
+          <a href="kegiatan.html">
+            <i class="bi bi-calendar-event"></i>
+            <span>Kegiatan</span>
           </a>
         </li>
 
         <li class="list-group-item">
-          <a href="#" class="d-flex align-items-center text-decoration-none">
-            <span class="material-symbols-outlined me-2">attach_money</span>
-            Keuangan
+          <a href="#">
+            <i class="bi bi-cash-stack"></i>
+            <span>Keuangan</span>
           </a>
         </li>
 
         <li class="list-group-item">
-          <a href="#" class="d-flex align-items-center text-decoration-none">
-            <span class="material-symbols-outlined me-2">article</span>
-            Laporan
+          <a href="#">
+            <i class="bi bi-file-earmark-text"></i>
+            <span>Laporan</span>
           </a>
         </li>
 
         <li class="list-group-item">
-          <a href="#" class="d-flex align-items-center text-decoration-none">
-            <span class="material-symbols-outlined me-2">settings</span> Pengaturan
+          <a href="#">
+            <i class="bi bi-gear"></i>
+            <span>Pengaturan</span>
           </a>
         </li>
+
       </ul>
     </div>
-  </div>
 
-  <div class="main-wrapper">
-    <nav class="navbar">
-      <!-- KIRI : TOGGLE -->
-      <div class="navbar-left d-flex align-items-center gap-2">
-        <!-- tombol menu -->
-        <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
-          aria-controls="sidebar">
-          <span class="material-symbols-outlined">menu</span>
-        </button>
+    <div class="main-wrapper">
+      <nav class="navbar">
+        <!-- KIRI : TOGGLE -->
+        <div class="navbar-left d-flex align-items-center gap-3">
 
-        <!-- search bar -->
-        <div class="search-box position-relative">
-          <span class="material-symbols-outlined search-icon">search</span>
-          <input type="text" class="form-control ps-5" placeholder="Cari...">
-        </div>
-      </div>
+          <!-- Toggle Sidebar -->
+          <button class="btn btn-outline-primary btn-toggle" type="button" aria-label="Toggle sidebar">
+            <i class="bi bi-list"></i>
+          </button>
 
-      <!-- KANAN : USER -->
-      <div class="navbar-right">
-        <button class="navbar-icon">
-          <span class="material-symbols-outlined">account_circle</span>
-        </button>
-
-        <button class="navbar-icon">
-          <span class="material-symbols-outlined">notifications</span>
-        </button>
-
-        <button class="navbar-icon logout">
-          <span class="material-symbols-outlined">logout</span>
-        </button>
-      </div>
-    </nav>
-
-    <main class="main">
-
-      <div class="dashboard-cards">
-        <!-- Card 1 -->
-        <div class="card-box">
-          <div class="card-header">
-            <span class="material-symbols-outlined icon blue">group</span>
-            <span class="title">TOTAL ANGGOTA</span>
+          <!-- Search Bar -->
+          <div class="search-box position-relative">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" class="form-control search-input" placeholder="Cari..." aria-label="Search">
           </div>
-          <h3>1,450</h3>
-          <p>820 Putra, 630 Putri</p>
+
         </div>
 
-        <!-- Card 2 -->
-        <div class="card-box">
-          <div class="card-header">
-            <span class="material-symbols-outlined icon green">for_you</span>
-            <span class="title">KEAKTIFAN ANGGOTA</span>
-          </div>
-          <h3>12</h3>
-          <p>4 Aktif, 8 Purna</p>
+        <!-- KANAN : USER -->
+        <div class="navbar-right d-flex align-items-center gap-2">
+
+          <!-- Profile -->
+          <button class="navbar-icon" aria-label="Profile">
+            <i class="bi bi-person-circle"></i>
+          </button>
+
+          <!-- Notifications -->
+          <button class="navbar-icon" aria-label="Notifications">
+            <i class="bi bi-bell"></i>
+          </button>
+
+          <!-- Logout -->
+          <a href="../login.html" class="navbar-icon logout" aria-label="Logout">
+            <i class="bi bi-box-arrow-right"></i>
+          </a>
+
         </div>
+      </nav>
 
-        <!-- Card 3 -->
-        <div class="card-box">
-          <div class="card-header">
-            <span class="material-symbols-outlined icon teal">diversity_3</span>
-            <span class="title">BIDANG TERSEDIA</span>
-          </div>
-          <h3>4 Bidang</h3>
-        </div>
-      </div>
+      <main class="main">
 
-      <!-- Tabel data anggota -->
-      <div class="card-table">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="card-title pb-1 border-bottom border-primary">
+                Informasi Instansi
+              </h5>
+              <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modalInstansi">
+                Edit
+              </button>
+            </div>
 
-        <!-- HEADER -->
-        <div class="card-header-table">
-          <h5>Data Anggota</h5>
-          <div class="table-actions">
-            <input type="text" id="searchInput" placeholder="Cari nama / NTA..." class="form-control">
-
-            <select id="filterTku" class="form-control">
-              <option value="">Semua TKU</option>
-              <option>Penggalang</option>
-              <option>Bantara</option>
-              <option>Laksana</option>
-              <option>Pandega</option>
-            </select>
-
-            <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalAnggota">
-              + Tambah
-            </button>
-            <button class="btn btn-success mb-2" onclick="importExcel()">Import Excel</button>
+            <div class="row" id="instansiView">
+              <!-- Diisi via JS -->
+            </div>
           </div>
         </div>
 
-        <!-- TABLE -->
-        <div class="table-responsive">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Foto</th>
-                <th>Nama</th>
-                <th>NTA</th>
-                <th>JK</th>
-                <th>TKU</th>
-                <th>Pangkalan</th>
-                <th>Jabatan</th>
-                <th>Bidang</th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
-            <tbody id="anggotaTable"></tbody>
-          </table>
-        </div>
+        <!-- Tabel data anggota -->
+        <div class="card-table">
 
+          <!-- HEADER -->
+          <div class="card-header-table">
+            <h5>Data Anggota</h5>
+            <div class="table-actions">
+              <input type="text" id="searchInput" placeholder="Cari nama / NTA..." class="form-control">
+
+              <select id="filterTku" class="form-control">
+                <option value="">Semua TKU</option>
+                <option>Penggalang</option>
+                <option>Bantara</option>
+                <option>Laksana</option>
+                <option>Pandega</option>
+              </select>
+
+              <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalAnggota">
+                + Tambah
+              </button>
+              <button class="btn btn-success mb-2" onclick="importExcel()">Import Excel</button>
+            </div>
+          </div>
+
+          <!-- TABLE -->
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Foto</th>
+                  <th>Nama</th>
+                  <th>NTA</th>
+                  <th>JK</th>
+                  <th>TKU</th>
+                  <th>Pangkalan</th>
+                  <th>Jabatan</th>
+                  <th>Bidang</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="anggotaTable"></tbody>
+            </table>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal fade" id="modalAnggota" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title">Tambah Anggota</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <form id="formAnggota">
+
+              <div class="row g-3">
+
+                <div class="col-md-6">
+                  <label>Nama</label>
+                  <input type="text" id="nama" class="form-control text-uppercase" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label>NTA</label>
+                  <input type="text" id="nta" class="form-control" maxlength="15" pattern="\d{1,15}" inputmode="numeric"
+                    required>
+                </div>
+
+                <div class="col-md-6">
+                  <label>Jenis Kelamin</label>
+                  <select id="jk" class="form-control">
+                    <option>Putra</option>
+                    <option>Putri</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label>TKU</label>
+                  <select id="tku" class="form-control">
+                    <option value="">Pilih TKU</option>
+                    <option>Penggalang</option>
+                    <option>Bantara</option>
+                    <option>Laksana</option>
+                    <option>Pandega</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label>Pangkalan</label>
+                  <input type="text" id="pangkalan" class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                  <label>Jabatan</label>
+                  <select id="jabatan" class="form-control">
+                    <option>Pilih Jabatan</option>
+                    <option>Pradana Putra</option>
+                    <option>Pradana Putri</option>
+                    <option>Pemangku Adat</option>
+                    <option>Kerani</option>
+                    <option>Hartaka</option>
+                    <option>Juru Ruang</option>
+                    <option>Ketua DKR</option>
+                    <option>Wakil Ketua DKR</option>
+                    <option>Sekretaris 1</option>
+                    <option>Sekretaris 2</option>
+                    <option>Bendahara</option>
+                    <option>Ketua Bidang</option>
+                    <option>Anggota</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="bidang" class="form-label">Bidang</label>
+                  <select id="bidang" name="bidang" class="form-select" required>
+                    <option value="" disabled selected>-- Pilih Bidang --</option>
+                    <option value="giat_op">Giat Op</option>
+                    <option value="litbang">Litbang</option>
+                    <option value="litev">Litev</option>
+                    <option value="tekspram">Tekspram</option>
+                    <option value="giat">Giat</option>
+                    <option value="kajian">Kajian</option>
+                    <option value="binbang">Binbang</option>
+                    <option value="bph">BPH</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label>Foto</label>
+                  <input type="file" id="foto" class="form-control">
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <img id="previewFoto" src="https://via.placeholder.com/100" style="width:100px; border-radius:10px;">
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button class="btn btn-primary" onclick="simpanAnggota()">Simpan</button>
+          </div>
+
+        </div>
       </div>
-    </main>
-  </div>
+    </div>
 
-  <!-- MODAL -->
-  <div class="modal fade" id="modalAnggota" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
+    <div class="modal fade" id="modalHapus" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
 
-        <div class="modal-header">
-          <h5 class="modal-title">Tambah Anggota</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <div class="modal-body p-4">
+            <i class="bi bi-exclamation-triangle text-warning" style="font-size:40px;"></i>
+            <h5 class="mt-3">Hapus Data?</h5>
+            <p class="text-muted">Data yang dihapus tidak bisa dikembalikan.</p>
+          </div>
+
+          <div class="modal-footer justify-content-center">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button class="btn btn-danger" id="btnConfirmHapus">Hapus</button>
+          </div>
+
         </div>
+      </div>
+    </div>
 
-        <div class="modal-body">
-          <form id="formAnggota">
+    <div class="modal fade" id="modalDetail" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
 
-            <div class="row g-3">
+          <div class="modal-header">
+            <h5 class="modal-title">Detail Anggota</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
 
-              <div class="col-md-6">
-                <label>Nama</label>
-                <input type="text" id="nama" class="form-control" required>
+          <div class="modal-body">
+            <div class="row">
+
+              <div class="col-md-4 text-center">
+                <img id="detailFoto" src="" class="img-fluid rounded" style="max-height:200px;">
               </div>
 
-              <div class="col-md-6">
-                <label>NTA</label>
-                <input type="text" id="nta" class="form-control" required>
-              </div>
-
-              <div class="col-md-6">
-                <label>Jenis Kelamin</label>
-                <select id="jk" class="form-control">
-                  <option>Putra</option>
-                  <option>Putri</option>
-                </select>
-              </div>
-
-              <div class="col-md-6">
-                <label>TKU</label>
-                <select id="tku" class="form-control">
-                  <option>Pilih TKU</option>
-                  <option>Penggalang</option>
-                  <option>Bantara</option>
-                  <option>Laksana</option>
-                  <option>Pandega</option>
-                </select>
-              </div>
-
-              <div class="col-md-6">
-                <label>Pangkalan</label>
-                <input type="text" id="pangkalan" class="form-control">
-              </div>
-
-              <div class="col-md-6">
-                <label>Jabatan</label>
-                <select id="jabatan" class="form-control">
-                  <option>Pilih Jabatan</option>
-                  <option>Pradana Putra</option>
-                  <option>Pradana Putri</option>
-                  <option>Pemangku Adat</option>
-                  <option>Kerani</option>
-                  <option>Hartaka</option>
-                  <option>Juru Ruang</option>
-                  <option>Ketua DKR</option>
-                  <option>Wakil Ketua DKR</option>
-                  <option>Sekretaris 1</option>
-                  <option>Sekretaris 2</option>
-                  <option>Bendahara</option>
-                  <option>Ketua Bidang</option>
-                  <option>Anggota</option>
-                </select>
-              </div>
-
-              <div class="col-md-6">
-                <label for="bidang" class="form-label">Bidang</label>
-                <select id="bidang" class="form-select">
-                  <option value="">-- Pilih Bidang --</option>
-                  <option value="Giat Op">Giat Op</option>
-                  <option value="Litbang">Litbang</option>
-                  <option value="Litev">Litev</option>
-                  <option value="Tekspram">Tekspram</option>
-                  <option value="Giat">Giat</option>
-                  <option value="Kajian">Kajian</option>
-                  <option value="Binbang">Binbang</option>
-                  <option value="BPH">BPH</option>
-                </select>
-              </div>
-
-              <div class="col-md-6">
-                <label>Foto</label>
-                <input type="file" id="foto" class="form-control">
-              </div>
-
-              <div class="col-md-12 text-center">
-                <img id="previewFoto" src="https://via.placeholder.com/100" style="width:100px; border-radius:10px;">
+              <div class="col-md-8">
+                <table class="table table-sm">
+                  <tr>
+                    <th>Nama</th>
+                    <td id="detailNama"></td>
+                  </tr>
+                  <tr>
+                    <th>NTA</th>
+                    <td id="detailNta"></td>
+                  </tr>
+                  <tr>
+                    <th>Jenis Kelamin</th>
+                    <td id="detailJk"></td>
+                  </tr>
+                  <tr>
+                    <th>TKU</th>
+                    <td id="detailTku"></td>
+                  </tr>
+                  <tr>
+                    <th>Pangkalan</th>
+                    <td id="detailPangkalan"></td>
+                  </tr>
+                  <tr>
+                    <th>Jabatan</th>
+                    <td id="detailJabatan"></td>
+                  </tr>
+                  <tr>
+                    <th>Bidang</th>
+                    <td id="detailBidang"></td>
+                  </tr>
+                </table>
               </div>
 
             </div>
+          </div>
 
-          </form>
         </div>
-
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-          <button class="btn btn-primary" onclick="simpanAnggota()">Simpan</button>
-        </div>
-
       </div>
     </div>
-  </div>
-  <script>
-    let dataAnggota = JSON.parse(localStorage.getItem("anggota")) || [];
 
-    function renderTable() {
-      const tbody = document.getElementById("anggotaTable");
-      tbody.innerHTML = "";
+    <div class="modal fade" id="modalInstansi" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
 
-      const search = document.getElementById("searchInput").value.toLowerCase();
-      const tkuFilter = document.getElementById("filterTku").value;
-      const statusFilter = document.getElementById("filterStatus").value;
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Instansi</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
 
-      let filtered = dataAnggota.filter(item => {
-        return (
-          (item.nama.toLowerCase().includes(search) || item.nta.includes(search)) &&
-          (tkuFilter === "" || item.tku === tkuFilter)
-        );
+          <div class="modal-body">
+            <div class="mb-2">
+              <label>Nama Instansi</label>
+              <input type="text" id="instansi" class="form-control">
+            </div>
+
+            <div class="mb-2">
+              <label>Kwarran</label>
+              <input type="text" id="kwarran" class="form-control">
+            </div>
+
+            <div class="mb-2">
+              <label>Kwarcab</label>
+              <input type="text" id="kwarcab" class="form-control">
+            </div>
+
+            <div class="mb-2">
+              <label>Kwarda</label>
+              <input type="text" id="kwarda" class="form-control">
+            </div>
+
+            <div class="mb-2">
+              <label>No Kwarran</label>
+              <input type="text" id="noKwarran" class="form-control">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button class="btn btn-primary" id="btnSimpanInstansi">Simpan</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+        // ======================
+        // DATA LOCALSTORAGE
+        // ======================
+        let dataAnggota = JSON.parse(localStorage.getItem("dataAnggota")) || [];
+
+        function simpanData() {
+          localStorage.setItem("dataAnggota", JSON.stringify(dataAnggota));
+        }
+
+        // ======================
+        // RENDER TABLE
+        // ======================
+        function renderTable() {
+          const tbody = document.getElementById("anggotaTable");
+          if (!tbody) return;
+
+          tbody.innerHTML = "";
+
+          const search = document.getElementById("searchInput")?.value.toLowerCase() || "";
+          const tkuFilter = document.getElementById("filterTku")?.value || "";
+
+          let filtered = dataAnggota.filter(item => {
+            return (
+              (item.nama.toLowerCase().includes(search) || item.nta.includes(search)) &&
+              (tkuFilter === "" || item.tku === tkuFilter)
+            );
+          });
+
+          filtered.forEach((item, i) => {
+            const index = dataAnggota.indexOf(item);
+
+            tbody.innerHTML += `
+            <tr>
+              <td>${i + 1}</td>
+              <td><img src="${item.foto}" width="40"/></td>
+              <td>${item.nama}</td>
+              <td>${item.nta}</td>
+              <td>${item.jk}</td>
+              <td>${item.tku}</td>
+              <td>${item.pangkalan}</td>
+              <td>${item.jabatan}</td>
+              <td>${item.bidang}</td>
+              <td>
+                <button class="btn btn-info btn-sm mb-1" onclick="detail(${index})">Detail</button>
+                <button class="btn btn-warning btn-sm mb-1" onclick="edit(${index})">Edit</button>
+                <button class="btn btn-danger btn-sm mb-1" onclick="hapus(${index})">Hapus</button>
+              </td>
+            </tr>
+          `;
+          });
+        }
+
+        // ======================
+        // HAPUS (MODAL)
+        // ======================
+        let indexHapus = null;
+
+        window.hapus = function (index) {
+          indexHapus = index;
+          const modal = new bootstrap.Modal(document.getElementById('modalHapus'));
+          modal.show();
+        }
+
+        const btnConfirm = document.getElementById("btnConfirmHapus");
+        if (btnConfirm) {
+          btnConfirm.addEventListener("click", function () {
+            if (indexHapus !== null) {
+              dataAnggota.splice(indexHapus, 1);
+              simpanData();
+              renderTable();
+            }
+
+            indexHapus = null;
+            bootstrap.Modal.getInstance(document.getElementById('modalHapus')).hide();
+          });
+        }
+
+        // ======================
+        // DETAIL & EDIT
+        // ======================
+        window.detail = function (index) {
+          const data = dataAnggota[index];
+
+          // isi data ke modal
+          document.getElementById("detailFoto").src = data.foto;
+          document.getElementById("detailNama").innerText = data.nama;
+          document.getElementById("detailNta").innerText = data.nta;
+          document.getElementById("detailJk").innerText = data.jk;
+          document.getElementById("detailTku").innerText = data.tku;
+          document.getElementById("detailPangkalan").innerText = data.pangkalan;
+          document.getElementById("detailJabatan").innerText = data.jabatan;
+          document.getElementById("detailBidang").innerText = data.bidang;
+
+          // tampilkan modal
+          const modal = new bootstrap.Modal(document.getElementById('modalDetail'));
+          modal.show();
+        }
+
+        window.edit = function (index) {
+          let namaBaru = prompt("Edit nama:", dataAnggota[index].nama);
+          if (namaBaru) {
+            dataAnggota[index].nama = namaBaru;
+            simpanData();
+            renderTable();
+          }
+        }
+
+        // ======================
+        // SEARCH & FILTER
+        // ======================
+        document.getElementById("searchInput")?.addEventListener("input", renderTable);
+        document.getElementById("filterTku")?.addEventListener("change", renderTable);
+
+        // ======================
+        // PREVIEW FOTO
+        // ======================
+        document.getElementById("foto")?.addEventListener("change", function (e) {
+          const file = e.target.files[0];
+          if (!file) return;
+
+          const reader = new FileReader();
+          reader.onload = function () {
+            document.getElementById("previewFoto").src = reader.result;
+          };
+          reader.readAsDataURL(file); // 🔥 FIX penting
+        });
+
+        // ======================
+        // SIMPAN ANGGOTA
+        // ======================
+        window.simpanAnggota = function () {
+          const anggota = {
+            nama: document.getElementById("nama").value.trim(),
+            nta: document.getElementById("nta").value.trim(),
+            jk: document.getElementById("jk").value,
+            tku: document.getElementById("tku").value,
+            pangkalan: document.getElementById("pangkalan").value.trim(),
+            jabatan: document.getElementById("jabatan").value,
+            bidang: document.getElementById("bidang").value,
+            foto: document.getElementById("previewFoto").src
+          };
+
+          if (!anggota.nama || !anggota.nta) {
+            alert("Nama dan NTA wajib diisi!");
+            return;
+          }
+
+          dataAnggota.push(anggota);
+          simpanData();
+          renderTable();
+
+          document.getElementById("formAnggota").reset();
+          document.getElementById("previewFoto").src = "https://via.placeholder.com/100";
+
+          bootstrap.Modal.getInstance(document.getElementById('modalAnggota')).hide();
+        }
+
+        // ======================
+        // TOTAL PANGKALAN
+        // ======================
+        const elTotal = document.getElementById("PangkalanTotal");
+        if (elTotal) {
+          const unique = [...new Set(
+            dataAnggota
+              .map(item => item.pangkalan?.trim())
+              .filter(p => p)
+          )];
+
+          elTotal.innerText = `${unique.length} Pangkalan`;
+        }
+
+        // ======================
+        // INIT
+        // ======================
+        renderTable();
+
       });
 
-      filtered.forEach((item, index) => {
-        tbody.innerHTML += `
-      <tr>
-        <td>${index + 1}</td>
-        <td><img src="${item.foto}" /></td>
-        <td>${item.nama}</td>
-        <td>${item.nta}</td>
-        <td>${item.jk}</td>
-        <td>${item.tku}</td>
-        <td>${item.pangkalan}</td>
-        <td>${item.jabatan}</td>
-        <td>${item.bidang}</td>
-        <td>
-          <button class="btn btn-info btn-sm mb-1" onclick="detail(${index})">Detail</button>
-          <button class="btn btn-warning btn-sm mb-1" onclick="edit(${index})">Edit</button>
-          <button class="btn btn-danger btn-sm mb-1" onclick="hapus(${index})">Hapus</button>
-        </td>
-      </tr>
-    `;
-      });
-    }
+      const ntaInput = document.getElementById("nta");
 
-    function simpanData() {
-      localStorage.setItem("anggota", JSON.stringify(dataAnggota));
-    }
-
-    function hapus(index) {
-      if (confirm("Hapus data?")) {
-        dataAnggota.splice(index, 1);
-        simpanData();
-        renderTable();
-      }
-    }
-
-    function detail(index) {
-      alert("Detail: " + dataAnggota[index].nama);
-    }
-
-    function edit(index) {
-      let namaBaru = prompt("Edit nama:", dataAnggota[index].nama);
-      if (namaBaru) {
-        dataAnggota[index].nama = namaBaru;
-        simpanData();
-        renderTable();
-      }
-    }
-
-    function importExcel() {
-      alert("Fitur import Excel bisa pakai SheetJS (next step)");
-    }
-
-    /* event */
-    document.getElementById("searchInput").addEventListener("input", renderTable);
-    document.getElementById("filterTku").addEventListener("change", renderTable);
-    document.getElementById("filterStatus").addEventListener("change", renderTable);
-
-    /* init */
-    renderTable();
-
-    // preview foto
-    document.getElementById("foto").addEventListener("change", function (e) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-
-      reader.onload = function () {
-        document.getElementById("previewFoto").src = reader.result;
+      if (ntaInput) {
+        ntaInput.addEventListener("input", function () {
+          this.value = this.value.replace(/\D/g, '').slice(0, 15);
+        });
       }
 
-      if (file) reader.readAsDataURL(file);
-    });
+      const namaInput = document.getElementById("nama");
 
-    // simpan data
-    function simpanAnggota() {
-      const anggota = {
-        nama: document.getElementById("nama").value,
-        nta: document.getElementById("nta").value,
-        jk: document.getElementById("jk").value,
-        tku: document.getElementById("tku").value,
-        pangkalan: document.getElementById("pangkalan").value,
-        jabatan: document.getElementById("jabatan").value,
-        bidang: document.getElementById("bidang").value,
-        foto: document.getElementById("previewFoto").src
+      if (namaInput) {
+        namaInput.addEventListener("input", function () {
+          this.value = this.value.toUpperCase();
+        });
+      }
+
+      // ======================
+      // DATA INSTANSI
+      // ======================
+      let dataInstansi = JSON.parse(localStorage.getItem("dataInstansi")) || {
+        instansi: "Gerakan Pramuka",
+        kwarran: "Leuwigoong",
+        kwarcab: "Garut",
+        kwarda: "Jawa Barat",
+        noKwarran: "12.34.56"
       };
 
-      dataAnggota.push(anggota);
-      simpanData();
-      renderTable();
+      function simpanInstansi() {
+        localStorage.setItem("dataInstansi", JSON.stringify(dataInstansi));
+      }
 
-      // reset form
-      document.getElementById("formAnggota").reset();
-      document.getElementById("previewFoto").src = "https://via.placeholder.com/100";
+      // ======================
+      // RENDER INSTANSI
+      // ======================
+      function renderInstansi() {
+        const el = document.getElementById("instansiView");
+        if (!el) return;
 
-      // tutup modal
-      const modal = bootstrap.Modal.getInstance(document.getElementById('modalAnggota'));
-      modal.hide();
-    }
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
+        el.innerHTML = `
+    <div class="d-flex flex-wrap gap-3 small">
+  <div><strong>Instansi:</strong> ${dataInstansi.instansi}</div>
+  <div><strong>Kwarran:</strong> ${dataInstansi.kwarran}</div>
+  <div><strong>Kwarcab:</strong> ${dataInstansi.kwarcab}</div>
+  <div><strong>Kwarda:</strong> ${dataInstansi.kwarda}</div>
+  <div><strong>No Kwarran:</strong> ${dataInstansi.noKwarran}</div>
+</div>
+  `;
+      }
+
+      // ======================
+      // ISI FORM SAAT MODAL DIBUKA
+      // ======================
+      const modalInstansi = document.getElementById("modalInstansi");
+
+      if (modalInstansi) {
+        modalInstansi.addEventListener("show.bs.modal", function () {
+          document.getElementById("instansi").value = dataInstansi.instansi;
+          document.getElementById("kwarran").value = dataInstansi.kwarran;
+          document.getElementById("kwarcab").value = dataInstansi.kwarcab;
+          document.getElementById("kwarda").value = dataInstansi.kwarda;
+          document.getElementById("noKwarran").value = dataInstansi.noKwarran;
+        });
+      }
+
+      // ======================
+      // SIMPAN DARI MODAL
+      // ======================
+      const btnSimpanInstansi = document.getElementById("btnSimpanInstansi");
+
+      if (btnSimpanInstansi) {
+        btnSimpanInstansi.addEventListener("click", function () {
+          dataInstansi = {
+            instansi: document.getElementById("instansi").value,
+            kwarran: document.getElementById("kwarran").value,
+            kwarcab: document.getElementById("kwarcab").value,
+            kwarda: document.getElementById("kwarda").value,
+            noKwarran: document.getElementById("noKwarran").value
+          };
+
+          simpanInstansi();
+          renderInstansi();
+
+          bootstrap.Modal.getInstance(modalInstansi).hide();
+        });
+      }
+
+      // ======================
+      // INIT
+      // ======================
+      renderInstansi();
+    </script>
+    <script src="admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>

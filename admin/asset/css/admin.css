@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 body {
@@ -13,101 +13,141 @@ body {
   color: #333;
 }
 
-/* =====================
+/* ======================
+   LAYOUT UTAMA
+====================== */
+.app-layout {
+  display: flex;
+}
+
+/* ======================
    SIDEBAR
-===================== */
+====================== */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 260px;
+  width: 250px;
   height: 100vh;
+  padding-top: 10px;
   background: #fff;
-  color: #fff;
-  transition: transform 0.3s ease;
-  transform: translateX(0);
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
-}
-
-.sidebar.active {
-  transform: translateX(-260px);
-}
-
-/* =====================
-   SIDEBAR HEADER
-===================== */
-.sidebar-header {
-  padding: 20px;
-  text-align: center;
-}
-
-.sidebar-header h3 {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #ff7f00;
-  letter-spacing: 1px;
-}
-
-/* =====================
-   SIDEBAR MENU
-===================== */
-.sidebar-menu {
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-}
-
-.sidebar-menu li {
-  margin: 4px 0;
-}
-
-.sidebar-menu li a {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px 20px;
-  text-decoration: none;
-  color: #000000;
-  /* FONT HITAM */
-  font-size: 0.95rem;
-  font-weight: 500;
+  border-right: 1px solid #eee;
   transition: all 0.3s ease;
 }
 
-/* ICON */
-.sidebar-menu li a .material-symbols-outlined {
-  font-size: 22px;
-  color: #000000;
-  /* ICON HITAM */
+/* Header sidebar */
+.sidebar-header {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  /* horizontal center */
+  align-items: center;
+  /* vertical center */
 }
 
-.sidebar-menu li.active a .material-symbols-outlined {
-  font-size: 22px;
-  color: #ff7f00;
-  /* ORANGE */
+.sidebar-header img {
+  max-width: 80%;
+  height: auto;
+  transition: 0.3s;
+  align-items: center;
 }
 
-.sidebar-menu li a:hover .material-symbols-outlined {
-  font-size: 22px;
-  color: #ff7f00;
-  /* ORANGE */
+/* ======================
+   MENU SIDEBAR
+====================== */
+.sidebar-menu .list-group-item {
+  border: none;
+  padding: 12px 20px;
 }
 
-/* =====================
-   HOVER & ACTIVE
-===================== */
-.sidebar-menu li a:hover {
-  border-left: 4px solid #000000;
-  padding-left: 16px;
-  color: #ff7f00;
+/* Link menu */
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #6c757d;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.sidebar-menu li.active a {
+/* Icon */
+.sidebar-menu .bi {
+  font-size: 18px;
+}
+
+/* Hover tetap ke link */
+/* Hover: icon + teks */
+.sidebar-menu a:hover span,
+.sidebar-menu a:hover .bi {
+  color: #0097b2;
+}
+
+/* Hapus background active */
+.sidebar-menu .list-group-item.active {
+  background: transparent;
+}
+
+/* Active hanya ke teks */
+.sidebar-menu .list-group-item.active span {
+  color: #0097b2;
   font-weight: 600;
-  color: #ff7f00;
+}
+
+.sidebar-menu .list-group-item.active .bi {
+  color: #0097b2;
+}
+
+/* ======================
+   COLLAPSE SIDEBAR
+====================== */
+.sidebar.collapsed {
+  width: 80px;
+}
+
+/* sembunyikan teks */
+.sidebar.collapsed span {
+  display: none;
+}
+
+/* center icon */
+.sidebar.collapsed a {
+  justify-content: center;
+}
+
+.sidebar.collapsed .sidebar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar.collapsed .sidebar-header img {
+  width: 35px;
+  /* kecil tapi tetap terlihat */
+}
+
+/* ======================
+   MAIN WRAPPER
+====================== */
+.main-wrapper {
+  width: 100%;
+  margin-left: 250px;
+  transition: all 0.3s ease;
+}
+
+/* saat sidebar collapse */
+.sidebar.collapsed~.main-wrapper {
+  margin-left: 80px;
+}
+
+/* navbar */
+.navbar {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+/* content */
+.main {
+  padding: 20px;
 }
 
 /* =====================
@@ -193,15 +233,32 @@ body {
 }
 
 .navbar-icon {
-  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: transparent;
   border: none;
-  cursor: pointer;
-  position: relative;
+  color: #6c757d;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.navbar-icon .material-symbols-outlined {
-  font-size: 30px;
-  color: #ffae00;
+.navbar-icon .bi {
+  font-size: 20px;
+}
+
+/* hover effect */
+.navbar-icon:hover {
+  background-color: #00eeff;
+  color: #fff;
+}
+
+/* khusus logout */
+.navbar-icon.logout:hover {
+  background-color: #dc3545;
 }
 
 .notif-badge {
@@ -440,6 +497,22 @@ li img {
   .agenda-wrapper {
     grid-template-columns: 1fr;
   }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      position: fixed;
+      left: -250px;
+      transition: 0.3s;
+    }
+
+    .sidebar.show {
+      left: 0;
+    }
+
+    .main-wrapper {
+      margin-left: 0;
+    }
+  }
 }
 
 .dashboard-cards {
@@ -455,6 +528,12 @@ li img {
   padding: 15px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   transition: 0.3s;
+}
+
+/* Icon */
+.card-header .bi {
+  font-size: 25px;
+  color: #0097b2;
 }
 
 .card-box:hover {
@@ -713,4 +792,24 @@ li img {
 #previewFoto {
   margin-top: 10px;
   object-fit: cover;
+}
+
+/* tombol toggle */
+.btn-toggle {
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+
+.btn-toggle .bi {
+  font-size: 20px;
+}
+
+#modalDetail img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+#modalDetail th {
+  width: 150px;
+  color: #6c757d;
 }
