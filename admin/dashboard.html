@@ -14,8 +14,8 @@
   <!-- bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-  <!-- Google Fonts Ubuntu -->
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS --->
   <link rel="stylesheet" href="asset/css/admin.css" />
@@ -28,6 +28,7 @@
     <div class="sidebar">
       <div class="sidebar-header">
         <img src="asset/icon/simpro.png" alt="Logo" height="40">
+        <!-- BUTTON CLOSE -->
       </div>
 
       <ul class="sidebar-menu list-group list-group-flush">
@@ -54,7 +55,7 @@
         </li>
 
         <li class="list-group-item">
-          <a href="#">
+          <a href="keuangan.html">
             <i class="bi bi-cash-stack"></i>
             <span>Keuangan</span>
           </a>
@@ -78,7 +79,7 @@
     </div>
 
     <div class="main-wrapper">
-      <nav class="navbar">
+      <nav class="navbar shadow-sm">
         <!-- KIRI : TOGGLE -->
         <div class="navbar-left d-flex align-items-center gap-3">
 
@@ -117,7 +118,7 @@
       </nav>
 
       <main class="main">
-        <div class="dashboard-header">
+        <div class="dashboard-header shadow-sm">
           <div class="header-left">
             <h4>Selamat Datang, Kak Ahmad Fauzi!</h4>
             <small>(admin user)</small>
@@ -136,7 +137,7 @@
 
         <div class="dashboard-cards">
           <!-- Card 1 -->
-          <div class="card-box">
+          <div class="card-box shadow p-3 bg-body rounded">
             <div class="card-header">
               <i class="bi bi-people"></i>
               <span class="title">TOTAL ANGGOTA</span>
@@ -145,7 +146,7 @@
           </div>
 
           <!-- Card 2 -->
-          <div class="card-box">
+          <div class="card-box shadow p-3 bg-body rounded">
             <div class="card-header">
               <i class="bi bi-building-fill"></i>
               <span class="title">PANGKALAN AKTIF</span>
@@ -154,7 +155,7 @@
           </div>
 
           <!-- Card 3 -->
-          <div class="card-box">
+          <div class="card-box shadow p-3 bg-body rounded">
             <div class="card-header">
               <i class="bi bi-credit-card"></i>
               <span class="title">DANA TERSEDIA</span>
@@ -163,7 +164,7 @@
           </div>
 
           <!-- Card 4 -->
-          <div class="card-box">
+          <div class="card-box shadow p-3 bg-body rounded">
             <div class="card-header">
               <i class="bi bi-file-earmark-text-fill"></i>
               <span class="title">DOKUMEN MENUNGGU</span>
@@ -176,7 +177,7 @@
         <div class="agenda-wrapper">
 
           <!-- LEFT: KEGIATAN -->
-          <div class="agenda-left">
+          <div class="agenda-left shadow p-3 bg-body rounded">
             <div class="agenda-header">
               <h5>RINGKASAN KEGIATAN & AGENDA</h5>
               <button class="btn btn-primary btn-sm">Buat Kegiatan</button>
@@ -242,7 +243,7 @@
           </div>
 
           <!-- RIGHT: PENGUMUMAN -->
-          <div class="agenda-right-box">
+          <div class="agenda-right-box shadow p-3 bg-body rounded">
             <h5>PENGUMUMAN TERBARU</h5>
 
             <ol>
@@ -263,76 +264,114 @@
             </ol>
           </div>
         </div>
+        <!-- FOOTER -->
+        <footer class="footer mt-4 shadow p-3 bg-body rounded">
+          <div class="container-fluid">
+        
+            <div class="card border-0 shadow-sm">
+              <div class="card-body py-3">
+        
+                <div class="row align-items-center">
+        
+                  <!-- LEFT -->
+                  <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <small class="text-muted">
+                      © 2026 Dashboard DKR Leuwigoong.
+                      All Rights Reserved.
+                    </small>
+                  </div>
+        
+                  <!-- RIGHT -->
+                  <div class="col-md-6 text-center text-md-end">
+        
+                    <small class="text-muted">
+                      Developed by
+                      <span class="fw-semibold text-dark">
+                        Riyadicreative
+                      </span>
+                    </small>
+        
+                  </div>
+        
+                </div>
+        
+              </div>
+            </div>
+        
+          </div>
+        </footer>
+      </main>
+      
 
-        <script src="admin.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-          function getAnggota() {
-            return JSON.parse(localStorage.getItem("dataAnggota")) || [];
+      <script src="admin.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+        function getAnggota() {
+          return JSON.parse(localStorage.getItem("dataAnggota")) || [];
+        }
+
+        function hitungTotalBantara() {
+          const data = getAnggota();
+
+          const totalBantara = data.filter(
+            (item) => item.golongan === "Penegak" && item.tku === "Bantara",
+          ).length;
+
+          document.getElementById("totalBantara").innerText = totalBantara;
+        }
+
+        function hitungTotalLaksana() {
+          const data = getAnggota();
+
+          const totalLaksana = data.filter(
+            (item) => item.golongan === "Penegak" && item.tku === "Laksana",
+          ).length;
+
+          document.getElementById("totalLaksana").innerText = totalLaksana;
+        }
+
+        function hitungTotalPandega() {
+          const data = getAnggota();
+
+          const totalPandega = data.filter(
+            (item) => item.golongan === "Pandega" && item.tku === "Pandega",
+          ).length;
+
+          document.getElementById("totalPandega").innerText = totalPandega;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          hitungTotalBantara();
+          hitungTotalLaksana();
+          hitungTotalPandega();
+        });
+
+        function loadAgenda() {
+          const data = JSON.parse(localStorage.getItem("kegiatan")) || [];
+          const container = document.getElementById("agendaInfo");
+
+          if (data.length === 0) {
+            container.innerHTML = "<small>Tidak ada kegiatan</small>";
+            return;
           }
 
-          function hitungTotalBantara() {
-            const data = getAnggota();
+          // ambil kegiatan terdekat (tanggal paling dekat)
+          const today = new Date();
 
-            const totalBantara = data.filter(
-              (item) => item.golongan === "Penegak" && item.tku === "Bantara",
-            ).length;
+          const sorted = data.sort((a, b) => new Date(a.tanggal) - new Date(b.tanggal));
+          const kegiatan = sorted[0];
 
-            document.getElementById("totalBantara").innerText = totalBantara;
-          }
+          const tanggalKegiatan = new Date(kegiatan.tanggal);
 
-          function hitungTotalLaksana() {
-            const data = getAnggota();
+          // hitung selisih hari
+          const totalHari = 30; // asumsi 30 hari menuju event
+          const selisih = Math.ceil((tanggalKegiatan - today) / (1000 * 60 * 60 * 24));
 
-            const totalLaksana = data.filter(
-              (item) => item.golongan === "Penegak" && item.tku === "Laksana",
-            ).length;
+          let progress = 100 - (selisih / totalHari * 100);
+          if (progress < 0) progress = 0;
+          if (progress > 100) progress = 100;
 
-            document.getElementById("totalLaksana").innerText = totalLaksana;
-          }
-
-          function hitungTotalPandega() {
-            const data = getAnggota();
-
-            const totalPandega = data.filter(
-              (item) => item.golongan === "Pandega" && item.tku === "Pandega",
-            ).length;
-
-            document.getElementById("totalPandega").innerText = totalPandega;
-          }
-
-          document.addEventListener("DOMContentLoaded", () => {
-            hitungTotalBantara();
-            hitungTotalLaksana();
-            hitungTotalPandega();
-          });
-
-          function loadAgenda() {
-            const data = JSON.parse(localStorage.getItem("kegiatan")) || [];
-            const container = document.getElementById("agendaInfo");
-
-            if (data.length === 0) {
-              container.innerHTML = "<small>Tidak ada kegiatan</small>";
-              return;
-            }
-
-            // ambil kegiatan terdekat (tanggal paling dekat)
-            const today = new Date();
-
-            const sorted = data.sort((a, b) => new Date(a.tanggal) - new Date(b.tanggal));
-            const kegiatan = sorted[0];
-
-            const tanggalKegiatan = new Date(kegiatan.tanggal);
-
-            // hitung selisih hari
-            const totalHari = 30; // asumsi 30 hari menuju event
-            const selisih = Math.ceil((tanggalKegiatan - today) / (1000 * 60 * 60 * 24));
-
-            let progress = 100 - (selisih / totalHari * 100);
-            if (progress < 0) progress = 0;
-            if (progress > 100) progress = 100;
-
-            container.innerHTML = `
+          container.innerHTML = `
     <h6>${kegiatan.nama}</h6>
     <small>${kegiatan.keterangan || "Kegiatan akan datang"}</small>
     <div class="progress mt-2">
@@ -340,17 +379,17 @@
     </div>
     <small>${selisih > 0 ? selisih + " hari lagi" : "Sedang berlangsung / selesai"}</small>
   `;
-          }
+        }
 
-          // realtime update tiap detik
-          setInterval(loadAgenda, 1000);
+        // realtime update tiap detik
+        setInterval(loadAgenda, 1000);
 
-          // pertama kali load
-          loadAgenda();
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-          crossorigin="anonymous"></script>
+        // pertama kali load
+        loadAgenda();
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

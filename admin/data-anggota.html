@@ -14,8 +14,8 @@
   <!-- bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-  <!-- Google Fonts Ubuntu -->
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="asset/css/admin.css" />
@@ -54,7 +54,7 @@
         </li>
 
         <li class="list-group-item">
-          <a href="#">
+          <a href="keuangan.html">
             <i class="bi bi-cash-stack"></i>
             <span>Keuangan</span>
           </a>
@@ -118,7 +118,7 @@
 
       <main class="main">
 
-        <div class="card">
+        <div class="card shadow bg-body rounded">
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-3">
               <h5 class="card-title pb-1 border-bottom border-primary">
@@ -129,14 +129,14 @@
               </button>
             </div>
 
-            <div class="row" id="instansiView">
+            <div class="row border rounded p-3" id="instansiView">
               <!-- Diisi via JS -->
             </div>
           </div>
         </div>
 
         <!-- Tabel data anggota -->
-        <div class="card-table">
+        <div class="card-table shadow bg-body rounded">
 
           <!-- HEADER -->
           <div class="card-header-table">
@@ -258,14 +258,14 @@
                   <label for="bidang" class="form-label">Bidang</label>
                   <select id="bidang" name="bidang" class="form-select" required>
                     <option value="" disabled selected>-- Pilih Bidang --</option>
-                    <option value="giat_op">Giat Op</option>
-                    <option value="litbang">Litbang</option>
-                    <option value="litev">Litev</option>
-                    <option value="tekspram">Tekspram</option>
-                    <option value="giat">Giat</option>
-                    <option value="kajian">Kajian</option>
-                    <option value="binbang">Binbang</option>
-                    <option value="bph">BPH</option>
+                    <option value="Giat Op">Giat Op</option>
+                    <option value="Litbang">Litbang</option>
+                    <option value="Litev">Litev</option>
+                    <option value="Tekspram">Tekspram</option>
+                    <option value="Giat">Giat</option>
+                    <option value="Kajian">Kajian</option>
+                    <option value="Binbang">Binbang</option>
+                    <option value="BPH">BPH</option>
                   </select>
                 </div>
 
@@ -412,6 +412,228 @@
       </div>
     </div>
 
+    <!-- MODAL EDIT -->
+    <div class="modal fade" id="modalEdit" tabindex="-1">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+
+          <!-- HEADER -->
+          <div class="modal-header bg-warning">
+            <h5 class="modal-title">
+              Edit Data Anggota
+            </h5>
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- FORM -->
+          <form id="formEdit">
+
+            <div class="modal-body">
+
+              <!-- INDEX -->
+              <input type="hidden" id="editIndex">
+
+              <div class="row g-3">
+
+                <!-- FOTO -->
+                <div class="col-md-4">
+                  <label class="form-label">
+                    Foto
+                  </label>
+
+                  <input type="file" class="form-control" id="editFoto" accept="image/*">
+                </div>
+
+                <!-- NAMA -->
+                <div class="col-md-4">
+                  <label class="form-label">
+                    Nama
+                  </label>
+
+                  <input type="text" class="form-control" id="editNama" required>
+                </div>
+
+                <!-- NTA -->
+                <div class="col-md-4">
+                  <label class="form-label">
+                    NTA
+                  </label>
+
+                  <input type="text" class="form-control" id="editNta" required>
+                </div>
+
+                <!-- JK -->
+                <div class="col-md-4">
+                  <label class="form-label">
+                    Jenis Kelamin
+                  </label>
+
+                  <select class="form-select" id="editJk" required>
+                    <option value="Laki-laki">
+                      Laki-laki
+                    </option>
+
+                    <option value="Perempuan">
+                      Perempuan
+                    </option>
+                  </select>
+                </div>
+
+                <!-- TKU -->
+                <div class="col-md-4">
+                  <label class="form-label">
+                    TKU
+                  </label>
+
+                  <input type="text" class="form-control" id="editTku" required>
+                </div>
+
+                <!-- PANGKALAN -->
+                <div class="col-md-4">
+                  <label class="form-label">
+                    Pangkalan
+                  </label>
+
+                  <input type="text" class="form-control" id="editPangkalan" required>
+                </div>
+
+                <!-- JABATAN -->
+                <!-- JABATAN -->
+                <div class="col-md-6">
+                  <label class="form-label">
+                    Jabatan
+                  </label>
+
+                  <select class="form-select" id="editJabatan" required>
+                    <option value="">
+                      Pilih Jabatan
+                    </option>
+
+                    <option value="Pradana Putra">
+                      Pradana Putra
+                    </option>
+
+                    <option value="Pradana Putri">
+                      Pradana Putri
+                    </option>
+
+                    <option value="Pemangku Adat">
+                      Pemangku Adat
+                    </option>
+
+                    <option value="Kerani">
+                      Kerani
+                    </option>
+
+                    <option value="Hartaka">
+                      Hartaka
+                    </option>
+
+                    <option value="Juru Ruang">
+                      Juru Ruang
+                    </option>
+
+                    <option value="Ketua DKR">
+                      Ketua DKR
+                    </option>
+
+                    <option value="Wakil Ketua DKR">
+                      Wakil Ketua DKR
+                    </option>
+
+                    <option value="Sekretaris 1">
+                      Sekretaris 1
+                    </option>
+
+                    <option value="Sekretaris 2">
+                      Sekretaris 2
+                    </option>
+
+                    <option value="Bendahara">
+                      Bendahara
+                    </option>
+
+                    <option value="Ketua Bidang">
+                      Ketua Bidang
+                    </option>
+
+                    <option value="Anggota">
+                      Anggota
+                    </option>
+
+                  </select>
+                </div>
+
+                <!-- BIDANG -->
+                <div class="col-md-6">
+                  <label class="form-label">
+                    Bidang
+                  </label>
+
+                  <select class="form-select" id="editBidang" required>
+                    <option value="">
+                      Pilih Bidang
+                    </option>
+
+                    <option value="Giat Op">
+                      Giat Op
+                    </option>
+
+                    <option value="Litbang">
+                      Litbang
+                    </option>
+
+                    <option value="Litev">
+                      Litev
+                    </option>
+
+                    <option value="Tekspram">
+                      Tekspram
+                    </option>
+
+                    <option value="Giat">
+                      Giat
+                    </option>
+
+                    <option value="Kajian">
+                      Kajian
+                    </option>
+
+                    <option value="Binbang">
+                      Binbang
+                    </option>
+
+                    <option value="BPH">
+                      BPH
+                    </option>
+
+                  </select>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Batal
+              </button>
+
+              <button type="submit" class="btn btn-warning">
+                Simpan
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
     <script src="admin.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -459,9 +681,19 @@
               <td>${item.jabatan}</td>
               <td>${item.bidang}</td>
               <td>
-                <button class="btn btn-info btn-sm mb-1" onclick="detail(${index})">Detail</button>
-                <button class="btn btn-warning btn-sm mb-1" onclick="edit(${index})">Edit</button>
-                <button class="btn btn-danger btn-sm mb-1" onclick="hapus(${index})">Hapus</button>
+                <button class="btn btn-info btn-sm py-0 px-2" onclick="detail(${index})">
+                <i class="bi bi-eye"></i>
+              </button>
+              <button
+  class="btn btn-warning btn-sm py-0 px-2"
+  onclick="edit(${index})"
+  title="Edit Data"
+>
+  <i class="bi bi-pencil"></i>
+</button>
+              <button class="btn btn-danger btn-sm py-0 px-2" onclick="hapus(${index})">
+                <i class="bi bi-trash"></i>
+              </button>
               </td>
             </tr>
           `;
@@ -493,34 +725,44 @@
           });
         }
 
-        // ======================
-        // DETAIL & EDIT
+        /// ======================
+        // DETAIL
         // ======================
         window.detail = function (index) {
+
           const data = dataAnggota[index];
 
           // isi data ke modal
-          document.getElementById("detailFoto").src = data.foto;
-          document.getElementById("detailNama").innerText = data.nama;
-          document.getElementById("detailNta").innerText = data.nta;
-          document.getElementById("detailJk").innerText = data.jk;
-          document.getElementById("detailTku").innerText = data.tku;
-          document.getElementById("detailPangkalan").innerText = data.pangkalan;
-          document.getElementById("detailJabatan").innerText = data.jabatan;
-          document.getElementById("detailBidang").innerText = data.bidang;
+          document.getElementById("detailFoto").src =
+            data.foto;
+
+          document.getElementById("detailNama").innerText =
+            data.nama;
+
+          document.getElementById("detailNta").innerText =
+            data.nta;
+
+          document.getElementById("detailJk").innerText =
+            data.jk;
+
+          document.getElementById("detailTku").innerText =
+            data.tku;
+
+          document.getElementById("detailPangkalan").innerText =
+            data.pangkalan;
+
+          document.getElementById("detailJabatan").innerText =
+            data.jabatan;
+
+          document.getElementById("detailBidang").innerText =
+            data.bidang;
 
           // tampilkan modal
-          const modal = new bootstrap.Modal(document.getElementById('modalDetail'));
-          modal.show();
-        }
+          const modal = new bootstrap.Modal(
+            document.getElementById('modalDetail')
+          );
 
-        window.edit = function (index) {
-          let namaBaru = prompt("Edit nama:", dataAnggota[index].nama);
-          if (namaBaru) {
-            dataAnggota[index].nama = namaBaru;
-            simpanData();
-            renderTable();
-          }
+          modal.show();
         }
 
         // ======================
@@ -590,7 +832,118 @@
         // ======================
         // INIT
         // ======================
-        renderTable();
+        renderTable();// ======================
+        // EDIT DATA
+        // ======================
+        window.edit = function (index) {
+
+          const data = dataAnggota[index];
+
+          document.getElementById("editIndex").value =
+            index;
+
+          document.getElementById("editNama").value =
+            data.nama;
+
+          document.getElementById("editNta").value =
+            data.nta;
+
+          document.getElementById("editJk").value =
+            data.jk;
+
+          document.getElementById("editTku").value =
+            data.tku;
+
+          document.getElementById("editPangkalan").value =
+            data.pangkalan;
+
+          document.getElementById("editJabatan").value =
+            data.jabatan;
+
+          document.getElementById("editBidang").value =
+            data.bidang;
+
+          // tampilkan modal
+          const modal = new bootstrap.Modal(
+            document.getElementById("modalEdit")
+          );
+
+          modal.show();
+        }
+
+        // ======================
+        // UPDATE DATA
+        // ======================
+        document
+          .getElementById("formEdit")
+          ?.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const index =
+              document.getElementById("editIndex").value;
+
+            const fotoInput =
+              document.getElementById("editFoto");
+
+            // update data
+            dataAnggota[index].nama =
+              document.getElementById("editNama").value;
+
+            dataAnggota[index].nta =
+              document.getElementById("editNta").value;
+
+            dataAnggota[index].jk =
+              document.getElementById("editJk").value;
+
+            dataAnggota[index].tku =
+              document.getElementById("editTku").value;
+
+            dataAnggota[index].pangkalan =
+              document.getElementById("editPangkalan").value;
+
+            dataAnggota[index].jabatan =
+              document.getElementById("editJabatan").value;
+
+            dataAnggota[index].bidang =
+              document.getElementById("editBidang").value;
+
+            // jika foto diganti
+            if (fotoInput.files.length > 0) {
+
+              const reader = new FileReader();
+
+              reader.onload = function (event) {
+
+                dataAnggota[index].foto =
+                  event.target.result;
+
+                selesaiUpdate();
+              }
+
+              reader.readAsDataURL(
+                fotoInput.files[0]
+              );
+
+            } else {
+
+              selesaiUpdate();
+            }
+          });
+
+        // ======================
+        // SELESAI UPDATE
+        // ======================
+        function selesaiUpdate() {
+
+          simpanData();
+
+          renderTable();
+
+          bootstrap.Modal.getInstance(
+            document.getElementById("modalEdit")
+          ).hide();
+        }
 
       });
 
@@ -633,14 +986,32 @@
         if (!el) return;
 
         el.innerHTML = `
-    <div class="d-flex flex-wrap gap-3 small">
-  <div><strong>Instansi:</strong> ${dataInstansi.instansi}</div>
-  <div><strong>Kwarran:</strong> ${dataInstansi.kwarran}</div>
-  <div><strong>Kwarcab:</strong> ${dataInstansi.kwarcab}</div>
-  <div><strong>Kwarda:</strong> ${dataInstansi.kwarda}</div>
-  <div><strong>No Kwarran:</strong> ${dataInstansi.noKwarran}</div>
+          <div class="border rounded-3 p-3">
+            <ul class="list-unstyled small mb-0">
+
+            <li class="border-bottom py-2">
+              <strong>Instansi:</strong> ${dataInstansi.instansi}
+            </li>
+
+            <li class="border-bottom py-2">
+              <strong>Kwartir Ranting:</strong> ${dataInstansi.kwarran}
+            </li>
+
+            <li class="border-bottom py-2">
+              <strong>Kwartir Cabang:</strong> ${dataInstansi.kwarcab}
+            </li>
+
+            <li class="border-bottom py-2">
+              <strong>Kwartir Daerah:</strong> ${dataInstansi.kwarda}
+            </li>
+
+            <li class="py-2">
+              <strong>No Kwartir Ranting:</strong> ${dataInstansi.noKwarran}
+            </li>
+
+  </ul>
 </div>
-  `;
+        `;
       }
 
       // ======================
@@ -684,6 +1055,8 @@
       // INIT
       // ======================
       renderInstansi();
+
+
     </script>
     <script src="admin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

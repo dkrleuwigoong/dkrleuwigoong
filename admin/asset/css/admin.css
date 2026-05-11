@@ -5,12 +5,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background: #f1f1f1;
-  color: #333;
+  background: #E9F1FA;
+  color: #000000;
 }
 
 /* ======================
@@ -101,28 +101,14 @@ body {
    COLLAPSE SIDEBAR
 ====================== */
 .sidebar.collapsed {
-  width: 80px;
+  width: 0;
+  padding: 0;
 }
 
-/* sembunyikan teks */
-.sidebar.collapsed span {
-  display: none;
-}
-
-/* center icon */
-.sidebar.collapsed a {
-  justify-content: center;
-}
-
-.sidebar.collapsed .sidebar-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.sidebar.collapsed .sidebar-header img {
-  width: 35px;
-  /* kecil tapi tetap terlihat */
+/* sembunyikan isi */
+.sidebar.collapsed * {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* ======================
@@ -136,18 +122,13 @@ body {
 
 /* saat sidebar collapse */
 .sidebar.collapsed~.main-wrapper {
-  margin-left: 80px;
+  margin-left: 0;
 }
 
 /* navbar */
 .navbar {
   padding: 15px 20px;
   border-bottom: 1px solid #eee;
-}
-
-/* content */
-.main {
-  padding: 20px;
 }
 
 /* =====================
@@ -280,20 +261,35 @@ body {
    MAIN CONTENT
 ===================== */
 .main {
-  padding: 20px;
+  padding: 10px;
   display: block;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  gap: 10px;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  padding: 10px 20px;
-  width: auto;
+.main-content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content,
+.container-fluid {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.footer {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.footer .card {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0;
 }
 
 th {
@@ -446,7 +442,7 @@ li img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to right, #f1f5f9, #e2e8f0);
+  background-color: #ffffff;
   padding: 15px 20px;
   flex-wrap: wrap;
   margin-bottom: 20px;

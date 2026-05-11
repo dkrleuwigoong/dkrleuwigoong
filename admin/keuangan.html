@@ -25,7 +25,7 @@
   <div class="app-layout">
 
     <!-- SIDEBAR -->
-    <div class="sidebar">
+    <div class="sidebar shadow-sm">
       <div class="sidebar-header">
         <img src="asset/icon/simpro.png" alt="Logo" height="40">
       </div>
@@ -46,14 +46,14 @@
           </a>
         </li>
 
-        <li class="list-group-item active">
+        <li class="list-group-item">
           <a href="kegiatan.html">
             <i class="bi bi-calendar-event"></i>
             <span>Kegiatan</span>
           </a>
         </li>
 
-        <li class="list-group-item">
+        <li class="list-group-item active">
           <a href="keuangan.html">
             <i class="bi bi-cash-stack"></i>
             <span>Keuangan</span>
@@ -117,62 +117,69 @@
       </nav>
 
       <main class="main">
-        <div class="card shadow-sm border-0">
+
+        <div class="card mb-3 shadow bg-body rounded">
           <div class="card-body">
 
-            <!-- Judul Halaman -->
-            <div class="d-flex justify-content-between align-items-center mb-3">
+            <!-- HEADER HALAMAN -->
+            <div class="d-flex justify-content-between align-items-center mb-2">
+
               <div>
-                <h3 class="fw-bold mb-1">Kegiatan</h3>
-                <p class="text-muted mb-0">
-                  Informasi dan daftar kegiatan terbaru.
-                </p>
+                <h3 class="mb-0">Keuangan</h3>
+                <small class="text-muted">
+                  Data pemasukan dan pengeluaran kegiatan
+                </small>
               </div>
 
-              <!-- Tombol Tambah -->
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalKegiatan">
-                <i class="bi bi-plus-circle me-1"></i>
-                Tambah
+              <button class="btn btn-primary btn-sm">
+                + Tambah Data
               </button>
+
             </div>
 
-            <hr>
+          </div>
+        </div>
 
-            <!-- BUTTON -->
-            <div class="d-flex justify-content-end mb-3">
+        <div class="card mb-3 shadow bg-body rounded">
+          <div class="card-body">
 
+            <!-- HEADER TABEL -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="mb-0">Data Keuangan</h5>
+
+              <input type="text" class="form-control form-control-sm w-25" placeholder="Cari data..."
+                id="searchKeuangan">
             </div>
 
             <!-- TABLE -->
-            <div class="table-responsive mb-3">
-              <table class="table table-hover align-middle" id="tabelKegiatan">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
                 <thead class="table-dark">
                   <tr>
                     <th>No</th>
                     <th>Tanggal</th>
-                    <th>Nama Kegiatan</th>
-                    <th>Tingkat</th>
-                    <th>Deskripsi</th>
+                    <th>Keterangan</th>
                     <th>Kategori</th>
-                    <th>Anggaran</th>
+                    <th>Jenis</th>
+                    <th>Nominal</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
 
-                <tbody></tbody>
+                <tbody id="tabelKeuangan">
+                  <!-- data localStorage tampil di sini -->
+                </tbody>
               </table>
             </div>
 
-            <!-- MODAL -->
-
-
-
           </div>
         </div>
-        <footer class="footer shadow-sm">
+
+        <!-- FOOTER -->
+        <footer class="footer mt-4 shadow-sm">
           <div class="container-fluid">
 
-            <div class="card border-0 shadow-sm">
+            <div class="card shadow-sm">
               <div class="card-body py-3">
 
                 <div class="row align-items-center">
@@ -206,275 +213,7 @@
         </footer>
       </main>
 
-      <div class="modal fade" id="modalKegiatan" tabindex="-1">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content border-0 shadow">
 
-            <div class="modal-header bg-primary text-white">
-              <h5 class="modal-title">
-                Tambah Kegiatan
-              </h5>
-
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-
-            <form id="formKegiatan">
-              <div class="modal-body">
-
-                <div class="row g-3">
-
-                  <div class="col-md-6">
-                    <label class="form-label">
-                      Tanggal
-                    </label>
-
-                    <input type="date" class="form-control" id="tanggal" required>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">
-                      Nama Kegiatan
-                    </label>
-
-                    <input type="text" class="form-control" id="nama" required>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">
-                      Tingkat
-                    </label>
-
-                    <select class="form-select" id="tingkat" required>
-                      <option value="">Pilih Tingkat</option>
-                      <option>Kwarnas</option>
-                      <option>Kwarda</option>
-                      <option>Kwarcab</option>
-                      <option>Kwarran</option>
-                      <option>Gudep</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">
-                      Kategori
-                    </label>
-
-                    <input type="text" class="form-control" id="kategori" required>
-                  </div>
-
-                  <div class="col-12">
-                    <label class="form-label">
-                      Deskripsi
-                    </label>
-
-                    <textarea class="form-control" id="deskripsi" rows="3" required></textarea>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">
-                      Anggaran
-                    </label>
-
-                    <input type="number" class="form-control" id="anggaran" required>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                  Batal
-                </button>
-
-                <button type="submit" class="btn btn-primary">
-                  Simpan
-                </button>
-              </div>
-            </form>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- MODAL EDIT -->
-      <div class="modal fade" id="modalEditKegiatan" tabindex="-1">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content border-0 shadow">
-
-            <div class="modal-header bg-warning">
-              <h5 class="modal-title">
-                Edit Kegiatan
-              </h5>
-
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-
-            <form id="formEditKegiatan">
-
-              <div class="modal-body">
-
-                <!-- INDEX -->
-                <input type="hidden" id="editIndex">
-
-                <div class="row g-3">
-
-                  <div class="col-md-6">
-                    <label class="form-label">
-                      Tanggal
-                    </label>
-
-                    <input type="date" class="form-control" id="editTanggal" required>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">
-                      Nama Kegiatan
-                    </label>
-
-                    <input type="text" class="form-control" id="editNama" required>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">
-                      Tingkat
-                    </label>
-
-                    <select class="form-select" id="editTingkat" required>
-                      <option>Kwarnas</option>
-                      <option>Kwarda</option>
-                      <option>Kwarcab</option>
-                      <option>Kwarran</option>
-                      <option>Gudep</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">
-                      Kategori
-                    </label>
-
-                    <input type="text" class="form-control" id="editKategori" required>
-                  </div>
-
-                  <div class="col-12">
-                    <label class="form-label">
-                      Deskripsi
-                    </label>
-
-                    <textarea class="form-control" id="editDeskripsi" rows="3" required></textarea>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">
-                      Anggaran
-                    </label>
-
-                    <input type="number" class="form-control" id="editAnggaran" required>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="modal-footer">
-
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                  Batal
-                </button>
-
-                <button type="submit" class="btn btn-warning">
-                  Update Data
-                </button>
-
-              </div>
-
-            </form>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- MODAL DETAIL -->
-      <div class="modal fade" id="modalDetailKegiatan" tabindex="-1">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content border-0 shadow">
-
-            <div class="modal-header bg-info text-white">
-              <h5 class="modal-title">
-                Detail Kegiatan
-              </h5>
-
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-
-            <div class="modal-body">
-
-              <div class="row g-3">
-
-                <div class="col-md-6">
-                  <label class="fw-bold">
-                    Tanggal
-                  </label>
-
-                  <div id="detailTanggal" class="text-muted"></div>
-                </div>
-
-                <div class="col-md-6">
-                  <label class="fw-bold">
-                    Nama Kegiatan
-                  </label>
-
-                  <div id="detailNama" class="text-muted"></div>
-                </div>
-
-                <div class="col-md-6">
-                  <label class="fw-bold">
-                    Tingkat
-                  </label>
-
-                  <div id="detailTingkat"></div>
-                </div>
-
-                <div class="col-md-6">
-                  <label class="fw-bold">
-                    Kategori
-                  </label>
-
-                  <div id="detailKategori"></div>
-                </div>
-
-                <div class="col-md-6">
-                  <label class="fw-bold">
-                    Anggaran
-                  </label>
-
-                  <div id="detailAnggaran" class="text-muted"></div>
-                </div>
-
-                <div class="col-12">
-                  <label class="fw-bold">
-                    Deskripsi
-                  </label>
-
-                  <div id="detailDeskripsi" class="text-muted"></div>
-                </div>
-
-              </div>
-
-            </div>
-
-            <div class="modal-footer">
-
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                Tutup
-              </button>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
       <script src="admin.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script>
